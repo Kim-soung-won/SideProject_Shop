@@ -32,4 +32,15 @@ public class ProductService {
     public Product findById(Long id){
         return productRepository.findById(id).orElseThrow();
     }
+
+    public void count_Love(int val, Long id){
+        productRepository.updateCount(val, id);
+        long beforeTime = System.currentTimeMillis();
+    }
+    @Transactional
+    public void deleteOneProduct(Long id){
+        Product product = productRepository.findById(id)
+                .orElseThrow(()->new IllegalArgumentException("not found : " + id));
+        productRepository.delete(product);
+    }
 }

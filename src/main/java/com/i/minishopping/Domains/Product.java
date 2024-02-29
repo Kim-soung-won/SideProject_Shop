@@ -38,7 +38,11 @@ public class Product {
     private int sellCount;
 
     @Embedded
+    @JoinColumn(name = "created_who", referencedColumnName = "user_id")
     private Created created;
+
+    @Column(name = "count_love")
+    private int count_love;
 
     @Builder
     public Product(String name, int price, String brandName, String category, int beforeCount, Created created){

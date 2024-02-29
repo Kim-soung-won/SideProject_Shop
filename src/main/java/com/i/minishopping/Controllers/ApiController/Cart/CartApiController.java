@@ -32,6 +32,11 @@ public class CartApiController {
         Cart cart = cartService.saveCart(product, request.getCount(), created);
         return ResponseEntity.status(HttpStatus.CREATED).body(cart);
     }
+//    {
+    //    "product_id" : 23501,
+    //    "user_id" : 1,
+    //    "count" : 10
+//    }
 
     @DeleteMapping("/api/DELETE/cart")
     public void deleteCart(@RequestBody @Valid DeleteCartRequest request){
