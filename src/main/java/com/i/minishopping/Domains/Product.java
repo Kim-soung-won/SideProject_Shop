@@ -25,8 +25,9 @@ public class Product {
     @Column(name = "pd_price")
     private int price;
 
-    @Column(name = "pd_brand_name")
-    private String brandName;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "brand_id", referencedColumnName = "brand_id")
+    private Brands brand_id;
 
     @Column(name = "pd_category")
     private String category;
@@ -45,10 +46,10 @@ public class Product {
     private int count_love;
 
     @Builder
-    public Product(String name, int price, String brandName, String category, int beforeCount, Created created){
+    public Product(String name, int price, Brands brand_id, String category, int beforeCount, Created created){
         this.name = name;
         this.price = price;
-        this.brandName = brandName;
+        this.brand_id = brand_id;
         this.category = category;
         this.beforeCount = beforeCount;
         this.sellCount = 0;

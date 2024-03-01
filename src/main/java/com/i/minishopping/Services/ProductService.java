@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class ProductService {
     private final ProductRepository productRepository;
-
+    private final BrandsService brandsService;
     @Transactional
     public void saveManyProduct(Product product){
         productRepository.save(product);
@@ -23,7 +23,7 @@ public class ProductService {
         return productRepository.save(Product.builder()
                 .name(request.getName())
                 .price(request.getPrice())
-                .brandName(request.getBrandName())
+                .brand_id(brandsService.findByName(request.getBrandName()))
                 .category(request.getCategory())
                 .beforeCount(request.getBeforeCount())
                 .created(created)
@@ -33,7 +33,7 @@ public class ProductService {
         return productRepository.findById(id).orElseThrow();
     }
 
-    public void count_Love(int val, Long id){
+    public void count_Love(int val, Long id) {
         productRepository.updateCount(val, id);
         long beforeTime = System.currentTimeMillis();
     }
