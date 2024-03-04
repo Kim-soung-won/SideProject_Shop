@@ -1,33 +1,29 @@
 package com.i.minishopping.Domains;
 
-import com.i.minishopping.Domains.EMBEDDED.Created;
-import com.i.minishopping.Domains.Product.Product;
+import com.i.minishopping.Domains.EMBEDDED.Love_key;
+import com.i.minishopping.Domains.EMBEDDED.Product_log_key;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Data
 @Table(name = "love")
 @NoArgsConstructor
 public class Love {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "love_id")
-    private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_id", referencedColumnName = "product_id")
-    private Product product_id;
+    @EmbeddedId
+    private Love_key love_key;
 
-
-    @Embedded
-    private Created created;
+    @Column(name = "created_at")
+    private LocalDateTime created_at;
 
     @Builder
-    public Love(Product product_id, Created created){
-        this.product_id = product_id;
-        this.created = created;
+    public Love(Love_key love_key, LocalDateTime created_at){
+        this.love_key = love_key;
+        this.created_at = created_at;
     }
 }
