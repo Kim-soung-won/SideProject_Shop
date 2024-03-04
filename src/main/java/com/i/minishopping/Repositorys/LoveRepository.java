@@ -1,7 +1,7 @@
 package com.i.minishopping.Repositorys;
 
 import com.i.minishopping.Domains.Love;
-import com.i.minishopping.Domains.Product;
+import com.i.minishopping.Domains.Product.Product;
 import com.i.minishopping.Domains.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

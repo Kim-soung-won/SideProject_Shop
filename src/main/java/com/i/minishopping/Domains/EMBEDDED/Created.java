@@ -16,6 +16,7 @@ public class Created {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "created_who", referencedColumnName = "user_id")
     private User created_who;
-    private LocalDateTime created_at;
 
+    @Column(name = "created_at")
+    private LocalDateTime created_at;
 }

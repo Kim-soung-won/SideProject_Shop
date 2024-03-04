@@ -9,8 +9,9 @@ import lombok.NoArgsConstructor;
 @Getter
 public class AddPaymentRequest {
     private Long product_id;
-    private int basic_price;
     private int count;
+    private int basic_price;
     private int discount;
     private int total_price;
+    private String size;
 }

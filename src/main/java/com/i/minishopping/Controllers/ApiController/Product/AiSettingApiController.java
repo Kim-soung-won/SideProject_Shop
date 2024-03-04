@@ -1,8 +1,8 @@
 package com.i.minishopping.Controllers.ApiController.Product;
 
 import com.i.minishopping.Domains.EMBEDDED.Created;
-import com.i.minishopping.Domains.Product;
-import com.i.minishopping.Services.ProductService;
+import com.i.minishopping.Domains.Product.Product;
+import com.i.minishopping.Services.Product.ProductService;
 import com.i.minishopping.Services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,8 +30,6 @@ public class AiSettingApiController {
             Product product = new Product();
             product.setName(j+"번옷");
             product.setPrice((int) (Math.random() * 20+1) * 10000);
-            product.setBrandName((int) (Math.random() * 100) + "company");
-            product.setBeforeCount((int) (Math.random() * 100));
             Created created = new Created();
             created.setCreated_who(userService.findById(1L));
             created.setCreated_at(LocalDateTime.now());

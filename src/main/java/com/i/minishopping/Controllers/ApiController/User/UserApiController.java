@@ -27,7 +27,7 @@ public class UserApiController {
 
     @GetMapping("/api/GET/login")
     public void login(HttpSession session) {
-        User user = userService.findById(1L);
+        User user = userService.findById(2L);
 //        session.setMaxInactiveInterval(60*60*24*30); 세션 유효시간 결정(초단위)
         session.setAttribute("user", user);
     }

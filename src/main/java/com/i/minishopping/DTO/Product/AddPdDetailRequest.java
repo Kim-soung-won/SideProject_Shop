@@ -1,16 +1,14 @@
-package com.i.minishopping.DTO.Coupon;
+package com.i.minishopping.DTO.Product;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
-
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class UpdateCouponRequest {
-    private Long id;
-    private LocalDateTime used_at;
+public class AddPdDetailRequest {
     private Long product_id;
+    private String size;
+    private int beforeCount;
 }

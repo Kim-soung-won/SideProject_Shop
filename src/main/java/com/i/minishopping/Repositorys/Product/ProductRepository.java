@@ -1,6 +1,6 @@
-package com.i.minishopping.Repositorys;
+package com.i.minishopping.Repositorys.Product;
 
-import com.i.minishopping.Domains.Product;
+import com.i.minishopping.Domains.Product.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

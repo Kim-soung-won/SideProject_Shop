@@ -1,6 +1,7 @@
 package com.i.minishopping.Domains;
 
 import com.i.minishopping.Domains.EMBEDDED.Created;
+import com.i.minishopping.Domains.Product.Product;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,6 +26,9 @@ public class Payment {
     @JoinColumn(name = "product_id", referencedColumnName = "product_id")
     private Product product_id;
 
+    @Column(name = "count")
+    private int count;
+
     @Column(name = "basic_price")
     private int basic_price;
 
@@ -33,12 +37,17 @@ public class Payment {
 
     @Column(name = "total_price")
     private int total_price;
+
+    @Column(name = "size")
+    private String size;
     @Builder
-    public Payment(Created created, Product product, int basic_price, int discount, int total_price){
+    public Payment(Created created, Product product, int basic_price, int count, int discount, int total_price, String size){
         this.created = created;
         this.product_id = product;
+        this.count = count;
         this.basic_price = basic_price;
         this.discount = discount;
         this.total_price = total_price;
+        this.size = size;
     }
 }

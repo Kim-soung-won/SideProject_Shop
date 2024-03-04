@@ -1,16 +1,15 @@
 package com.i.minishopping.DTO.Product;
 
-import com.i.minishopping.Domains.Brands;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-public class AddProductRequest {
+public class UpdateProductRequest {
+    private Long id;
     private String name;
     private int price;
-    private String brandName;
     private String category;
 }

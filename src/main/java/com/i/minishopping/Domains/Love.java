@@ -1,12 +1,11 @@
 package com.i.minishopping.Domains;
 
 import com.i.minishopping.Domains.EMBEDDED.Created;
+import com.i.minishopping.Domains.Product.Product;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.time.LocalDateTime;
 
 @Entity
 @Data

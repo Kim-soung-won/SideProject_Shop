@@ -1,6 +1,7 @@
 package com.i.minishopping.Domains;
 
 import com.i.minishopping.Domains.EMBEDDED.Created;
+import com.i.minishopping.Domains.Product.Product;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

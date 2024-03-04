@@ -1,6 +1,7 @@
 package com.i.minishopping.Domains;
 
 import com.i.minishopping.Domains.EMBEDDED.Created;
+import com.i.minishopping.Domains.Product.Product;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -49,5 +50,10 @@ public class Coupon {
         this.discount_size = discount_size;
         this.brand_id = brand_id;
         this.created = created;
+    }
+    public void usedCoupon(LocalDateTime used_at, Product product_id){
+        this.used = true;
+        this.used_at = used_at;
+        this.product_id = product_id;
     }
 }

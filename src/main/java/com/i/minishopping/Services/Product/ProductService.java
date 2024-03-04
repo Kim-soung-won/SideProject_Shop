@@ -1,9 +1,11 @@
-package com.i.minishopping.Services;
+package com.i.minishopping.Services.Product;
 
 import com.i.minishopping.DTO.Product.AddProductRequest;
+import com.i.minishopping.DTO.Product.UpdateProductRequest;
 import com.i.minishopping.Domains.EMBEDDED.Created;
-import com.i.minishopping.Domains.Product;
-import com.i.minishopping.Repositorys.ProductRepository;
+import com.i.minishopping.Domains.Product.Product;
+import com.i.minishopping.Repositorys.Product.ProductRepository;
+import com.i.minishopping.Services.BrandsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,12 +27,17 @@ public class ProductService {
                 .price(request.getPrice())
                 .brand_id(brandsService.findByName(request.getBrandName()))
                 .category(request.getCategory())
-                .beforeCount(request.getBeforeCount())
                 .created(created)
                 .build());
     }
+    @Transactional
+    public Product updateOneProduct(UpdateProductRequest request, Created created) {
+        Product product = productRepository.findById(request.getId()).orElseThrow(()->new IllegalArgumentException("not found: " + request.getId()));
+        product.updateProduct(request.getName(), request.getPrice(), request.getCategory(), created);
+        return product;
+    }
     public Product findById(Long id){
-        return productRepository.findById(id).orElseThrow();
+        return productRepository.findById(id).orElseThrow(()->new IllegalArgumentException("not found product_id: " + id));
     }
 
     public void count_Love(int val, Long id) {

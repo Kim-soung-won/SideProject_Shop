@@ -16,5 +16,6 @@ public class BrandsService {
 
     public Brands findByName(String brandName){
         return brandsRepository.findByBrandName(brandName);
+//      @Query("SELECT b FROM Brands b WHERE b.brand_name = ?1")
     }
 }
