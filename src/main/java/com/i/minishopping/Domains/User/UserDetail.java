@@ -1,6 +1,7 @@
-package com.i.minishopping.Domains;
+package com.i.minishopping.Domains.User;
 
 import com.i.minishopping.Domains.ENUM.SEX;
+import com.i.minishopping.Domains.User.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,7 +20,6 @@ public class UserDetail {
     @MapsId
     @JoinColumn(name = "user_id", referencedColumnName = "user_id")
     private User user;
-
     private String name;
     private int height;
     private int weight;

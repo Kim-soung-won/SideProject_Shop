@@ -1,4 +1,4 @@
-package com.i.minishopping.Domains;
+package com.i.minishopping.Domains.User;
 
 import com.i.minishopping.Domains.EMBEDDED.Love_key;
 import com.i.minishopping.Domains.EMBEDDED.Product_log_key;

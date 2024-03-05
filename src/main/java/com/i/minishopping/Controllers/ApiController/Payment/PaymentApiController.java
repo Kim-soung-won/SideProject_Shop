@@ -4,9 +4,9 @@ import com.i.minishopping.DTO.Payment.AddPaymentRequest;
 import com.i.minishopping.Domains.EMBEDDED.Created;
 import com.i.minishopping.Domains.EMBEDDED.Product_Detail_key;
 import com.i.minishopping.Domains.EMBEDDED.Product_log_key;
-import com.i.minishopping.Domains.Payment;
+import com.i.minishopping.Domains.Payment.Payment;
 import com.i.minishopping.Domains.Product.Product;
-import com.i.minishopping.Domains.User;
+import com.i.minishopping.Domains.User.User;
 import com.i.minishopping.Services.PaymentService;
 import com.i.minishopping.Services.Product.PdDetailService;
 import com.i.minishopping.Services.Product.PdLogService;
@@ -33,18 +33,21 @@ public class PaymentApiController {
     @PostMapping("/api/POST/payment")
     public ResponseEntity<Payment> setPayment(@RequestBody @Valid AddPaymentRequest request, HttpSession session){
         Product product = productService.findById(request.getProduct_id());
+
         int count = request.getCount();
-        int basic_price = request.getBasic_price();
-        int discount = request.getDiscount();
         int total_price = request.getTotal_price();
         String size = request.getSize();
+
         User user = (User) session.getAttribute("user");
         Created created = new Created(user, LocalDateTime.now());
+
         Product_Detail_key key = new Product_Detail_key(product, size);
         pdDetailService.sellCount(count, key);
+
         Product_log_key key2 = new Product_log_key(product, created);
         pdLogService.saveLog(key2, size, count*(-1));
-        Payment payment = paymentService.savePayment(created,product,count,basic_price,discount,total_price, size);
+
+        Payment payment = paymentService.savePayment(created,product,count,total_price, size);
         return ResponseEntity.status(HttpStatus.CREATED).body(payment);
     }
 }

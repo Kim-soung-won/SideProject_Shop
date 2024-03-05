@@ -1,6 +1,7 @@
 package com.i.minishopping.Controllers.ApiController.Love;
 
-import com.i.minishopping.Domains.Love;
+import com.i.minishopping.Domains.User.Love;
+import com.i.minishopping.Domains.User.User;
 import com.i.minishopping.Services.LoveService;
 import com.i.minishopping.Services.Product.ProductService;
 import jakarta.servlet.http.HttpSession;

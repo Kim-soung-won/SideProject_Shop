@@ -1,8 +1,8 @@
 package com.i.minishopping.Services;
 
 import com.i.minishopping.DTO.Coupon.UpdateCouponRequest;
-import com.i.minishopping.Domains.Brands;
-import com.i.minishopping.Domains.Coupon;
+import com.i.minishopping.Domains.Product.Brands;
+import com.i.minishopping.Domains.Payment.Coupon;
 import com.i.minishopping.Domains.EMBEDDED.Created;
 import com.i.minishopping.Domains.Product.Product;
 import com.i.minishopping.Repositorys.CouponRepository;
@@ -34,9 +34,11 @@ public class CouponService {
 
     @Transactional
     public Coupon useCoupon(UpdateCouponRequest request){
-        Product product = productService.findById(request.getProduct_id());
         Coupon coupon = couponRepository.findById(request.getId()).orElseThrow(()->new IllegalArgumentException("not found: " + request.getId()));
-        coupon.usedCoupon(LocalDateTime.now(), product);
+        if(coupon.isUsed()) throw new IllegalArgumentException("already used: " + request.getId());
+        Product product = productService.findById(request.getProduct_id());
+        int discount_price = (int)(product.getPrice() * (coupon.getDiscount_size() / 100.0));
+        coupon.usedCoupon(LocalDateTime.now(), product, discount_price);
         return coupon;
     }
 

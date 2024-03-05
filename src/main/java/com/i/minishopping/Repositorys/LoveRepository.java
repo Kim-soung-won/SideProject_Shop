@@ -1,10 +1,9 @@
 package com.i.minishopping.Repositorys;
 
 import com.i.minishopping.Domains.EMBEDDED.Love_key;
-import com.i.minishopping.Domains.EMBEDDED.Product_log_key;
-import com.i.minishopping.Domains.Love;
+import com.i.minishopping.Domains.User.Love;
 import com.i.minishopping.Domains.Product.Product;
-import com.i.minishopping.Domains.User;
+import com.i.minishopping.Domains.User.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

@@ -1,5 +1,6 @@
-package com.i.minishopping.Domains;
+package com.i.minishopping.Domains.Payment;
 
+import com.i.minishopping.Domains.Product.Brands;
 import com.i.minishopping.Domains.EMBEDDED.Created;
 import com.i.minishopping.Domains.Product.Product;
 import jakarta.persistence.*;
@@ -21,8 +22,6 @@ public class Coupon {
     @Column(name = "coupon_id")
     private Long id;
 
-    @Column(name = "used")
-    private boolean used;
 
     @Column(name = "coupon_name")
     private String name;
@@ -34,11 +33,16 @@ public class Coupon {
     @JoinColumn(name = "brand_id", referencedColumnName = "brand_id")
     private Brands brand_id;
 
+    @Column(name = "used")
+    private boolean used;
     @Embedded
     private Created created;
 
     @Column(name = "used_at")
     private LocalDateTime used_at;
+
+    @Column(name = "discount_price")
+    private int discount_price;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id", referencedColumnName = "product_id")
@@ -51,9 +55,10 @@ public class Coupon {
         this.brand_id = brand_id;
         this.created = created;
     }
-    public void usedCoupon(LocalDateTime used_at, Product product_id){
+    public void usedCoupon(LocalDateTime used_at, Product product_id, int discount_price){
         this.used = true;
         this.used_at = used_at;
         this.product_id = product_id;
+        this.discount_price = discount_price;
     }
 }

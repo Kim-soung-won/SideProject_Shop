@@ -1,7 +1,7 @@
 package com.i.minishopping.Controllers.ApiController.Brands;
 
 import com.i.minishopping.DTO.Brands.AddBrandsRequest;
-import com.i.minishopping.Domains.Brands;
+import com.i.minishopping.Domains.Product.Brands;
 import com.i.minishopping.Services.BrandsService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

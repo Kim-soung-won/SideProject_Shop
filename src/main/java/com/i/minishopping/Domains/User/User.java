@@ -1,4 +1,4 @@
-package com.i.minishopping.Domains;
+package com.i.minishopping.Domains.User;
 
 import com.i.minishopping.Config.CustomValidation.Password;
 import com.i.minishopping.Domains.ENUM.ROLE;

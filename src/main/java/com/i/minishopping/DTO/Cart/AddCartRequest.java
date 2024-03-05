@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Getter
 public class AddCartRequest {
     private Long product_id;
-    private Long user_id;
+    private String size;
     private int count;
 //    {
 //        "product_id" : 23501,

@@ -5,7 +5,7 @@ import com.i.minishopping.DTO.Product.DeleteProductRequest;
 import com.i.minishopping.DTO.Product.UpdateProductRequest;
 import com.i.minishopping.Domains.EMBEDDED.Created;
 import com.i.minishopping.Domains.Product.Product;
-import com.i.minishopping.Domains.User;
+import com.i.minishopping.Domains.User.User;
 import com.i.minishopping.Services.Product.ProductService;
 import com.i.minishopping.Services.UserService;
 import jakarta.servlet.http.HttpSession;

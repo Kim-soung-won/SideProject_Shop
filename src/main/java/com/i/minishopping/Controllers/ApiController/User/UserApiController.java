@@ -1,11 +1,10 @@
 package com.i.minishopping.Controllers.ApiController.User;
 
 import com.i.minishopping.Domains.ENUM.ROLE;
-import com.i.minishopping.Domains.User;
+import com.i.minishopping.Domains.User.User;
 import com.i.minishopping.Services.UserService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

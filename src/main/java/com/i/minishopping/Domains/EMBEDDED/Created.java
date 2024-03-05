@@ -1,7 +1,7 @@
 package com.i.minishopping.Domains.EMBEDDED;
 
 
-import com.i.minishopping.Domains.User;
+import com.i.minishopping.Domains.User.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

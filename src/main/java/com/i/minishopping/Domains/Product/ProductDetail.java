@@ -31,4 +31,8 @@ public class ProductDetail {
         this.beforeCount -= count;
         this.sellCount += count;
     }
+
+    public void addPd(int count){
+        this.beforeCount += count;
+    }
 }

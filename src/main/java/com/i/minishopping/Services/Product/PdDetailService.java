@@ -14,6 +14,12 @@ public class PdDetailService {
 
     @Transactional
     public ProductDetail save(Product_Detail_key key, int beforeCount) {
+        ProductDetail pdDetail = pdDetailRepository.findById(key).orElse(null);
+        if(pdDetail != null){
+            System.out.println("hlloh");
+            pdDetail.addPd(beforeCount);
+            return pdDetail;
+        }
         return pdDetailRepository.save(ProductDetail.builder()
                 .product_detail_key(key)
                 .beforeCount(beforeCount)

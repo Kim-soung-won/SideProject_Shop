@@ -11,6 +11,5 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class UpdateCouponRequest {
     private Long id;
-    private LocalDateTime used_at;
     private Long product_id;
 }

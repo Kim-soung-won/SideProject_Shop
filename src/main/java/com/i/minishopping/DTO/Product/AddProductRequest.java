@@ -1,6 +1,5 @@
 package com.i.minishopping.DTO.Product;
 
-import com.i.minishopping.Domains.Brands;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

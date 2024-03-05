@@ -1,6 +1,6 @@
 package com.i.minishopping.Repositorys;
 
-import com.i.minishopping.Domains.Brands;
+import com.i.minishopping.Domains.Product.Brands;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

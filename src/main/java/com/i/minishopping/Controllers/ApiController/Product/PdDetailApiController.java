@@ -6,8 +6,7 @@ import com.i.minishopping.Domains.EMBEDDED.Product_Detail_key;
 import com.i.minishopping.Domains.EMBEDDED.Product_log_key;
 import com.i.minishopping.Domains.Product.Product;
 import com.i.minishopping.Domains.Product.ProductDetail;
-import com.i.minishopping.Domains.Product.Product_Log;
-import com.i.minishopping.Domains.User;
+import com.i.minishopping.Domains.User.User;
 import com.i.minishopping.Services.Product.PdDetailService;
 import com.i.minishopping.Services.Product.PdLogService;
 import com.i.minishopping.Services.Product.ProductService;
@@ -16,7 +15,6 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -38,8 +36,8 @@ public class PdDetailApiController {
         Created created = new Created(user, LocalDateTime.now());
         Product_Detail_key key = new Product_Detail_key(product, request.getSize());
         Product_log_key logkey = new Product_log_key(product, created);
-        ProductDetail productDetail = pdDetailService.save(key, request.getBeforeCount());
         pdLogService.saveLog(logkey, request.getSize(), request.getBeforeCount());
+        ProductDetail productDetail = pdDetailService.save(key, request.getBeforeCount());
         return ResponseEntity.status(HttpStatus.CREATED).body(productDetail);
     }
 }

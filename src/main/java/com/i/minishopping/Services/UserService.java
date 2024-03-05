@@ -1,6 +1,6 @@
 package com.i.minishopping.Services;
 
-import com.i.minishopping.Domains.User;
+import com.i.minishopping.Domains.User.User;
 import com.i.minishopping.Repositorys.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

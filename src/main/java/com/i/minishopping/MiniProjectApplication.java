@@ -19,6 +19,6 @@ public class MiniProjectApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        logger.info("Hello");
+        logger.info("Good Luck!");
     }
 }

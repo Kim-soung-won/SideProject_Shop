@@ -2,11 +2,9 @@ package com.i.minishopping.Services;
 
 import com.i.minishopping.Domains.EMBEDDED.Created;
 import com.i.minishopping.Domains.EMBEDDED.Love_key;
-import com.i.minishopping.Domains.EMBEDDED.Product_Detail_key;
-import com.i.minishopping.Domains.EMBEDDED.Product_log_key;
-import com.i.minishopping.Domains.Love;
+import com.i.minishopping.Domains.User.Love;
 import com.i.minishopping.Domains.Product.Product;
-import com.i.minishopping.Domains.User;
+import com.i.minishopping.Domains.User.User;
 import com.i.minishopping.Repositorys.LoveRepository;
 import com.i.minishopping.Services.Product.ProductService;
 import jakarta.servlet.http.HttpSession;
@@ -28,7 +26,6 @@ public class LoveService {
     @Transactional
     public Love findById(Love_key key) {
         Love love = loveRepository.findById(key).orElse(null);
-        System.out.println("FIND : "+love);
         return love;
     }
     @Transactional
@@ -60,7 +57,5 @@ public class LoveService {
         Love love = loveRepository.findById(id).
                 orElseThrow(() -> new IllegalArgumentException("not found: " + id));
         loveRepository.delete(love);
-        long beforeTime = System.currentTimeMillis();
-        System.out.println("DELETE : "+beforeTime);
     }
 }
