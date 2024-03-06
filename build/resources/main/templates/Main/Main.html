@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,17 +12,17 @@
             font-family: 'Noto Sans KR', sans-serif;
         }
     </style>
-    <link rel="stylesheet" href="../CSS/loginStyle.css">
+    <link rel="stylesheet" href="/CSS/loginStyle.css">
 </head>
 <body class="bg-gray-50">
 
 <!-- Header -->
 <header class="bg-blue-600 p-4 text-white">
     <div class="container mx-auto flex justify-between items-center">
-        <h1 class="text-xl font-bold"><a href="Main.html"/>Fashion Gallery</h1>
+        <h1 class="text-xl font-bold"><a href="/productList"/>Fashion Gallery</h1>
         <nav>
             <ul class="flex space-x-4">
-                <li><a href="Main.html" class="hover:text-blue-300">Home</a></li>
+                <li><a href="/productList" class="hover:text-blue-300">Home</a></li>
                 <li><a href="#" class="hover:text-blue-300">Men</a></li>
                 <li><a href="#" class="hover:text-blue-300">Women</a></li>
                 <li><a href="#" class="hover:text-blue-300">Kids</a></li>
@@ -58,32 +58,11 @@
         <h2 class="text-2xl font-semibold mb-4">Featured</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <!-- Each card is an article -->
-            <article class="bg-white shadow-md rounded overflow-hidden">
-                <img src="https://source.unsplash.com/random/300x300?clothes&sig=1" alt="Fason item" class="w-full h-64 object-cover">
+            <article class="bg-white shadow-md rounded overflow-hidden" th:each="item : ${product}">
+                <img th:src="'https://source.unsplash.com/random/300x300?clothes&sig=' + ${item.id}" alt="Fason item" class="w-full h-64 object-cover">
                 <div class="p-4">
-                    <h3 class="font-semibold">Stylish Jeans</h3>
-                    <p class="text-gray-600">Latest collection</p>
-                </div>
-            </article>
-            <article class="bg-white shadow-md rounded overflow-hidden">
-                <img src="https://source.unsplash.com/random/300x300?clothes&sig=2" alt="Fashion item" class="w-full h-64 object-cover">
-                <div class="p-4">
-                    <h3 class="font-semibold">Stylish Jeans</h3>
-                    <p class="text-gray-600">Latest collection</p>
-                </div>
-            </article>
-            <article class="bg-white shadow-md rounded overflow-hidden">
-                <img src="https://source.unsplash.com/random/300x300?clothes&sig=3" alt="Fashion item" class="w-full h-64 object-cover">
-                <div class="p-4">
-                    <h3 class="font-semibold">Stylish Jeans</h3>
-                    <p class="text-gray-600">Latest collection</p>
-                </div>
-            </article>
-            <article class="bg-white shadow-md rounded overflow-hidden">
-                <img src="https://source.unsplash.com/random/300x300?clothes&sig=4" alt="Fashion item" class="w-full h-64 object-cover">
-                <div class="p-4">
-                    <h3 class="font-semibold">Stylish Jeans</h3>
-                    <p class="text-gray-600">Latest collection</p>
+                    <h3 class="font-semibold" th:text="'상품명 : '+${item.name}"></h3>
+                    <p class="text-gray-600" th:text="${item.price}+'원'"></p>
                 </div>
             </article>
             <!-- Repeat for other cards -->
@@ -170,6 +149,6 @@
         <p>&copy; 2023 Fashion Gallery. All rights reserved.</p>
     </div>
 </footer>
-<script src="../JS/Login.js"></script>
+<script src="../../static/JS/Login.js"></script>
 </body>
 </html>

@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
@@ -15,14 +16,15 @@ import java.util.List;
 public class ProductViewController {
 
     private final ProductViewService productViewService;
-    @GetMapping("/api/GET/productList")
-    public List<ProductListResponse> getProductList(){
+    @GetMapping("/productList")
+    public String getProductList(Model model){
         System.out.println("/GET/productList");
-        Pageable pageRange = PageRequest.of(0,5);
+        Pageable pageRange = PageRequest.of(0,4);
         List<ProductListResponse> products = productViewService.findAllByPage(pageRange).stream()
                 .map(ProductListResponse::new)
                 .toList();
-
-        return products;
+        System.out.println(products.get(2).getName());
+        model.addAttribute("product",products);
+        return "Main/Main";
     }
 }

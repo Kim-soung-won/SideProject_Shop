@@ -16,8 +16,9 @@ public class UserApiController {
 
     @PostMapping("/api/POST/user")
     public void saveUser() {
+        System.out.println("11");
         User user = new User();
-        user.setEmail("1234");
+        user.setEmail("test2email@gmail.com");
         user.setPassword("Abcd1234!5678@");
         user.setRole(ROLE.ROLE_USER);
         user.setPnum("010-1234-5678");

@@ -1,9 +1,9 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/shoppingmall
-    username: root
-    password: As3481611!
+    url: jdbc:mysql://db-lsa9l-kr.vpc-pub-cdb.ntruss.com:3306/Mini_Shoppingmall
+    username: rlatmddnjs0103
+    password: as3481611!
   #    hikari:
   #      maximum-pool-size: 10
   thymeleaf:
