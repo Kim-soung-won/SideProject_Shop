@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/shoppingmall
+    username: root
+    password: As3481611!
+  #    hikari:
+  #      maximum-pool-size: 10
+  thymeleaf:
+    cache: false
+
+  # spring data jpa ??
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    open-in-view: false
+    show-sql: true
+    hibernate: create
+    properties:
+      hibernate:
+        format_sql: true
+    defer-datasource-initialization: true

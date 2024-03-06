@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.i.minishopping.MiniProjectApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-02-22T06:14:02" hostname="DESKTOP-97S6RD5" time="0.364">
+  <properties/>
+  <testcase name="contextLoads()" classname="com.i.minishopping.MiniProjectApplicationTests" time="0.364"/>
+  <system-out><![CDATA[
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.2)
+
+2024-02-22 15:13:58.603 [ INFO] [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 8.0.1.Final
+2024-02-22 15:13:59.200 [ INFO] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-02-22 15:13:59.256 [ INFO] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 47 ms. Found 4 JPA repository interfaces.
+2024-02-22 15:13:59.678 [ INFO] [    Test worker] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2024-02-22 15:13:59.915 [ INFO] [    Test worker] c.z.h.p.HikariPool                       : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@47be41c6
+2024-02-22 15:13:59.917 [ INFO] [    Test worker] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2024-02-22 15:13:59.963 [ INFO] [    Test worker] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-02-22 15:14:00.028 [ INFO] [    Test worker] o.h.Version                              : HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-02-22 15:14:00.084 [ INFO] [    Test worker] o.h.c.i.RegionFactoryInitiator           : HHH000026: Second-level cache disabled
+2024-02-22 15:14:00.339 [ INFO] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-02-22 15:14:00.393 [ WARN] [    Test worker] o.h.o.deprecation                        : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-02-22 15:14:00.394 [ WARN] [    Test worker] o.h.o.deprecation                        : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-02-22 15:14:01.160 [ INFO] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-02-22 15:14:01.163 [ INFO] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-02-22 15:14:02.097 [ INFO] [    Test worker] o.s.b.SpringApplication                  : Hello
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

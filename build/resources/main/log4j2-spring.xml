@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status = "WARN"> <!--status : Log4j2의 내부 이벤트 수준을 나타낸다. -->
+    <Properties> <!--설정 파일의 다른 부분에서 사용할 수 있는 프로퍼티 정보 모음 -->
+        <Property name="LOG_PATTERN">
+            %d{yyyy-MM-dd HH:mm:ss.SSS} [%5p] [%15.15t] %-40.40c{1.} : %m%n%ex
+        </Property>
+    </Properties>
+    <Appenders> <!--어팬더 목록 정의 -->
+        <Console name="ConsoleAppender" target="SYSTEM_OUT"> <!--콘솔, 터미널 명령행에 로그를 출력 -->
+            <PatternLayout pattern="${LOG_PATTERN}" />
+        </Console>
+        <RollingFile name="FileAppender"
+                     fileName="logs/application-log4j2.log"
+                     filePattern="logs/application-log4j2-%d{yyyy-MM-dd}-%i.log">
+            <!--정해진 로그 패턴을 사용해 정해진 이름의 로그 파일에 로그를 출력하도록 한다.-->
+            <PatternLayout>
+                <Pattern>${LOG_PATTERN}</Pattern>
+            </PatternLayout>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10MB" /> <!--로그 파일이 10MB에 도달하면 로그 롤링 수행 -->
+                <TimeBasedTriggeringPolicy interval="7" /> <!--7일 뒤 로그 롤링 수행-->
+            </Policies>
+            <DefaultRolloverStrategy max="10" /> <!--최대 10개 로그파일 저장-->
+        </RollingFile>
+    </Appenders>
+    <Loggers> <!--어펜더 설정을 사용해 로그를 출력하는 로거 목록 설정-->
+        <Logger name="com.i.minishopping" level="debug" additivity="false">
+            <AppenderRef ref="FileAppender" />
+        </Logger> <!--com.i.minishopping 및 그 하위 패키지에서 발생하는 DEBUG 레벨 로그를 FileAppender를 사용해 출력-->
+        <Logger name="org.springframework.boot" level="info" additivity="false">
+            <!--INFO 레벨의 로그 출력-->
+            <AppenderRef ref="ConsoleAppender" />
+        </Logger>
+        <Root level="info">
+            <!--INFO 레벨 전체 로그를 출력하는 로거 설정-->
+            <AppenderRef ref="FileAppender" />
+            <AppenderRef ref="ConsoleAppender" />
+        </Root>
+    </Loggers>
+</Configuration>
