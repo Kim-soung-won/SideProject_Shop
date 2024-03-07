@@ -59,7 +59,8 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <!-- Each card is an article -->
             <article class="bg-white shadow-md rounded overflow-hidden" th:each="item : ${product}">
-                <img th:src="'https://source.unsplash.com/random/300x300?clothes&sig=' + ${item.id}" alt="Fason item" class="w-full h-64 object-cover">
+                <img th:src="'https://source.unsplash.com/random/300x300?clothes&sig=' + ${item.id}" alt="Fason item" class="w-full h-64 object-cover"
+                th:onclick="|location.href='@{/product/{id}(id=${item.id})}'|">
                 <div class="p-4">
                     <h3 class="font-semibold" th:text="'상품명 : '+${item.name}"></h3>
                     <p class="text-gray-600" th:text="${item.price}+'원'"></p>
