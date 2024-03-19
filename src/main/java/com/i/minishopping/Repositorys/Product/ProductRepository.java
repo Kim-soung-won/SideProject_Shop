@@ -23,12 +23,4 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     @Query(value = "select * from product", nativeQuery = true)
     Optional<List<Product>> findSortList(Pageable pageable);
 
-    @Query(value = "select * from product order by created_at DESC", nativeQuery = true)
-    Optional<List<Product>> findLatestList(Pageable pageable);
-
-    @Query(value = "select * from product order by pd_price DESC", nativeQuery = true)
-    Optional<List<Product>> findHighPriceList(Pageable pageable);
-
-    @Query(value = "select * from product order by pd_price ASC", nativeQuery = true)
-    Optional<List<Product>> findLowPriceList(Pageable pageable);
 }
