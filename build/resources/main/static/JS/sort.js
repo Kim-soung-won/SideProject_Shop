@@ -1,28 +1,21 @@
-const popularBtn = document.getElementById("popular")
-const latestBtn = document.getElementById("latest")
-const highPriceBtn = document.getElementById("high-price")
-const lowPriceBtn = document.getElementById("low-price")
+document.addEventListener('DOMContentLoaded', (event) =>{
+    const sortBtns = document.querySelectorAll('.sort-btn')
 
-popularBtn.addEventListener("click", ()=>{
-    console.log("click pop")
-    httpGetRequest('/product/popular')
-})
-latestBtn.addEventListener("click", ()=> {
-    console.log("click latest")
-    httpGetRequest('/product/latest')
-})
-lowPriceBtn.addEventListener("click" ,()=> {
-    console.log("click low")
-    httpGetRequest('/product/lowPrice')
-})
-highPriceBtn.addEventListener("click",()=> {
-    console.log("click high")
-    httpGetRequest('/product/highPrice')
+    sortBtns.forEach(function(sortBtn) {
+        sortBtn.addEventListener('click', function(){
+            console.log(typeof(this.value))
+            var sortNum = parseInt(this.value)
+            console.log(typeof(sortNum))
+            console.log(this.value)
+            console.log(sortNum)
+            httpGetRequest(`/product?id=${sortNum}`)
+        });
+    });
 })
 
 
 window.onload = () => {
-    httpGetRequest('/product/popular');
+    httpGetRequest(`/product?id=1`);
 }
 const hideList = () => {
     console.log("onload")

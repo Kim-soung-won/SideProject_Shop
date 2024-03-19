@@ -20,7 +20,7 @@ public class ProductViewService {
         return productRepository.findByCategory(page,category).orElseThrow(()->new IllegalArgumentException("어어 없내용?"));
     }
     public List<Product> findPopularList(Pageable page){
-        return productRepository.findPopularList(page).orElseThrow(()->new IllegalArgumentException("어어 없내용?"));
+        return productRepository.findSortList(page).orElseThrow(()->new IllegalArgumentException("어어 없내용?"));
     }
     public List<Product> findLatestList(Pageable page){
         return productRepository.findLatestList(page).orElseThrow(()->new IllegalArgumentException("어어 없내용?"));
