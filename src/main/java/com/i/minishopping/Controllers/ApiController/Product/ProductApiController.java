@@ -22,23 +22,14 @@ import java.time.LocalDateTime;
 @RequiredArgsConstructor
 public class ProductApiController {
     private final ProductService productService;
-    private final UserService userService;
 
-    @PostMapping("/api/POST/product")
+    @PostMapping("/api/POST/product/")
     public ResponseEntity<Product> saveProduct(@RequestBody @Valid AddProductRequest request, HttpSession session){
-        System.out.println("USER : "+ session.getAttribute("user"));
         User user = (User) session.getAttribute("user");
 //        User user = userService.findById(authentication.getId());
         Created created = new Created(user, LocalDateTime.now());
         Product product = productService.saveOneProduct(request, created);
         return ResponseEntity.status(HttpStatus.CREATED).body(product);
-//        {
-//            "name" : "test1",
-//                "price" : 55000,
-//                "brandName" : "Apple",
-//                "category" : "testCategory1",
-//                "beforeCount" : 10
-//        }
     }
 
     @DeleteMapping("/api/DELETE/product")

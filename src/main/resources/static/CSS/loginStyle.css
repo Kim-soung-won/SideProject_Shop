@@ -1,3 +1,16 @@
+.sort-container{
+    display: flex;
+    justify-content: space-between;
+    font-size : 30px;
+    font-weight: bold;
+    background-color: blue;
+}
+.sort-btn{
+    color : white;
+    background-color: aqua;
+}
+
+
 
 .login-overlay {
     position: fixed;

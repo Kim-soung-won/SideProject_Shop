@@ -55,18 +55,15 @@
 <main class="container mx-auto p-4">
     <!-- Featured section -->
     <section class="mb-8">
-        <h2 class="text-2xl font-semibold mb-4">Featured</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <!-- Each card is an article -->
-            <article class="bg-white shadow-md rounded overflow-hidden" th:each="item : ${product}">
-                <img th:src="'https://source.unsplash.com/random/300x300?clothes&sig=' + ${item.id}" alt="Fason item" class="w-full h-64 object-cover"
-                th:onclick="|location.href='@{/product/{id}(id=${item.id})}'|">
-                <div class="p-4">
-                    <h3 class="font-semibold" th:text="'상품명 : '+${item.name}"></h3>
-                    <p class="text-gray-600" th:text="${item.price}+'원'"></p>
-                </div>
-            </article>
-            <!-- Repeat for other cards -->
+            <h2 class="text-2xl font-semibold mb-4">Featured</h2>
+        <div class="sort-container">
+            <button class="sort-btn" id="popular">인기순</button>
+            <button class="sort-btn" id="latest">최신순</button>
+            <button class="sort-btn" id="low-price">낮은 가격순</button>
+            <button class="sort-btn" id="high-price">높은 가격순</button>
+        </div>
+        <div id="field" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+
         </div>
     </section>
 
@@ -77,69 +74,29 @@
             <!-- Each image is a figure with a figcaption -->
             <figure class="bg-white shadow-md rounded overflow-hidden">
                 <img src="https://source.unsplash.com/random/300x300?fashion&sig=1" alt="Gallery item" class="w-full h-48 object-cover">
-                <figcaption class="p-2 text-center text-sm">Casual Wear</figcaption>
+                <figcaption class="p-2 text-center text-sm">캐주얼</figcaption>
             </figure>
+            <!-- Repeat for other images -->
             <figure class="bg-white shadow-md rounded overflow-hidden">
                 <img src="https://source.unsplash.com/random/300x300?fashion&sig=2" alt="Gallery item" class="w-full h-48 object-cover">
-                <figcaption class="p-2 text-center text-sm">Casual Wear</figcaption>
+                <figcaption class="p-2 text-center text-sm">비즈니스</figcaption>
             </figure>
             <figure class="bg-white shadow-md rounded overflow-hidden">
                 <img src="https://source.unsplash.com/random/300x300?fashion&sig=3" alt="Gallery item" class="w-full h-48 object-cover">
-                <figcaption class="p-2 text-center text-sm">Casual Wear</figcaption>
+                <figcaption class="p-2 text-center text-sm">스트리트</figcaption>
             </figure>
             <figure class="bg-white shadow-md rounded overflow-hidden">
                 <img src="https://source.unsplash.com/random/300x300?fashion&sig=4" alt="Gallery item" class="w-full h-48 object-cover">
-                <figcaption class="p-2 text-center text-sm">Casual Wear</figcaption>
+                <figcaption class="p-2 text-center text-sm">럭셔리</figcaption>
             </figure>
             <figure class="bg-white shadow-md rounded overflow-hidden">
                 <img src="https://source.unsplash.com/random/300x300?fashion&sig=5" alt="Gallery item" class="w-full h-48 object-cover">
-                <figcaption class="p-2 text-center text-sm">Casual Wear</figcaption>
+                <figcaption class="p-2 text-center text-sm">빈티</figcaption>
             </figure>
             <figure class="bg-white shadow-md rounded overflow-hidden">
                 <img src="https://source.unsplash.com/random/300x300?fashion&sig=6" alt="Gallery item" class="w-full h-48 object-cover">
-                <figcaption class="p-2 text-center text-sm">Casual Wear</figcaption>
+                <figcaption class="p-2 text-center text-sm">스포츠</figcaption>
             </figure>
-            <figure class="bg-white shadow-md rounded overflow-hidden">
-                <img src="https://source.unsplash.com/random/300x300?fashion&sig=6" alt="Gallery item" class="w-full h-48 object-cover">
-                <figcaption class="p-2 text-center text-sm">Casual Wear</figcaption>
-            </figure>
-            <figure class="bg-white shadow-md rounded overflow-hidden">
-                <img src="https://source.unsplash.com/random/300x300?fashion&sig=6" alt="Gallery item" class="w-full h-48 object-cover">
-                <figcaption class="p-2 text-center text-sm">Casual Wear</figcaption>
-            </figure>
-            <figure class="bg-white shadow-md rounded overflow-hidden">
-                <img src="https://source.unsplash.com/random/300x300?fashion&sig=6" alt="Gallery item" class="w-full h-48 object-cover">
-                <figcaption class="p-2 text-center text-sm">Casual Wear</figcaption>
-            </figure>
-            <figure class="bg-white shadow-md rounded overflow-hidden">
-                <img src="https://source.unsplash.com/random/300x300?fashion&sig=6" alt="Gallery item" class="w-full h-48 object-cover">
-                <figcaption class="p-2 text-center text-sm">Casual Wear</figcaption>
-            </figure>
-            <figure class="bg-white shadow-md rounded overflow-hidden">
-                <img src="https://source.unsplash.com/random/300x300?fashion&sig=6" alt="Gallery item" class="w-full h-48 object-cover">
-                <figcaption class="p-2 text-center text-sm">Casual Wear</figcaption>
-            </figure>
-            <figure class="bg-white shadow-md rounded overflow-hidden">
-                <img src="https://source.unsplash.com/random/300x300?fashion&sig=6" alt="Gallery item" class="w-full h-48 object-cover">
-                <figcaption class="p-2 text-center text-sm">Casual Wear</figcaption>
-            </figure>
-            <figure class="bg-white shadow-md rounded overflow-hidden">
-                <img src="https://source.unsplash.com/random/300x300?fashion&sig=6" alt="Gallery item" class="w-full h-48 object-cover">
-                <figcaption class="p-2 text-center text-sm">Casual Wear</figcaption>
-            </figure>
-            <figure class="bg-white shadow-md rounded overflow-hidden">
-                <img src="https://source.unsplash.com/random/300x300?fashion&sig=6" alt="Gallery item" class="w-full h-48 object-cover">
-                <figcaption class="p-2 text-center text-sm">Casual Wear</figcaption>
-            </figure>
-            <figure class="bg-white shadow-md rounded overflow-hidden">
-                <img src="https://source.unsplash.com/random/300x300?fashion&sig=6" alt="Gallery item" class="w-full h-48 object-cover">
-                <figcaption class="p-2 text-center text-sm">Casual Wear</figcaption>
-            </figure>
-            <figure class="bg-white shadow-md rounded overflow-hidden">
-                <img src="https://source.unsplash.com/random/300x300?fashion&sig=6" alt="Gallery item" class="w-full h-48 object-cover">
-                <figcaption class="p-2 text-center text-sm">Casual Wear</figcaption>
-            </figure>
-            <!-- Repeat for other images -->
         </div>
     </section>
 </main>
@@ -150,6 +107,8 @@
         <p>&copy; 2023 Fashion Gallery. All rights reserved.</p>
     </div>
 </footer>
-<script src="../../static/JS/Login.js"></script>
+<script src="/JS/login.js"></script>
+<script src="/JS/sort.js"></script>
+<script src="/JS/clickCategory.js"></script>
 </body>
 </html>

@@ -14,7 +14,21 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     @Query("update Product set count_love = count_love+(:val) where product_id = :id")
     void updateCount(int val, Long id);
 
+    @Query(value = "select * from product where pd_category like concat('%',:category,'%') order by count_love DESC", nativeQuery = true)
+    Optional<List<Product>> findByCategory(Pageable pageable, String category);
+
     @Query(value = "select * from product order by count_love DESC", nativeQuery = true)
     Optional<List<Product>> findAllByPage(Pageable pageable);
 
+    @Query(value = "select * from product order by count_love DESC", nativeQuery = true)
+    Optional<List<Product>> findPopularList(Pageable pageable);
+
+    @Query(value = "select * from product order by created_at DESC", nativeQuery = true)
+    Optional<List<Product>> findLatestList(Pageable pageable);
+
+    @Query(value = "select * from product order by pd_price DESC", nativeQuery = true)
+    Optional<List<Product>> findHighPriceList(Pageable pageable);
+
+    @Query(value = "select * from product order by pd_price ASC", nativeQuery = true)
+    Optional<List<Product>> findLowPriceList(Pageable pageable);
 }
