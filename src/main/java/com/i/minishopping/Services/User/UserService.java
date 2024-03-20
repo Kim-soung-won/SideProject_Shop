@@ -5,6 +5,9 @@ import com.i.minishopping.Repositorys.User.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.time.LocalDateTime;
 
 @Service
 @RequiredArgsConstructor
@@ -18,6 +21,12 @@ public class UserService {
         return userRepository.findById(id).orElseThrow();
     }
 
+    @Transactional
+    public User login(Long id) {
+        User user = userRepository.findById(id).orElseThrow();
+        user.updateLastLogin(LocalDateTime.now());
+        return user;
+    }
     @Async
     public void async(){
         for(int i=0; i<10; i++) {

@@ -4,8 +4,11 @@ import com.i.minishopping.Config.CustomValidation.Password;
 import com.i.minishopping.Domains.ENUM.ROLE;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Data
@@ -31,4 +34,19 @@ public class User {
 
     @Column(name = "user_pnum")
     private String pnum;
+
+    @Column(name = "last_login")
+    private LocalDateTime lastLogin;
+
+    @Builder
+    public User(String email, String password, ROLE role, String pnum) {
+        this.email = email;
+        this.password = password;
+        this.role = role;
+        this.pnum = pnum;
+    }
+
+    public void updateLastLogin(LocalDateTime lastLogin){
+        this.lastLogin = lastLogin;
+    }
 }

@@ -9,6 +9,8 @@ import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
+
 @RestController
 @RequiredArgsConstructor
 @SessionAttributes("user")
@@ -29,7 +31,7 @@ public class UserApiController {
 
     @GetMapping("/api/GET/login")
     public void login(HttpSession session) {
-        User user = userService.findById(2L);
+        User user = userService.login(2L);
         log.saveUserLog(user.getId(), DOIT.LOGIN);
 //        session.setMaxInactiveInterval(60*60*24*30); 세션 유효시간 결정(초단위)
         session.setAttribute("user", user);
