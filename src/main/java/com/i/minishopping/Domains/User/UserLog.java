@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @Table(name="user_log")
+@NoArgsConstructor
 public class UserLog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
