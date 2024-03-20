@@ -2,11 +2,13 @@ package com.i.minishopping.Services;
 
 import com.i.minishopping.Domains.EMBEDDED.Created;
 import com.i.minishopping.Domains.EMBEDDED.Love_key;
+import com.i.minishopping.Domains.ENUM.DOIT;
 import com.i.minishopping.Domains.User.Love;
 import com.i.minishopping.Domains.Product.Product;
 import com.i.minishopping.Domains.User.User;
 import com.i.minishopping.Repositorys.LoveRepository;
 import com.i.minishopping.Services.Product.ProductService;
+import com.i.minishopping.Services.User.UserLogService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -19,6 +21,7 @@ import java.time.LocalDateTime;
 public class LoveService {
     private final LoveRepository loveRepository;
     private final ProductService productService;
+    private final UserLogService log;
     public int countByUserId(Product product){
         return loveRepository.countByUserId(product);
     }
@@ -37,14 +40,12 @@ public class LoveService {
                 .build());
     }
     @Transactional
-    public Love clickLove(HttpSession session) {
-        Product product = productService.findById(23505L);
-        User user = (User) session.getAttribute("user");
-        Created created = new Created(user, LocalDateTime.now());
+    public Love clickLove(User user, Product product) {
         Love_key key = new Love_key(user, product);
         Love love = findById(key);
         if (love == null) {
             productService.count_Love(1, product.getProduct_id());
+            log.saveUserLog(user.getId(), DOIT.LOVE);
             return saveLove(key);
         } else {
             deleteLove(love.getLove_key());

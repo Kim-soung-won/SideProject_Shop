@@ -6,6 +6,8 @@ import com.i.minishopping.Repositorys.User.UserLogRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+
 @Service
 @RequiredArgsConstructor
 public class UserLogService {
@@ -14,6 +16,7 @@ public class UserLogService {
     public void saveUserLog(Long id, DOIT action) {
         userLogRepository.save(UserLog.builder()
                         .user_id(id)
+                        .created_at(LocalDateTime.now())
                         .doit(action)
                 .build());
     }

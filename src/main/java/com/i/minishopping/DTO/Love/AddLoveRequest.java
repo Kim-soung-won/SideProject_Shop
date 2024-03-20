@@ -9,5 +9,4 @@ import lombok.NoArgsConstructor;
 @Getter
 public class AddLoveRequest {
     private Long product_id;
-    private Long user_id;
 }
