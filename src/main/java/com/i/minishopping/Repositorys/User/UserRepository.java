@@ -1,4 +1,4 @@
-package com.i.minishopping.Repositorys;
+package com.i.minishopping.Repositorys.User;
 
 import com.i.minishopping.Domains.User.User;
 import org.springframework.data.jpa.repository.JpaRepository;

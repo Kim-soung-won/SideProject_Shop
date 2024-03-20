@@ -4,20 +4,16 @@ import com.i.minishopping.DTO.Cart.AddCartRequest;
 import com.i.minishopping.DTO.Cart.DeleteCartRequest;
 import com.i.minishopping.Domains.EMBEDDED.Cart_key;
 import com.i.minishopping.Domains.User.Cart;
-import com.i.minishopping.Domains.EMBEDDED.Created;
-import com.i.minishopping.Domains.Product.Product;
 import com.i.minishopping.Domains.User.User;
 import com.i.minishopping.Services.CartService;
 import com.i.minishopping.Services.Product.ProductService;
-import com.i.minishopping.Services.UserService;
+import com.i.minishopping.Services.User.UserService;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.time.LocalDateTime;
 
 @RestController
 @RequiredArgsConstructor

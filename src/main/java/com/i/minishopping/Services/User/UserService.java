@@ -1,7 +1,7 @@
-package com.i.minishopping.Services;
+package com.i.minishopping.Services.User;
 
 import com.i.minishopping.Domains.User.User;
-import com.i.minishopping.Repositorys.UserRepository;
+import com.i.minishopping.Repositorys.User.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;

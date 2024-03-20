@@ -3,7 +3,7 @@ package com.i.minishopping.Controllers.ApiController.Product;
 import com.i.minishopping.Domains.EMBEDDED.Created;
 import com.i.minishopping.Domains.Product.Product;
 import com.i.minishopping.Services.Product.ProductService;
-import com.i.minishopping.Services.UserService;
+import com.i.minishopping.Services.User.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;

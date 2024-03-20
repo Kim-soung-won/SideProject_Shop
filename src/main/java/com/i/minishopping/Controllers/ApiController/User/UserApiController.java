@@ -1,8 +1,10 @@
 package com.i.minishopping.Controllers.ApiController.User;
 
+import com.i.minishopping.Domains.ENUM.DOIT;
 import com.i.minishopping.Domains.ENUM.ROLE;
 import com.i.minishopping.Domains.User.User;
-import com.i.minishopping.Services.UserService;
+import com.i.minishopping.Services.User.UserLogService;
+import com.i.minishopping.Services.User.UserService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 public class UserApiController {
 
     private final UserService userService;
-
+    private final UserLogService log;
     @PostMapping("/api/POST/user")
     public void saveUser() {
         System.out.println("11");
@@ -28,6 +30,7 @@ public class UserApiController {
     @GetMapping("/api/GET/login")
     public void login(HttpSession session) {
         User user = userService.findById(2L);
+        log.saveUserLog(user.getId(), DOIT.LOGIN);
 //        session.setMaxInactiveInterval(60*60*24*30); 세션 유효시간 결정(초단위)
         session.setAttribute("user", user);
     }
