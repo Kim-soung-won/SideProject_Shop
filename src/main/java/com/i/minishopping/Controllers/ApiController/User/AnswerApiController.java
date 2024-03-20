@@ -2,7 +2,6 @@ package com.i.minishopping.Controllers.ApiController.User;
 
 import com.i.minishopping.DTO.User.AddAnswerRequest;
 import com.i.minishopping.Domains.EMBEDDED.Created;
-import com.i.minishopping.Domains.User.CS;
 import com.i.minishopping.Domains.User.User;
 import com.i.minishopping.Services.User.AnswerService;
 import com.i.minishopping.Services.User.CSService;

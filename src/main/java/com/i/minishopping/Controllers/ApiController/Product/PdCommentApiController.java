@@ -21,11 +21,11 @@ public class PdCommentApiController {
     private final CommentService commentService;
 
     @PostMapping("/api/POST/comment")
-    private ResponseEntity<Comment> saveComment(@RequestBody @Valid AddCommentRequest request
+    private ResponseEntity<AddCommentRequest> saveComment(@RequestBody @Valid AddCommentRequest request
     , HttpSession session){
         User user = (User) session.getAttribute("user");
         Created created = new Created(user, LocalDateTime.now());
         Comment comment = commentService.saveComment(request, created);
-        return ResponseEntity.ok().body(comment);
+        return ResponseEntity.ok().body(request);
     }
 }

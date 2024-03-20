@@ -5,7 +5,6 @@ import com.i.minishopping.DTO.Product.UpdateProductRequest;
 import com.i.minishopping.Domains.EMBEDDED.Created;
 import com.i.minishopping.Domains.Product.Product;
 import com.i.minishopping.Repositorys.Product.ProductRepository;
-import com.i.minishopping.Services.BrandsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

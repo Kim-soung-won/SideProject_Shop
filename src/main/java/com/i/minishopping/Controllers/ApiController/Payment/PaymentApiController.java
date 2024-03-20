@@ -8,7 +8,7 @@ import com.i.minishopping.Domains.ENUM.DOIT;
 import com.i.minishopping.Domains.Payment.Payment;
 import com.i.minishopping.Domains.Product.Product;
 import com.i.minishopping.Domains.User.User;
-import com.i.minishopping.Services.PaymentService;
+import com.i.minishopping.Services.Payment.PaymentService;
 import com.i.minishopping.Services.Product.PdDetailService;
 import com.i.minishopping.Services.Product.PdLogService;
 import com.i.minishopping.Services.Product.ProductService;
@@ -34,7 +34,7 @@ public class PaymentApiController {
     private final UserLogService log;
 
     @PostMapping("/api/POST/payment")
-    public ResponseEntity<Payment> setPayment(@RequestBody @Valid AddPaymentRequest request, HttpSession session){
+    public ResponseEntity<AddPaymentRequest> setPayment(@RequestBody @Valid AddPaymentRequest request, HttpSession session){
         Product product = productService.findById(request.getProduct_id());
 
         int count = request.getCount();
@@ -53,6 +53,6 @@ public class PaymentApiController {
         pdLogService.saveLog(key2, size, count*(-1));
         log.saveUserLog(user.getId(), DOIT.PAYMENT);
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(payment);
+        return ResponseEntity.status(HttpStatus.CREATED).body(request);
     }
 }

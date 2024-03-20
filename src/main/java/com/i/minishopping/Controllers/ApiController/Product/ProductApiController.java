@@ -37,10 +37,10 @@ public class ProductApiController {
     }
 
     @PutMapping("/api/PUT/product")
-    public ResponseEntity<Product> updateProduct(@RequestBody UpdateProductRequest request, HttpSession session){
+    public ResponseEntity<UpdateProductRequest> updateProduct(@RequestBody UpdateProductRequest request, HttpSession session){
         User user = (User) session.getAttribute("user");
         Created created = new Created(user, LocalDateTime.now());
         Product product = productService.updateOneProduct(request, created);
-        return ResponseEntity.ok().body(product);
+        return ResponseEntity.ok().body(request);
     }
 }

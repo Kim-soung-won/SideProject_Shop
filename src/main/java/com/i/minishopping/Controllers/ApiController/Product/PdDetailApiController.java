@@ -29,7 +29,7 @@ public class PdDetailApiController {
     private final PdLogService pdLogService;
 
     @PostMapping("/api/POST/productDetail")
-    public ResponseEntity<ProductDetail> saveProductDetail(@RequestBody @Valid
+    public ResponseEntity<AddPdDetailRequest> saveProductDetail(@RequestBody @Valid
                                                            AddPdDetailRequest request, HttpSession session) {
         User user = (User) session.getAttribute("user");
         Product product = productService.findById(request.getProduct_id());
@@ -38,6 +38,6 @@ public class PdDetailApiController {
         Product_log_key logkey = new Product_log_key(product, created);
         pdLogService.saveLog(logkey, request.getSize(), request.getBeforeCount());
         ProductDetail productDetail = pdDetailService.save(key, request.getBeforeCount());
-        return ResponseEntity.status(HttpStatus.CREATED).body(productDetail);
+        return ResponseEntity.status(HttpStatus.CREATED).body(request);
     }
 }
