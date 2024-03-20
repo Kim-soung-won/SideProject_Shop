@@ -3,12 +3,16 @@ package com.i.minishopping.Domains.User;
 import com.i.minishopping.Domains.EMBEDDED.Created;
 import com.i.minishopping.Domains.ENUM.CS_STATE;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
 @Table(name = "customer_service")
+@NoArgsConstructor
+@AllArgsConstructor
 public class CS {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

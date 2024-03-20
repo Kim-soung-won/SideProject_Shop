@@ -21,4 +21,9 @@ public class CSService {
                 .state(CS_STATE.WAIT)
                 .build());
     }
+
+    public CS findById(Long id) {
+        System.out.println(id);
+        return csRepository.findById(id).orElse(null);
+    }
 }
