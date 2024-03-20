@@ -16,7 +16,6 @@ public class PdDetailService {
     public ProductDetail save(Product_Detail_key key, int beforeCount) {
         ProductDetail pdDetail = pdDetailRepository.findById(key).orElse(null);
         if(pdDetail != null){
-            System.out.println("hlloh");
             pdDetail.addPd(beforeCount);
             return pdDetail;
         }

@@ -24,7 +24,7 @@ public class ProductViewController {
 
     private final ProductViewService productViewService;
     private final ProductService productService;
-    private final int PAGINGSIZE = 4;
+    private final int PAGINGSIZE = 10;
     @GetMapping("/productList")
     public String getProductList(Model model){
         Pageable pageRange = PageRequest.of(0,PAGINGSIZE);

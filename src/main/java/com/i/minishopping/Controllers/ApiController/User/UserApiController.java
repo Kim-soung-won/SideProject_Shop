@@ -36,4 +36,10 @@ public class UserApiController {
     public void logout(HttpSession session) {
         session.invalidate();
     }
+
+    @PostMapping("/test/async")
+    public void asyncTest() {
+        userService.async();
+        userService.async2();
+    }
 }
