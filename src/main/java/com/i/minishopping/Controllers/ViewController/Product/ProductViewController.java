@@ -1,5 +1,6 @@
 package com.i.minishopping.Controllers.ViewController.Product;
 
+import com.i.minishopping.DTO.Common.SuccessResponseWithData;
 import com.i.minishopping.DTO.Product.ProductListResponse;
 import com.i.minishopping.Domains.Product.Product;
 import com.i.minishopping.Services.Product.ProductService;
