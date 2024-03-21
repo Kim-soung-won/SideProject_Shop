@@ -18,6 +18,10 @@ import java.time.LocalDateTime;
 public class UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+
+    public Member checkEmail(String email){
+        return userRepository.findByEmail(email);
+    }
     public void saveUser(UserJoinRequest request) {
         userRepository.save(request.toEntity(passwordEncoder));
     }

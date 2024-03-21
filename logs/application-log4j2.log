@@ -15062,3 +15062,66 @@ Caused by: java.lang.IllegalArgumentException: ROLE_USER cannot start with ROLE_
 2024-03-21 20:34:40.472 [ INFO] [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-03-21 20:34:40.475 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
 2024-03-21 20:34:40.479 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2024-03-21 20:47:20.228 [ INFO] [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 8.0.1.Final
+2024-03-21 20:47:20.270 [ INFO] [  restartedMain] c.i.m.MiniProjectApplication             : Starting MiniProjectApplication using Java 17.0.8.1 with PID 21708 (C:\Users\KIMSW\Desktop\project\SidePJ_Shop\build\classes\java\main started by KIMSW in C:\Users\KIMSW\Desktop\project\SidePJ_Shop)
+2024-03-21 20:47:20.274 [DEBUG] [  restartedMain] c.i.m.MiniProjectApplication             : Running with Spring Boot v3.2.2, Spring v6.1.3
+2024-03-21 20:47:20.276 [ INFO] [  restartedMain] c.i.m.MiniProjectApplication             : No active profile set, falling back to 1 default profile: "default"
+2024-03-21 20:47:29.804 [ INFO] [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 8.0.1.Final
+2024-03-21 20:47:29.863 [ INFO] [  restartedMain] c.i.m.MiniProjectApplication             : Starting MiniProjectApplication using Java 17.0.8.1 with PID 15500 (C:\Users\KIMSW\Desktop\project\SidePJ_Shop\build\classes\java\main started by KIMSW in C:\Users\KIMSW\Desktop\project\SidePJ_Shop)
+2024-03-21 20:47:29.866 [DEBUG] [  restartedMain] c.i.m.MiniProjectApplication             : Running with Spring Boot v3.2.2, Spring v6.1.3
+2024-03-21 20:47:29.868 [ INFO] [  restartedMain] c.i.m.MiniProjectApplication             : No active profile set, falling back to 1 default profile: "default"
+2024-03-21 20:47:31.261 [ INFO] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-21 20:47:31.380 [ INFO] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 110 ms. Found 15 JPA repository interfaces.
+2024-03-21 20:47:32.297 [ INFO] [  restartedMain] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8080"]
+2024-03-21 20:47:32.299 [ INFO] [  restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2024-03-21 20:47:32.299 [ INFO] [  restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-21 20:47:32.363 [ INFO] [  restartedMain] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2024-03-21 20:47:32.569 [ INFO] [  restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2024-03-21 20:47:32.773 [ INFO] [  restartedMain] c.z.h.p.HikariPool                       : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@647ad875
+2024-03-21 20:47:32.776 [ INFO] [  restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2024-03-21 20:47:32.816 [ INFO] [  restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-21 20:47:32.874 [ INFO] [  restartedMain] o.h.Version                              : HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-03-21 20:47:32.915 [ INFO] [  restartedMain] o.h.c.i.RegionFactoryInitiator           : HHH000026: Second-level cache disabled
+2024-03-21 20:47:33.212 [ INFO] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-21 20:47:33.284 [ WARN] [  restartedMain] o.h.o.deprecation                        : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-21 20:47:33.285 [ WARN] [  restartedMain] o.h.o.deprecation                        : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-03-21 20:47:34.726 [ INFO] [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-21 20:47:34.729 [ INFO] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-21 20:47:35.055 [ INFO] [  restartedMain] o.s.d.j.r.q.QueryEnhancerFactory         : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-03-21 20:47:36.579 [ INFO] [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@47b3141a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@56092b09, org.springframework.security.web.context.SecurityContextHolderFilter@6b8fe5bf, org.springframework.security.web.header.HeaderWriterFilter@4092c78e, org.springframework.web.filter.CorsFilter@41004741, org.springframework.security.web.authentication.logout.LogoutFilter@71508fc1, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@789de061, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2a08be40, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@19143dbe, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2734126, org.springframework.security.web.access.ExceptionTranslationFilter@42462ffd, org.springframework.security.web.access.intercept.AuthorizationFilter@778cd4f9]
+2024-03-21 20:47:37.017 [ INFO] [  restartedMain] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8080"]
+2024-03-21 20:47:37.051 [ INFO] [  restartedMain] c.i.m.MiniProjectApplication             : Started MiniProjectApplication in 7.769 seconds (process running for 9.476)
+2024-03-21 20:48:42.646 [ INFO] [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-21 20:48:42.649 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2024-03-21 20:48:42.655 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2024-03-21 20:48:45.908 [ INFO] [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 8.0.1.Final
+2024-03-21 20:48:45.937 [ INFO] [  restartedMain] c.i.m.MiniProjectApplication             : Starting MiniProjectApplication using Java 17.0.8.1 with PID 8716 (C:\Users\KIMSW\Desktop\project\SidePJ_Shop\build\classes\java\main started by KIMSW in C:\Users\KIMSW\Desktop\project\SidePJ_Shop)
+2024-03-21 20:48:45.938 [DEBUG] [  restartedMain] c.i.m.MiniProjectApplication             : Running with Spring Boot v3.2.2, Spring v6.1.3
+2024-03-21 20:48:45.940 [ INFO] [  restartedMain] c.i.m.MiniProjectApplication             : No active profile set, falling back to 1 default profile: "default"
+2024-03-21 20:48:46.557 [ INFO] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-21 20:48:46.642 [ INFO] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 77 ms. Found 15 JPA repository interfaces.
+2024-03-21 20:48:47.097 [ INFO] [  restartedMain] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8080"]
+2024-03-21 20:48:47.098 [ INFO] [  restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2024-03-21 20:48:47.098 [ INFO] [  restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-21 20:48:47.140 [ INFO] [  restartedMain] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2024-03-21 20:48:47.254 [ INFO] [  restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2024-03-21 20:48:47.432 [ INFO] [  restartedMain] c.z.h.p.HikariPool                       : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4cda6a45
+2024-03-21 20:48:47.434 [ INFO] [  restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2024-03-21 20:48:47.467 [ INFO] [  restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-21 20:48:47.509 [ INFO] [  restartedMain] o.h.Version                              : HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-03-21 20:48:47.535 [ INFO] [  restartedMain] o.h.c.i.RegionFactoryInitiator           : HHH000026: Second-level cache disabled
+2024-03-21 20:48:47.716 [ INFO] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-21 20:48:47.771 [ WARN] [  restartedMain] o.h.o.deprecation                        : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-21 20:48:47.772 [ WARN] [  restartedMain] o.h.o.deprecation                        : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-03-21 20:48:48.582 [ INFO] [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-21 20:48:48.584 [ INFO] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-21 20:48:48.755 [ INFO] [  restartedMain] o.s.d.j.r.q.QueryEnhancerFactory         : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-03-21 20:48:49.812 [ INFO] [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@24ac0c31, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@43d60bad, org.springframework.security.web.context.SecurityContextHolderFilter@244f3b68, org.springframework.security.web.header.HeaderWriterFilter@29a74e79, org.springframework.web.filter.CorsFilter@3a6fe516, org.springframework.security.web.authentication.logout.LogoutFilter@271a0838, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@61330e77, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6cc68e64, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5ec555e9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@e25adf2, org.springframework.security.web.access.ExceptionTranslationFilter@635d81c2, org.springframework.security.web.access.intercept.AuthorizationFilter@ead3607]
+2024-03-21 20:48:50.149 [ INFO] [  restartedMain] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8080"]
+2024-03-21 20:48:50.171 [ INFO] [  restartedMain] c.i.m.MiniProjectApplication             : Started MiniProjectApplication in 4.614 seconds (process running for 5.177)
+2024-03-21 20:49:10.614 [ INFO] [nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-21 20:49:10.614 [ INFO] [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2024-03-21 20:49:10.615 [ INFO] [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 1 ms
+2024-03-21 20:49:52.037 [ INFO] [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-21 20:49:52.039 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2024-03-21 20:49:52.044 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
