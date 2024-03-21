@@ -8,19 +8,18 @@ document.addEventListener('DOMContentLoaded', (event) =>{
             console.log(typeof(sortNum))
             console.log(this.value)
             console.log(sortNum)
-            httpGetRequest(`/product?id=${sortNum}`)
+            GetListRequest(`/product?id=${sortNum}`)
         });
     });
 })
 
-
 window.onload = () => {
-    httpGetRequest(`/product?id=1`);
+    GetListRequest(`/product?id=1`);
 }
 const hideList = () => {
     console.log("onload")
 }
-function httpGetRequest(url){
+function GetListRequest(url){
     const headers = {
         Authorization: 'Bearer ' + localStorage.getItem('access_token'),
         'Content-Type': 'application/json',
@@ -37,13 +36,16 @@ function httpGetRequest(url){
             let productsHtml = data.map(item => {
                 return `
                 <article class="bg-white shadow-md rounded overflow-hidden">
-                    <img src="https://source.unsplash.com/random/300x300?clothes&sig=${item.id}"
+<!--                "https://source.unsplash.com/random/300x300?clothes&sig=${item.id}"-->
+                    <img src="/IMG/thanks.gif"
                          alt="Fashion item" class="w-full h-64 object-cover"
                          onclick="location.href='/product/${item.id}'">
                     <div class="p-4">
                         <h3 class="font-semibold">상품명 : ${item.name}</h3>
                         <p class="text-gray-600">${item.price}원</p>
                         <p class="text-gray-600">인기순</p>
+                        <p class="text-gray-600">${item.status}</p>
+                        <p class="text-gray-600">${item.msg}</p>
                     </div>
                 </article>
             `;

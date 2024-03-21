@@ -1,6 +1,5 @@
 package com.i.minishopping.Controllers.ViewController.Product;
 
-import com.i.minishopping.DTO.Common.SuccessResponseWithData;
 import com.i.minishopping.DTO.Product.ProductListResponse;
 import com.i.minishopping.Domains.Product.Product;
 import com.i.minishopping.Services.Product.ProductService;
@@ -26,13 +25,9 @@ public class ProductViewController {
     private final ProductViewService productViewService;
     private final ProductService productService;
     private final int PAGINGSIZE = 10;
+
     @GetMapping("/productList")
-    public String getProductList(Model model){
-        Pageable pageRange = PageRequest.of(0,PAGINGSIZE);
-        List<ProductListResponse> products = productViewService.findAllByPage(pageRange).stream()
-                .map(ProductListResponse::new)
-                .toList();
-        model.addAttribute("product",products);
+    public String getProductList(){
         return "Main/Main";
     }
     @GetMapping("/product/{id}")
@@ -45,7 +40,7 @@ public class ProductViewController {
     public ResponseEntity<List<ProductListResponse>> getByCategory(@RequestParam(name="id", required = false) String name){
         Pageable pageRange = PageRequest.of(0,PAGINGSIZE, Sort.by("count_love").descending());
         List<ProductListResponse> products = productViewService.findByCategory(pageRange, name).stream()
-                .map(ProductListResponse::new)
+                .map(data -> new ProductListResponse(200,"success",data))
                 .toList();;
         return ResponseEntity.ok(products);
     }
@@ -59,7 +54,7 @@ public class ProductViewController {
         if(param == 3) {pageRange = PageRequest.of(0, PAGINGSIZE, Sort.by("pd_price").ascending());}
         if(param == 4) {pageRange = PageRequest.of(0, PAGINGSIZE, Sort.by("pd_price").descending());}
         List<ProductListResponse> products = productViewService.findPopularList(pageRange).stream()
-                .map(ProductListResponse::new)
+                .map(data -> new ProductListResponse(200,"success",data))
                 .toList();;
         return ResponseEntity.ok(products);
     }
