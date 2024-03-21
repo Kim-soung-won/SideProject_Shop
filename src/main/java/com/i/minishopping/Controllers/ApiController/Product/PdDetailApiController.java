@@ -1,6 +1,6 @@
 package com.i.minishopping.Controllers.ApiController.Product;
 
-import com.i.minishopping.DTO.Product.AddPdDetailRequest;
+import com.i.minishopping.DTO.Product.Request.AddPdDetailRequest;
 import com.i.minishopping.Domains.EMBEDDED.Created;
 import com.i.minishopping.Domains.EMBEDDED.Product_Detail_key;
 import com.i.minishopping.Domains.EMBEDDED.Product_log_key;

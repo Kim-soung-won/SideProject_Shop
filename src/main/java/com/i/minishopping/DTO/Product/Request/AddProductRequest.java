@@ -1,4 +1,4 @@
-package com.i.minishopping.DTO.Product;
+package com.i.minishopping.DTO.Product.Request;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

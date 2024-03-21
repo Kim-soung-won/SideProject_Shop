@@ -1,4 +1,4 @@
-package com.i.minishopping.DTO.Product;
+package com.i.minishopping.DTO.Product.Request;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,8 +7,8 @@ import lombok.NoArgsConstructor;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class AddPdLogRequest {
+public class AddPdDetailRequest {
     private Long product_id;
     private String size;
-    private int count;
+    private int beforeCount;
 }

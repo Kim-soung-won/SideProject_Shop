@@ -1,8 +1,9 @@
 package com.i.minishopping.Controllers.ApiController.Product;
 
-import com.i.minishopping.DTO.Product.AddProductRequest;
-import com.i.minishopping.DTO.Product.DeleteProductRequest;
-import com.i.minishopping.DTO.Product.UpdateProductRequest;
+import com.i.minishopping.DTO.Product.Request.AddProductRequest;
+import com.i.minishopping.DTO.Product.Request.DeleteProductRequest;
+import com.i.minishopping.DTO.Product.Request.UpdateProductRequest;
+import com.i.minishopping.DTO.Product.Response.ProductDeleteResponse;
 import com.i.minishopping.Domains.EMBEDDED.Created;
 import com.i.minishopping.Domains.Product.Product;
 import com.i.minishopping.Domains.User.User;
@@ -32,8 +33,9 @@ public class ProductApiController {
     }
 
     @DeleteMapping("/api/DELETE/product")
-    public void deleteProduct(@RequestBody DeleteProductRequest request){
-        productService.deleteOneProduct(request.getProduct_id());
+    public ProductDeleteResponse deleteProduct(@RequestBody DeleteProductRequest request){
+        Product product = productService.deleteOneProduct(request.getProduct_id());
+        return new ProductDeleteResponse(200,"삭제 되었습니다.",product.getProduct_id(), product.getName());
     }
 
     @PutMapping("/api/PUT/product")

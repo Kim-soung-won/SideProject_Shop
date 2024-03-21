@@ -1,7 +1,7 @@
 package com.i.minishopping.Services.Product;
 
-import com.i.minishopping.DTO.Product.AddProductRequest;
-import com.i.minishopping.DTO.Product.UpdateProductRequest;
+import com.i.minishopping.DTO.Product.Request.AddProductRequest;
+import com.i.minishopping.DTO.Product.Request.UpdateProductRequest;
 import com.i.minishopping.Domains.EMBEDDED.Created;
 import com.i.minishopping.Domains.Product.Product;
 import com.i.minishopping.Repositorys.Product.ProductRepository;
@@ -44,9 +44,10 @@ public class ProductService {
         long beforeTime = System.currentTimeMillis();
     }
     @Transactional
-    public void deleteOneProduct(Long id){
+    public Product deleteOneProduct(Long id){
         Product product = productRepository.findById(id)
                 .orElseThrow(()->new IllegalArgumentException("not found : " + id));
         productRepository.delete(product);
+        return product;
     }
 }

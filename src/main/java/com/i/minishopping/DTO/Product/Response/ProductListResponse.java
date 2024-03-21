@@ -1,4 +1,4 @@
-package com.i.minishopping.DTO.Product;
+package com.i.minishopping.DTO.Product.Response;
 
 import com.i.minishopping.DTO.Common.CommonResponse;
 import com.i.minishopping.Domains.Product.Product;

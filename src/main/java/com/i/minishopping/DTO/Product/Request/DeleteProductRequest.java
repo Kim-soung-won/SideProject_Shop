@@ -1,13 +1,13 @@
-package com.i.minishopping.DTO.Product;
+package com.i.minishopping.DTO.Product.Request;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Getter
-@AllArgsConstructor
 @NoArgsConstructor
-public class AddCommentRequest {
+@AllArgsConstructor
+@Getter
+public class DeleteProductRequest {
     private Long product_id;
-    private String content;
 }
