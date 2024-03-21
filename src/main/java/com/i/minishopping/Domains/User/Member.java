@@ -1,6 +1,6 @@
 package com.i.minishopping.Domains.User;
 
-import com.i.minishopping.Config.CustomValidation.Password;
+//import com.i.minishopping.Config.CustomValidation.Password;
 import com.i.minishopping.Domains.ENUM.ROLE;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 @Table(name = "user")
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
@@ -25,7 +25,7 @@ public class User {
     private String email;
 
     @Column(name = "user_password", nullable = false)
-    @Password
+//    @Password
     private String password;
 
     @Column(name = "user_role")
@@ -39,7 +39,7 @@ public class User {
     private LocalDateTime lastLogin;
 
     @Builder
-    public User(String email, String password, ROLE role, String pnum) {
+    public Member(String email, String password, ROLE role, String pnum) {
         this.email = email;
         this.password = password;
         this.role = role;

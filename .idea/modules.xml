@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/MiniPROJECT.iml" filepath="$PROJECT_DIR$/.idea/MiniPROJECT.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/MiniShopping.main.iml" filepath="$PROJECT_DIR$/.idea/modules/MiniShopping.main.iml" />
     </modules>
   </component>

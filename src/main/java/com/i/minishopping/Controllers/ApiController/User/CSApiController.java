@@ -3,7 +3,7 @@ package com.i.minishopping.Controllers.ApiController.User;
 import com.i.minishopping.DTO.User.AddCSRequest;
 import com.i.minishopping.Domains.EMBEDDED.Created;
 import com.i.minishopping.Domains.User.CS;
-import com.i.minishopping.Domains.User.User;
+import com.i.minishopping.Domains.User.Member;
 import com.i.minishopping.Services.User.CSService;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
@@ -22,7 +22,7 @@ public class CSApiController {
 
     @PostMapping("/api/POST/cs")
     public ResponseEntity<String> saveCS(@RequestBody @Valid AddCSRequest request, HttpSession session){
-        User user = (User) session.getAttribute("user");
+        Member user = (Member) session.getAttribute("user");
         System.out.println(user);
         if(user==null){
             return ResponseEntity.badRequest().body("로그인이 필요합니다.");

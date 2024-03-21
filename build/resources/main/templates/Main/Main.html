@@ -38,9 +38,9 @@
     <div class="login-container">
         <h2>Login Form</h2>
         <button class="close-btn"><i class="fas fa-times">X</i></button>
-        <form action="/submit-your-action">
-            <input type="text" id="id" name="id" placeholder="Your ID" required>
-            <input type="password" id="password" name="password" placeholder="Your Password" required>
+        <form id="loginForm" action="/api/POST/login" method="POST">
+            <input type="text" id="username" name="username" placeholder="Your ID" required/>
+            <input type="password" id="password" name="password" placeholder="Your Password" required/>
             <button type="submit">Login</button>
         </form>
         <div class="oauth-container">

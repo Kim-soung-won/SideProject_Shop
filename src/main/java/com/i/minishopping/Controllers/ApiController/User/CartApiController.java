@@ -4,7 +4,7 @@ import com.i.minishopping.DTO.Cart.AddCartRequest;
 import com.i.minishopping.DTO.Cart.DeleteCartRequest;
 import com.i.minishopping.Domains.EMBEDDED.Cart_key;
 import com.i.minishopping.Domains.User.Cart;
-import com.i.minishopping.Domains.User.User;
+import com.i.minishopping.Domains.User.Member;
 import com.i.minishopping.Services.User.CartService;
 import com.i.minishopping.Services.Product.ProductService;
 import com.i.minishopping.Services.User.UserService;
@@ -24,7 +24,7 @@ public class CartApiController {
 
     @PostMapping("/api/POST/cart")
     public ResponseEntity<AddCartRequest> addCart(@RequestBody @Valid AddCartRequest request, HttpSession session){
-        User user = (User) session.getAttribute("user");
+        Member user = (Member) session.getAttribute("user");
         Cart_key key = new Cart_key(user,
                 productService.findById(request.getProduct_id()),
                 request.getSize());
@@ -39,7 +39,7 @@ public class CartApiController {
 
     @DeleteMapping("/api/DELETE/cart")
     public void deleteCart(@RequestBody @Valid DeleteCartRequest request, HttpSession session){
-        User user = (User) session.getAttribute("user");
+        Member user = (Member) session.getAttribute("user");
         Cart_key key = new Cart_key(user,
                 productService.findById(request.getProduct_id()),
                 request.getSize());

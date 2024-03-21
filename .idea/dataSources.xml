@@ -13,7 +13,7 @@
       </jdbc-additional-properties>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="Mini_Shoppingmall@db-lsa9l-kr.vpc-pub-cdb.ntruss.com" uuid="9b2f9368-4e9a-434e-9699-11b6daf27db8">
+    <data-source source="LOCAL" name="Mini_Shoppingmall" uuid="9b2f9368-4e9a-434e-9699-11b6daf27db8">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <imported>true</imported>

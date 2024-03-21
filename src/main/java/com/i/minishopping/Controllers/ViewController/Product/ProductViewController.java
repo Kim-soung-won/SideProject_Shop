@@ -9,6 +9,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,7 +32,10 @@ public class ProductViewController {
         return "Main/Main";
     }
     @GetMapping("/product/{id}")
-    public String getProductDetail(@PathVariable Long id, Model model){
+    public String getProductDetail(@PathVariable Long id, Model model, Authentication authentication){
+        System.out.println("name : "+authentication.getName());
+        System.out.println("prin : "+authentication.getPrincipal());
+        System.out.println("detail : "+authentication.getDetails());
         Product product = productService.findById(id);
         model.addAttribute("product",product);
         return "Main/Detail";

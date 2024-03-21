@@ -7,7 +7,7 @@ import com.i.minishopping.Domains.EMBEDDED.Product_log_key;
 import com.i.minishopping.Domains.ENUM.DOIT;
 import com.i.minishopping.Domains.Payment.Payment;
 import com.i.minishopping.Domains.Product.Product;
-import com.i.minishopping.Domains.User.User;
+import com.i.minishopping.Domains.User.Member;
 import com.i.minishopping.Services.Payment.PaymentService;
 import com.i.minishopping.Services.Product.PdDetailService;
 import com.i.minishopping.Services.Product.PdLogService;
@@ -41,7 +41,7 @@ public class PaymentApiController {
         int total_price = request.getTotal_price();
         String size = request.getSize();
 
-        User user = (User) session.getAttribute("user");
+        Member user = (Member) session.getAttribute("user");
         Created created = new Created(user, LocalDateTime.now());
 
         Payment payment = paymentService.savePayment(created,product,count,total_price, size);

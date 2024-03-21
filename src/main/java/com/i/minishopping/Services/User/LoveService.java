@@ -4,7 +4,7 @@ import com.i.minishopping.Domains.EMBEDDED.Love_key;
 import com.i.minishopping.Domains.ENUM.DOIT;
 import com.i.minishopping.Domains.User.Love;
 import com.i.minishopping.Domains.Product.Product;
-import com.i.minishopping.Domains.User.User;
+import com.i.minishopping.Domains.User.Member;
 import com.i.minishopping.Repositorys.User.LoveRepository;
 import com.i.minishopping.Services.Product.ProductService;
 import com.i.minishopping.Services.User.UserLogService;
@@ -38,7 +38,7 @@ public class LoveService {
                 .build());
     }
     @Transactional
-    public Love clickLove(User user, Product product) {
+    public Love clickLove(Member user, Product product) {
         Love_key key = new Love_key(user, product);
         Love love = findById(key);
         if (love == null) {

@@ -2,7 +2,7 @@ package com.i.minishopping.Controllers.ApiController.User;
 
 import com.i.minishopping.DTO.User.AddAnswerRequest;
 import com.i.minishopping.Domains.EMBEDDED.Created;
-import com.i.minishopping.Domains.User.User;
+import com.i.minishopping.Domains.User.Member;
 import com.i.minishopping.Services.User.AnswerService;
 import com.i.minishopping.Services.User.CSService;
 import jakarta.servlet.http.HttpSession;
@@ -22,7 +22,7 @@ public class AnswerApiController {
     private final CSService csService;
     @PostMapping("/api/POST/answer")
     public ResponseEntity<String> saveAnswer(@RequestBody @Valid AddAnswerRequest request, HttpSession session) {
-        User user = (User) session.getAttribute("user");
+        Member user = (Member) session.getAttribute("user");
         if (user == null) {
             return ResponseEntity.badRequest().body("로그인이 필요합니다.");
         }

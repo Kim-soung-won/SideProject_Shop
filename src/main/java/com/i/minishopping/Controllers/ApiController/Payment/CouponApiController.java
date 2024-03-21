@@ -4,7 +4,7 @@ import com.i.minishopping.DTO.Coupon.AddCouponRequest;
 import com.i.minishopping.DTO.Coupon.UpdateCouponRequest;
 import com.i.minishopping.Domains.Payment.Coupon;
 import com.i.minishopping.Domains.EMBEDDED.Created;
-import com.i.minishopping.Domains.User.User;
+import com.i.minishopping.Domains.User.Member;
 import com.i.minishopping.Services.Product.BrandsService;
 import com.i.minishopping.Services.Payment.CouponService;
 import com.i.minishopping.Services.Product.ProductService;
@@ -29,7 +29,7 @@ public class CouponApiController {
 //    쿠폰 재발급 방지 로직 추가 필요할 듯
     @PostMapping("/api/POST/coupon")
     public ResponseEntity<AddCouponRequest> addCoupon(@RequestBody @Valid AddCouponRequest request, HttpSession session){
-        User user = (User) session.getAttribute("user");
+        Member user = (Member) session.getAttribute("user");
         Created created = new Created(user, LocalDateTime.now());
         Coupon coupon = couponService.saveCoupon(
                 request.getName(),

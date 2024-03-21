@@ -1,7 +1,7 @@
 package com.i.minishopping.Domains.EMBEDDED;
 
 import com.i.minishopping.Domains.Product.Product;
-import com.i.minishopping.Domains.User.User;
+import com.i.minishopping.Domains.User.Member;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
@@ -19,7 +19,7 @@ import java.io.Serializable;
 public class Love_key implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "created_who", referencedColumnName = "user_id")
-    private User created_who;
+    private Member created_who;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id", referencedColumnName = "product_id")

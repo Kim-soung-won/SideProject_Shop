@@ -6,7 +6,7 @@ import com.i.minishopping.Domains.EMBEDDED.Product_Detail_key;
 import com.i.minishopping.Domains.EMBEDDED.Product_log_key;
 import com.i.minishopping.Domains.Product.Product;
 import com.i.minishopping.Domains.Product.ProductDetail;
-import com.i.minishopping.Domains.User.User;
+import com.i.minishopping.Domains.User.Member;
 import com.i.minishopping.Services.Product.PdDetailService;
 import com.i.minishopping.Services.Product.PdLogService;
 import com.i.minishopping.Services.Product.ProductService;
@@ -31,7 +31,7 @@ public class PdDetailApiController {
     @PostMapping("/api/POST/productDetail")
     public ResponseEntity<AddPdDetailRequest> saveProductDetail(@RequestBody @Valid
                                                            AddPdDetailRequest request, HttpSession session) {
-        User user = (User) session.getAttribute("user");
+        Member user = (Member) session.getAttribute("user");
         Product product = productService.findById(request.getProduct_id());
         Created created = new Created(user, LocalDateTime.now());
         Product_Detail_key key = new Product_Detail_key(product, request.getSize());
