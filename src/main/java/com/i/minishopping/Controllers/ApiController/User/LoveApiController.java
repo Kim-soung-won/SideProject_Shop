@@ -1,5 +1,6 @@
 package com.i.minishopping.Controllers.ApiController.User;
 
+import com.i.minishopping.DTO.Common.CommonResponse;
 import com.i.minishopping.DTO.Love.AddLoveRequest;
 import com.i.minishopping.Domains.Product.Product;
 import com.i.minishopping.Domains.User.Love;
@@ -22,10 +23,11 @@ public class LoveApiController {
 
 
     @PutMapping("/api/PUT/love")
-    public ResponseEntity<AddLoveRequest> clickLove(@RequestBody @Valid AddLoveRequest request, HttpSession session) {
+    public ResponseEntity<CommonResponse> clickLove(@RequestBody @Valid AddLoveRequest request, HttpSession session) {
         Product product = productService.findById(request.getProduct_id());
         Member user = (Member) session.getAttribute("user");
         Love love = loveService.clickLove(user, product);
-        return ResponseEntity.ok().body(request);
+        if(love == null) return ResponseEntity.ok().body(new CommonResponse(200,"좋아요 해제"));
+        return ResponseEntity.ok().body(new CommonResponse(200,"좋아요!!"));
     }
 }
