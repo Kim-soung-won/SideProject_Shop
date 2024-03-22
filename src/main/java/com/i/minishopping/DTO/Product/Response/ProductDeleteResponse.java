@@ -9,8 +9,6 @@ import lombok.NoArgsConstructor;
 public class ProductDeleteResponse extends CommonResponse {
     private Long id;
     private String name;
-
-
     public ProductDeleteResponse(int status, String msg) {
         super(status, msg);
     }

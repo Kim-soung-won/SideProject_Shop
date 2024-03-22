@@ -38,9 +38,10 @@ public class ProductApiController {
     }
 
     @DeleteMapping("/api/DELETE/product")
-    public ProductDeleteResponse deleteProduct(@RequestBody DeleteProductRequest request){
+    public ResponseEntity<ProductDeleteResponse> deleteProduct(@RequestBody DeleteProductRequest request){
         Product product = productService.deleteOneProduct(request.getProduct_id());
-        return new ProductDeleteResponse(200,"삭제 되었습니다.",product.getProduct_id(), product.getName());
+        ProductDeleteResponse response = new ProductDeleteResponse(200, "success", product.getProduct_id(), product.getName());
+        return ResponseEntity.ok().body(response);
     }
 
     @PutMapping("/api/PUT/product")
