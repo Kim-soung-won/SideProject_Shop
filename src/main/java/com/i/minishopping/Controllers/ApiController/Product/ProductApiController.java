@@ -6,10 +6,9 @@ import com.i.minishopping.DTO.Product.Request.UpdateProductRequest;
 import com.i.minishopping.DTO.Product.Response.ProductDeleteResponse;
 import com.i.minishopping.Domains.EMBEDDED.Created;
 import com.i.minishopping.Domains.Product.Product;
-import com.i.minishopping.Domains.User.Member;
-import com.i.minishopping.Domains.User.UserDetail;
+import com.i.minishopping.Domains.User.UserInfo;
 import com.i.minishopping.Services.Product.ProductService;
-import com.i.minishopping.Services.User.UserService;
+import com.i.minishopping.Services.User.UserInfoService;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -25,14 +24,14 @@ import java.time.LocalDateTime;
 @RequiredArgsConstructor
 public class ProductApiController {
     private final ProductService productService;
-    private final UserService userService;
+    private final UserInfoService userService;
 
     @PostMapping("/api/POST/product")
     public ResponseEntity<Product> saveProduct(@RequestBody @Valid AddProductRequest request,
-                                               @AuthenticationPrincipal UserDetail user){
-        Member member = userService.findById(user.getId());
+                                               @AuthenticationPrincipal UserInfo user){
+        UserInfo info = userService.findById(user.getId());
 //        User user = userService.findById(authentication.getId());
-        Created created = new Created(member, LocalDateTime.now());
+        Created created = new Created(info, LocalDateTime.now());
         Product product = productService.saveOneProduct(request, created);
         return ResponseEntity.status(HttpStatus.CREATED).body(product);
     }
@@ -46,7 +45,7 @@ public class ProductApiController {
 
     @PutMapping("/api/PUT/product")
     public ResponseEntity<UpdateProductRequest> updateProduct(@RequestBody UpdateProductRequest request, HttpSession session){
-        Member user = (Member) session.getAttribute("user");
+        UserInfo user = (UserInfo) session.getAttribute("user");
         Created created = new Created(user, LocalDateTime.now());
         Product product = productService.updateOneProduct(request, created);
         return ResponseEntity.ok().body(request);

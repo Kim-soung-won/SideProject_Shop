@@ -1,6 +1,6 @@
 package com.i.minishopping.Services.User;
 
-import com.i.minishopping.Domains.User.Member;
+import com.i.minishopping.Domains.User.User_account;
 import com.i.minishopping.Repositorys.User.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.User;
@@ -18,7 +18,7 @@ public class MyUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         System.out.println("username = "+ username);
-        Member user = userRepository.findByEmail(username);
+        User_account user = userRepository.findByEmail(username);
         // 추가 인증 연산을 여기에 넣으면 될듯
         // 로그인 날짜 계산, 휴먼계정, 등등 처리
         return User.builder()

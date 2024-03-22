@@ -1,17 +1,12 @@
 package com.i.minishopping.Services.User;
 
 import com.i.minishopping.DTO.User.UserJoinRequest;
-import com.i.minishopping.DTO.User.UserLoginRequest;
-import com.i.minishopping.Domains.User.Member;
+import com.i.minishopping.Domains.User.User_account;
 import com.i.minishopping.Repositorys.User.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.scheduling.annotation.Async;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
-import java.time.LocalDateTime;
 
 @Service
 @RequiredArgsConstructor
@@ -19,25 +14,25 @@ public class UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
-    public Member checkEmail(String email){
+    public User_account checkEmail(String email){
         return userRepository.findByEmail(email);
     }
     public void saveUser(UserJoinRequest request) {
         userRepository.save(request.toEntity(passwordEncoder));
     }
 
-    public Member findById(Long id) {
+    public User_account findById(Long id) {
         return userRepository.findById(id).orElseThrow();
     }
-    public Member findByEmail(String email) {
+    public User_account findByEmail(String email) {
         return userRepository.findByEmail(email);
     }
 
 
 //    @Transactional
-//    public Member login(UserLoginRequest request){
+//    public User_account login(UserLoginRequest request){
 //        System.out.println("11111111111111111");
-//        Member member = userRepository.findByEmail(request.getEmail());
+//        User_account member = userRepository.findByEmail(request.getEmail());
 //        System.out.println("member" + member.getId());
 //        if (passwordEncoder.matches(member.getPassword(), request.getPassword()))
 //            return member;

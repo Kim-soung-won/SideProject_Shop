@@ -27,7 +27,7 @@ public class Product {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "brand_id", referencedColumnName = "brand_id")
-    private Brands brand_id;
+    private Brand brand_id;
 
     @Column(name = "pd_category")
     private String category;
@@ -40,7 +40,7 @@ public class Product {
     private int count_love;
 
     @Builder
-    public Product(String name, int price, Brands brand_id, String category, Created created){
+    public Product(String name, int price, Brand brand_id, String category, Created created){
         this.name = name;
         this.price = price;
         this.brand_id = brand_id;

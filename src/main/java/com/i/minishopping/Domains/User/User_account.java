@@ -12,10 +12,10 @@ import java.time.LocalDateTime;
 
 @Entity
 @Data
-@Table(name = "user")
+@Table(name = "user_account")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Member {
+public class User_account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
@@ -39,7 +39,7 @@ public class Member {
     private LocalDateTime lastLogin;
 
     @Builder
-    public Member(String email, String password, ROLE role, String pnum) {
+    public User_account(String email, String password, ROLE role, String pnum) {
         this.email = email;
         this.password = password;
         this.role = role;

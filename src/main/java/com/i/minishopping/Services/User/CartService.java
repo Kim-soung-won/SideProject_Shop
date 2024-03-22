@@ -5,8 +5,7 @@ import com.i.minishopping.Domains.EMBEDDED.Product_Detail_key;
 import com.i.minishopping.Domains.Product.Product;
 import com.i.minishopping.Domains.Product.ProductDetail;
 import com.i.minishopping.Domains.User.Cart;
-import com.i.minishopping.Domains.User.Member;
-import com.i.minishopping.Domains.User.UserLog;
+import com.i.minishopping.Domains.User.UserInfo;
 import com.i.minishopping.Repositorys.User.CartRepository;
 import com.i.minishopping.Services.Product.PdDetailService;
 import com.i.minishopping.Services.Product.ProductService;
@@ -24,17 +23,15 @@ public class CartService{
     private final CartRepository cartRepository;
     private final PdDetailService pdDetailService;
     private final ProductService productService;
-    private final UserService userService;
 
     @Transactional
-    public Cart saveCart(String email, Long id, String size , int count){
+    public Cart saveCart(UserInfo user, Long id, String size , int count){
         Product product = productService.findById(id);
         Product_Detail_key detailKey = new Product_Detail_key(product, size);
         ProductDetail pdDetail = pdDetailService.findById(detailKey);
         if(pdDetail == null){
             return null;
         }
-        Member user = userService.findByEmail(email);
         Cart_key key = new Cart_key(user, product, size);
         Cart cart = cartRepository.findById(key).orElse(null);
         if(cart == null){
@@ -52,8 +49,7 @@ public class CartService{
     }
 
     @Transactional
-    public int deleteCart(String email, Long id, String size){
-        Member user = userService.findByEmail(email);
+    public int deleteCart(UserInfo user, Long id, String size){
         Product product = productService.findById(id);
         Cart_key key = new Cart_key(user, product, size);
         Cart cart = cartRepository.findById(key).orElse(null);

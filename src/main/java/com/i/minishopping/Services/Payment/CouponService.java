@@ -1,7 +1,7 @@
 package com.i.minishopping.Services.Payment;
 
 import com.i.minishopping.DTO.Coupon.UpdateCouponRequest;
-import com.i.minishopping.Domains.Product.Brands;
+import com.i.minishopping.Domains.Product.Brand;
 import com.i.minishopping.Domains.Payment.Coupon;
 import com.i.minishopping.Domains.EMBEDDED.Created;
 import com.i.minishopping.Domains.Product.Product;
@@ -20,7 +20,7 @@ public class CouponService {
     private final ProductService productService;
 
     @Transactional
-    public Coupon saveCoupon(String name, int size, Brands brands, Created created){
+    public Coupon saveCoupon(String name, int size, Brand brands, Created created){
         return couponRepository.save(Coupon.builder()
                         .name(name)
                         .brand_id(brands)

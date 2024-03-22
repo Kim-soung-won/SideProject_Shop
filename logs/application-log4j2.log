@@ -3438,3 +3438,186 @@ java.sql.SQLSyntaxErrorException: Unknown column 'c1_0.user_id' in 'field list'
 2024-03-22 18:59:21.392 [ INFO] [ionShutdownHook] tainerEntityManagerFactoryBean : destroy              : 650        : Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-03-22 18:59:21.395 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 350        : HikariPool-1 - Shutdown initiated...
 2024-03-22 18:59:21.398 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 352        : HikariPool-1 - Shutdown completed.
+2024-03-22 19:30:51.166 [ INFO] [kground-preinit] o.h.v.i.u.Version              : <clinit>             : 21         : HV000001: Hibernate Validator 8.0.1.Final
+2024-03-22 19:30:51.286 [ INFO] [  restartedMain] sPropertyDefaultsPostProcessor : logTo                : 252        : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-03-22 19:30:51.286 [ INFO] [  restartedMain] sPropertyDefaultsPostProcessor : logTo                : 252        : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-03-22 19:30:52.064 [ INFO] [  restartedMain] epositoryConfigurationDelegate : gisterRepositoriesIn : 139        : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-22 19:30:52.136 [ INFO] [  restartedMain] epositoryConfigurationDelegate : gisterRepositoriesIn : 208        : Finished Spring Data repository scanning in 66 ms. Found 15 JPA repository interfaces.
+2024-03-22 19:30:52.608 [ INFO] [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : initialize           : 109        : Tomcat initialized with port 8080 (http)
+2024-03-22 19:30:52.617 [ INFO] [  restartedMain] o.a.c.h.Http11NioProtocol      : log                  : 173        : Initializing ProtocolHandler ["http-nio-8080"]
+2024-03-22 19:30:52.618 [ INFO] [  restartedMain] o.a.c.c.StandardService        : log                  : 173        : Starting service [Tomcat]
+2024-03-22 19:30:52.618 [ INFO] [  restartedMain] o.a.c.c.StandardEngine         : log                  : 173        : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-22 19:30:52.682 [ INFO] [  restartedMain] o.a.c.c.C.[.[.[/]              : log                  : 173        : Initializing Spring embedded WebApplicationContext
+2024-03-22 19:30:52.682 [ INFO] [  restartedMain] letWebServerApplicationContext : ebApplicationContext : 296        : Root WebApplicationContext: initialization completed in 1395 ms
+2024-03-22 19:30:52.800 [ INFO] [  restartedMain] c.z.h.HikariDataSource         : getConnection        : 110        : HikariPool-1 - Starting...
+2024-03-22 19:30:53.029 [ INFO] [  restartedMain] c.z.h.p.HikariPool             : checkFailFast        : 565        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@63db315e
+2024-03-22 19:30:53.031 [ INFO] [  restartedMain] c.z.h.HikariDataSource         : getConnection        : 123        : HikariPool-1 - Start completed.
+2024-03-22 19:30:53.065 [ INFO] [  restartedMain] o.h.j.i.u.LogHelper            : tenceUnitInformation : 31         : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-22 19:30:53.124 [ INFO] [  restartedMain] o.h.Version                    : logVersion           : 44         : HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-03-22 19:30:53.161 [ INFO] [  restartedMain] o.h.c.i.RegionFactoryInitiator : initiateService      : 50         : HHH000026: Second-level cache disabled
+2024-03-22 19:30:53.378 [ INFO] [  restartedMain] .j.p.SpringPersistenceUnitInfo : addTransformer       : 87         : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-22 19:30:53.444 [ WARN] [  restartedMain] o.h.o.deprecation              : constructDialect     : 153        : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-22 19:30:53.447 [ WARN] [  restartedMain] o.h.o.deprecation              : logSelectedDialect   : 101        : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-03-22 19:30:54.524 [ INFO] [  restartedMain] e.t.j.p.i.JtaPlatformInitiator : initiateService      : 58         : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-22 19:30:54.527 [ INFO] [  restartedMain] tainerEntityManagerFactoryBean : EntityManagerFactory : 437        : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-22 19:30:54.696 [ INFO] [  restartedMain] s.d.j.r.q.QueryEnhancerFactory : <clinit>             : 49         : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-03-22 19:30:55.740 [ INFO] [  restartedMain] s.w.DefaultSecurityFilterChain : <init>               : 54         : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2cfde9e7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@635d81c2, org.springframework.security.web.context.SecurityContextHolderFilter@510afa, org.springframework.security.web.header.HeaderWriterFilter@5360e067, org.springframework.web.filter.CorsFilter@58e32cef, org.springframework.security.web.authentication.logout.LogoutFilter@4b67c14d, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2ea2b4e2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6ee428af, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@65ae5c4f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@29a74e79, org.springframework.security.web.access.ExceptionTranslationFilter@7ccaa807, org.springframework.security.web.access.intercept.AuthorizationFilter@3dfe4238]
+2024-03-22 19:30:55.993 [ INFO] [  restartedMain] b.d.a.OptionalLiveReloadServer : startServer          : 59         : LiveReload server is running on port 35729
+2024-03-22 19:30:56.010 [ INFO] [  restartedMain] o.a.c.h.Http11NioProtocol      : log                  : 173        : Starting ProtocolHandler ["http-nio-8080"]
+2024-03-22 19:30:56.024 [ INFO] [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : start                : 241        : Tomcat started on port 8080 (http) with context path ''
+2024-03-22 19:30:56.036 [ INFO] [  restartedMain] o.s.b.SpringApplication        : run                  : 24         : Good Luck!
+2024-03-22 19:31:10.175 [ INFO] [nio-8080-exec-1] o.a.c.c.C.[.[.[/]              : log                  : 173        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-22 19:31:10.175 [ INFO] [nio-8080-exec-1] o.s.w.s.DispatcherServlet      : initServletBean      : 532        : Initializing Servlet 'dispatcherServlet'
+2024-03-22 19:31:10.176 [ INFO] [nio-8080-exec-1] o.s.w.s.DispatcherServlet      : initServletBean      : 554        : Completed initialization in 1 ms
+2024-03-22 19:32:02.102 [ INFO] [   File Watcher] PathChangeChangedEventListener : onApplicationEvent   : 211        : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-03-22 19:32:02.106 [ INFO] [       Thread-5] o.a.c.h.Http11NioProtocol      : log                  : 173        : Stopping ProtocolHandler ["http-nio-8080"]
+2024-03-22 19:32:02.115 [ INFO] [       Thread-5] tainerEntityManagerFactoryBean : destroy              : 650        : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-22 19:32:02.118 [ INFO] [       Thread-5] c.z.h.HikariDataSource         : close                : 350        : HikariPool-1 - Shutdown initiated...
+2024-03-22 19:32:02.124 [ INFO] [       Thread-5] c.z.h.HikariDataSource         : close                : 352        : HikariPool-1 - Shutdown completed.
+2024-03-22 19:32:02.453 [ INFO] [  restartedMain] epositoryConfigurationDelegate : gisterRepositoriesIn : 139        : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-22 19:32:02.486 [ INFO] [  restartedMain] epositoryConfigurationDelegate : gisterRepositoriesIn : 208        : Finished Spring Data repository scanning in 31 ms. Found 15 JPA repository interfaces.
+2024-03-22 19:32:02.569 [ INFO] [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : initialize           : 109        : Tomcat initialized with port 8080 (http)
+2024-03-22 19:32:02.570 [ INFO] [  restartedMain] o.a.c.h.Http11NioProtocol      : log                  : 173        : Initializing ProtocolHandler ["http-nio-8080"]
+2024-03-22 19:32:02.570 [ INFO] [  restartedMain] o.a.c.c.StandardService        : log                  : 173        : Starting service [Tomcat]
+2024-03-22 19:32:02.570 [ INFO] [  restartedMain] o.a.c.c.StandardEngine         : log                  : 173        : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-22 19:32:02.581 [ INFO] [  restartedMain] o.a.c.c.C.[.[.[/]              : log                  : 173        : Initializing Spring embedded WebApplicationContext
+2024-03-22 19:32:02.582 [ INFO] [  restartedMain] letWebServerApplicationContext : ebApplicationContext : 296        : Root WebApplicationContext: initialization completed in 360 ms
+2024-03-22 19:32:02.610 [ INFO] [  restartedMain] c.z.h.HikariDataSource         : getConnection        : 110        : HikariPool-2 - Starting...
+2024-03-22 19:32:02.662 [ INFO] [  restartedMain] c.z.h.p.HikariPool             : checkFailFast        : 565        : HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3c443a67
+2024-03-22 19:32:02.662 [ INFO] [  restartedMain] c.z.h.HikariDataSource         : getConnection        : 123        : HikariPool-2 - Start completed.
+2024-03-22 19:32:02.663 [ INFO] [  restartedMain] o.h.j.i.u.LogHelper            : tenceUnitInformation : 31         : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-22 19:32:02.665 [ INFO] [  restartedMain] o.h.c.i.RegionFactoryInitiator : initiateService      : 50         : HHH000026: Second-level cache disabled
+2024-03-22 19:32:02.670 [ INFO] [  restartedMain] .j.p.SpringPersistenceUnitInfo : addTransformer       : 87         : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-22 19:32:02.671 [ WARN] [  restartedMain] o.h.o.deprecation              : constructDialect     : 153        : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-22 19:32:02.672 [ WARN] [  restartedMain] o.h.o.deprecation              : logSelectedDialect   : 101        : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-03-22 19:32:02.839 [ INFO] [  restartedMain] e.t.j.p.i.JtaPlatformInitiator : initiateService      : 58         : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-22 19:32:02.839 [ INFO] [  restartedMain] tainerEntityManagerFactoryBean : EntityManagerFactory : 437        : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-22 19:32:03.178 [ INFO] [  restartedMain] s.w.DefaultSecurityFilterChain : <init>               : 54         : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@121a774b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5974a87, org.springframework.security.web.context.SecurityContextHolderFilter@6d94e027, org.springframework.security.web.header.HeaderWriterFilter@6d728972, org.springframework.web.filter.CorsFilter@72fb1fd6, org.springframework.security.web.authentication.logout.LogoutFilter@7aa3134c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@70c1236c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@287b5329, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@493c71f0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@bd898a6, org.springframework.security.web.access.ExceptionTranslationFilter@206829c7, org.springframework.security.web.access.intercept.AuthorizationFilter@22aaa62d]
+2024-03-22 19:32:03.252 [ INFO] [  restartedMain] b.d.a.OptionalLiveReloadServer : startServer          : 59         : LiveReload server is running on port 35729
+2024-03-22 19:32:03.260 [ INFO] [  restartedMain] o.a.c.h.Http11NioProtocol      : log                  : 173        : Starting ProtocolHandler ["http-nio-8080"]
+2024-03-22 19:32:03.262 [ INFO] [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : start                : 241        : Tomcat started on port 8080 (http) with context path ''
+2024-03-22 19:32:03.266 [ INFO] [  restartedMain] o.s.b.SpringApplication        : run                  : 24         : Good Luck!
+2024-03-22 19:32:03.269 [ INFO] [  restartedMain] EvaluationDeltaLoggingListener : onApplicationEvent   : 63         : Condition evaluation unchanged
+2024-03-22 19:32:11.228 [ INFO] [nio-8080-exec-6] o.a.c.c.C.[.[.[/]              : log                  : 173        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-22 19:32:11.228 [ INFO] [nio-8080-exec-6] o.s.w.s.DispatcherServlet      : initServletBean      : 532        : Initializing Servlet 'dispatcherServlet'
+2024-03-22 19:32:11.243 [ INFO] [nio-8080-exec-6] o.s.w.s.DispatcherServlet      : initServletBean      : 554        : Completed initialization in 1 ms
+2024-03-22 19:33:05.285 [ INFO] [ionShutdownHook] tainerEntityManagerFactoryBean : destroy              : 650        : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-22 19:33:05.286 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 350        : HikariPool-2 - Shutdown initiated...
+2024-03-22 19:33:05.287 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 352        : HikariPool-2 - Shutdown completed.
+2024-03-23 00:58:53.977 [ INFO] [kground-preinit] o.h.v.i.u.Version              : <clinit>             : 21         : HV000001: Hibernate Validator 8.0.1.Final
+2024-03-23 00:58:54.066 [ INFO] [  restartedMain] sPropertyDefaultsPostProcessor : logTo                : 252        : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-03-23 00:58:54.066 [ INFO] [  restartedMain] sPropertyDefaultsPostProcessor : logTo                : 252        : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-03-23 00:58:54.705 [ INFO] [  restartedMain] epositoryConfigurationDelegate : gisterRepositoriesIn : 139        : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-23 00:58:54.800 [ INFO] [  restartedMain] epositoryConfigurationDelegate : gisterRepositoriesIn : 208        : Finished Spring Data repository scanning in 85 ms. Found 15 JPA repository interfaces.
+2024-03-23 00:58:55.305 [ INFO] [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : initialize           : 109        : Tomcat initialized with port 8080 (http)
+2024-03-23 00:58:55.314 [ INFO] [  restartedMain] o.a.c.h.Http11NioProtocol      : log                  : 173        : Initializing ProtocolHandler ["http-nio-8080"]
+2024-03-23 00:58:55.316 [ INFO] [  restartedMain] o.a.c.c.StandardService        : log                  : 173        : Starting service [Tomcat]
+2024-03-23 00:58:55.316 [ INFO] [  restartedMain] o.a.c.c.StandardEngine         : log                  : 173        : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-23 00:58:55.365 [ INFO] [  restartedMain] o.a.c.c.C.[.[.[/]              : log                  : 173        : Initializing Spring embedded WebApplicationContext
+2024-03-23 00:58:55.365 [ INFO] [  restartedMain] letWebServerApplicationContext : ebApplicationContext : 296        : Root WebApplicationContext: initialization completed in 1298 ms
+2024-03-23 00:58:55.467 [ INFO] [  restartedMain] c.z.h.HikariDataSource         : getConnection        : 110        : HikariPool-1 - Starting...
+2024-03-23 00:58:55.638 [ INFO] [  restartedMain] c.z.h.p.HikariPool             : checkFailFast        : 565        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1fa02a6b
+2024-03-23 00:58:55.639 [ INFO] [  restartedMain] c.z.h.HikariDataSource         : getConnection        : 123        : HikariPool-1 - Start completed.
+2024-03-23 00:58:55.672 [ INFO] [  restartedMain] o.h.j.i.u.LogHelper            : tenceUnitInformation : 31         : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-23 00:58:55.734 [ INFO] [  restartedMain] o.h.Version                    : logVersion           : 44         : HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-03-23 00:58:55.765 [ INFO] [  restartedMain] o.h.c.i.RegionFactoryInitiator : initiateService      : 50         : HHH000026: Second-level cache disabled
+2024-03-23 00:58:56.000 [ INFO] [  restartedMain] .j.p.SpringPersistenceUnitInfo : addTransformer       : 87         : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-23 00:58:56.062 [ WARN] [  restartedMain] o.h.o.deprecation              : constructDialect     : 153        : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-23 00:58:56.063 [ WARN] [  restartedMain] o.h.o.deprecation              : logSelectedDialect   : 101        : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-03-23 00:58:56.919 [ INFO] [  restartedMain] e.t.j.p.i.JtaPlatformInitiator : initiateService      : 58         : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-23 00:58:56.922 [ INFO] [  restartedMain] tainerEntityManagerFactoryBean : EntityManagerFactory : 437        : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-23 00:58:57.114 [ INFO] [  restartedMain] s.d.j.r.q.QueryEnhancerFactory : <clinit>             : 49         : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-03-23 00:58:57.403 [ WARN] [  restartedMain] letWebServerApplicationContext : refresh              : 632        : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'securityConfig' defined in file [C:\Users\KIMSW\Desktop\project\SidePJ_Shop\build\classes\java\main\com\i\minishopping\Config\Security\SecurityConfig.class]: Unsatisfied dependency expressed through constructor parameter 2: Error creating bean with name 'userService' defined in file [C:\Users\KIMSW\Desktop\project\SidePJ_Shop\build\classes\java\main\com\i\minishopping\Services\User\UserService.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'securityConfig': Requested bean is currently in creation: Is there an unresolvable circular reference?
+2024-03-23 00:58:57.403 [ INFO] [  restartedMain] tainerEntityManagerFactoryBean : destroy              : 650        : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-23 00:58:57.405 [ INFO] [  restartedMain] c.z.h.HikariDataSource         : close                : 350        : HikariPool-1 - Shutdown initiated...
+2024-03-23 00:58:57.412 [ INFO] [  restartedMain] c.z.h.HikariDataSource         : close                : 352        : HikariPool-1 - Shutdown completed.
+2024-03-23 00:58:57.413 [ INFO] [  restartedMain] o.a.c.c.StandardService        : log                  : 173        : Stopping service [Tomcat]
+2024-03-23 00:58:57.421 [ INFO] [  restartedMain] onditionEvaluationReportLogger : logMessage           : 82         : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-03-23 00:58:57.438 [ERROR] [  restartedMain] LoggingFailureAnalysisReporter : report               : 40         : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The dependencies of some of the beans in the application context form a cycle:
+
+┌─────┐
+|  securityConfig defined in file [C:\Users\KIMSW\Desktop\project\SidePJ_Shop\build\classes\java\main\com\i\minishopping\Config\Security\SecurityConfig.class]
+↑     ↓
+|  userService defined in file [C:\Users\KIMSW\Desktop\project\SidePJ_Shop\build\classes\java\main\com\i\minishopping\Services\User\UserService.class]
+└─────┘
+
+
+Action:
+
+Relying upon circular references is discouraged and they are prohibited by default. Update your application to remove the dependency cycle between beans. As a last resort, it may be possible to break the cycle automatically by setting spring.main.allow-circular-references to true.
+
+2024-03-23 01:03:11.122 [ INFO] [kground-preinit] o.h.v.i.u.Version              : <clinit>             : 21         : HV000001: Hibernate Validator 8.0.1.Final
+2024-03-23 01:03:11.184 [ INFO] [  restartedMain] sPropertyDefaultsPostProcessor : logTo                : 252        : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-03-23 01:03:11.184 [ INFO] [  restartedMain] sPropertyDefaultsPostProcessor : logTo                : 252        : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-03-23 01:03:11.677 [ INFO] [  restartedMain] epositoryConfigurationDelegate : gisterRepositoriesIn : 139        : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-23 01:03:11.738 [ INFO] [  restartedMain] epositoryConfigurationDelegate : gisterRepositoriesIn : 208        : Finished Spring Data repository scanning in 56 ms. Found 15 JPA repository interfaces.
+2024-03-23 01:03:12.135 [ INFO] [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : initialize           : 109        : Tomcat initialized with port 8080 (http)
+2024-03-23 01:03:12.146 [ INFO] [  restartedMain] o.a.c.h.Http11NioProtocol      : log                  : 173        : Initializing ProtocolHandler ["http-nio-8080"]
+2024-03-23 01:03:12.148 [ INFO] [  restartedMain] o.a.c.c.StandardService        : log                  : 173        : Starting service [Tomcat]
+2024-03-23 01:03:12.148 [ INFO] [  restartedMain] o.a.c.c.StandardEngine         : log                  : 173        : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-23 01:03:12.204 [ INFO] [  restartedMain] o.a.c.c.C.[.[.[/]              : log                  : 173        : Initializing Spring embedded WebApplicationContext
+2024-03-23 01:03:12.205 [ INFO] [  restartedMain] letWebServerApplicationContext : ebApplicationContext : 296        : Root WebApplicationContext: initialization completed in 1020 ms
+2024-03-23 01:03:12.316 [ INFO] [  restartedMain] c.z.h.HikariDataSource         : getConnection        : 110        : HikariPool-1 - Starting...
+2024-03-23 01:03:12.512 [ INFO] [  restartedMain] c.z.h.p.HikariPool             : checkFailFast        : 565        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1fa02a6b
+2024-03-23 01:03:12.514 [ INFO] [  restartedMain] c.z.h.HikariDataSource         : getConnection        : 123        : HikariPool-1 - Start completed.
+2024-03-23 01:03:12.541 [ INFO] [  restartedMain] o.h.j.i.u.LogHelper            : tenceUnitInformation : 31         : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-23 01:03:12.588 [ INFO] [  restartedMain] o.h.Version                    : logVersion           : 44         : HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-03-23 01:03:12.613 [ INFO] [  restartedMain] o.h.c.i.RegionFactoryInitiator : initiateService      : 50         : HHH000026: Second-level cache disabled
+2024-03-23 01:03:12.791 [ INFO] [  restartedMain] .j.p.SpringPersistenceUnitInfo : addTransformer       : 87         : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-23 01:03:12.844 [ WARN] [  restartedMain] o.h.o.deprecation              : constructDialect     : 153        : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-23 01:03:12.845 [ WARN] [  restartedMain] o.h.o.deprecation              : logSelectedDialect   : 101        : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-03-23 01:03:13.595 [ INFO] [  restartedMain] e.t.j.p.i.JtaPlatformInitiator : initiateService      : 58         : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-23 01:03:13.597 [ INFO] [  restartedMain] tainerEntityManagerFactoryBean : EntityManagerFactory : 437        : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-23 01:03:13.753 [ INFO] [  restartedMain] s.d.j.r.q.QueryEnhancerFactory : <clinit>             : 49         : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-03-23 01:03:14.493 [ INFO] [  restartedMain] s.w.DefaultSecurityFilterChain : <init>               : 54         : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7ae39819, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5b9f1cc3, org.springframework.security.web.context.SecurityContextHolderFilter@635d81c2, org.springframework.security.web.header.HeaderWriterFilter@2ea2b4e2, org.springframework.web.filter.CorsFilter@ead3607, org.springframework.security.web.authentication.logout.LogoutFilter@df9c793, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5310cef1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@29a74e79, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6ad6387b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@61330e77, org.springframework.security.web.access.ExceptionTranslationFilter@328b81b, org.springframework.security.web.access.intercept.AuthorizationFilter@5bef5650]
+2024-03-23 01:03:14.699 [ INFO] [  restartedMain] b.d.a.OptionalLiveReloadServer : startServer          : 59         : LiveReload server is running on port 35729
+2024-03-23 01:03:14.712 [ INFO] [  restartedMain] o.a.c.h.Http11NioProtocol      : log                  : 173        : Starting ProtocolHandler ["http-nio-8080"]
+2024-03-23 01:03:14.725 [ INFO] [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : start                : 241        : Tomcat started on port 8080 (http) with context path ''
+2024-03-23 01:03:14.734 [ INFO] [  restartedMain] o.s.b.SpringApplication        : run                  : 24         : Good Luck!
+2024-03-23 01:03:19.035 [ INFO] [ionShutdownHook] tainerEntityManagerFactoryBean : destroy              : 650        : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-23 01:03:19.037 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 350        : HikariPool-1 - Shutdown initiated...
+2024-03-23 01:03:19.040 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 352        : HikariPool-1 - Shutdown completed.
+2024-03-23 01:26:42.017 [ INFO] [kground-preinit] o.h.v.i.u.Version              : <clinit>             : 21         : HV000001: Hibernate Validator 8.0.1.Final
+2024-03-23 01:26:42.107 [ INFO] [  restartedMain] sPropertyDefaultsPostProcessor : logTo                : 252        : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-03-23 01:26:42.108 [ INFO] [  restartedMain] sPropertyDefaultsPostProcessor : logTo                : 252        : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-03-23 01:26:42.628 [ INFO] [  restartedMain] epositoryConfigurationDelegate : gisterRepositoriesIn : 139        : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-23 01:26:42.686 [ INFO] [  restartedMain] epositoryConfigurationDelegate : gisterRepositoriesIn : 208        : Finished Spring Data repository scanning in 52 ms. Found 15 JPA repository interfaces.
+2024-03-23 01:26:43.092 [ INFO] [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : initialize           : 109        : Tomcat initialized with port 8080 (http)
+2024-03-23 01:26:43.100 [ INFO] [  restartedMain] o.a.c.h.Http11NioProtocol      : log                  : 173        : Initializing ProtocolHandler ["http-nio-8080"]
+2024-03-23 01:26:43.101 [ INFO] [  restartedMain] o.a.c.c.StandardService        : log                  : 173        : Starting service [Tomcat]
+2024-03-23 01:26:43.101 [ INFO] [  restartedMain] o.a.c.c.StandardEngine         : log                  : 173        : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-23 01:26:43.143 [ INFO] [  restartedMain] o.a.c.c.C.[.[.[/]              : log                  : 173        : Initializing Spring embedded WebApplicationContext
+2024-03-23 01:26:43.144 [ INFO] [  restartedMain] letWebServerApplicationContext : ebApplicationContext : 296        : Root WebApplicationContext: initialization completed in 1036 ms
+2024-03-23 01:26:43.228 [ INFO] [  restartedMain] c.z.h.HikariDataSource         : getConnection        : 110        : HikariPool-1 - Starting...
+2024-03-23 01:26:43.405 [ INFO] [  restartedMain] c.z.h.p.HikariPool             : checkFailFast        : 565        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@326a80e1
+2024-03-23 01:26:43.407 [ INFO] [  restartedMain] c.z.h.HikariDataSource         : getConnection        : 123        : HikariPool-1 - Start completed.
+2024-03-23 01:26:43.437 [ INFO] [  restartedMain] o.h.j.i.u.LogHelper            : tenceUnitInformation : 31         : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-23 01:26:43.482 [ INFO] [  restartedMain] o.h.Version                    : logVersion           : 44         : HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-03-23 01:26:43.506 [ INFO] [  restartedMain] o.h.c.i.RegionFactoryInitiator : initiateService      : 50         : HHH000026: Second-level cache disabled
+2024-03-23 01:26:43.659 [ INFO] [  restartedMain] .j.p.SpringPersistenceUnitInfo : addTransformer       : 87         : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-23 01:26:43.712 [ WARN] [  restartedMain] o.h.o.deprecation              : constructDialect     : 153        : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-23 01:26:43.713 [ WARN] [  restartedMain] o.h.o.deprecation              : logSelectedDialect   : 101        : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-03-23 01:26:44.449 [ INFO] [  restartedMain] e.t.j.p.i.JtaPlatformInitiator : initiateService      : 58         : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-23 01:26:44.451 [ INFO] [  restartedMain] tainerEntityManagerFactoryBean : EntityManagerFactory : 437        : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-23 01:26:44.604 [ INFO] [  restartedMain] s.d.j.r.q.QueryEnhancerFactory : <clinit>             : 49         : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-03-23 01:26:45.571 [ INFO] [  restartedMain] s.w.DefaultSecurityFilterChain : <init>               : 54         : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4fd9ca58, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7fafc17c, org.springframework.security.web.context.SecurityContextHolderFilter@2a16c388, org.springframework.security.web.header.HeaderWriterFilter@1f9da853, org.springframework.web.filter.CorsFilter@1ef22b16, org.springframework.security.web.authentication.logout.LogoutFilter@27165a89, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@72f269c6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@422ee349, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@58974016, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2058eefc, org.springframework.security.web.access.ExceptionTranslationFilter@7f86f2fe, org.springframework.security.web.access.intercept.AuthorizationFilter@4a68c0b]
+2024-03-23 01:26:45.773 [ INFO] [  restartedMain] b.d.a.OptionalLiveReloadServer : startServer          : 59         : LiveReload server is running on port 35729
+2024-03-23 01:26:45.788 [ INFO] [  restartedMain] o.a.c.h.Http11NioProtocol      : log                  : 173        : Starting ProtocolHandler ["http-nio-8080"]
+2024-03-23 01:26:45.807 [ INFO] [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : start                : 241        : Tomcat started on port 8080 (http) with context path ''
+2024-03-23 01:26:45.817 [ INFO] [  restartedMain] o.s.b.SpringApplication        : run                  : 24         : Good Luck!
+2024-03-23 01:26:59.684 [ INFO] [nio-8080-exec-1] o.a.c.c.C.[.[.[/]              : log                  : 173        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-23 01:26:59.684 [ INFO] [nio-8080-exec-1] o.s.w.s.DispatcherServlet      : initServletBean      : 532        : Initializing Servlet 'dispatcherServlet'
+2024-03-23 01:26:59.686 [ INFO] [nio-8080-exec-1] o.s.w.s.DispatcherServlet      : initServletBean      : 554        : Completed initialization in 1 ms
+2024-03-23 01:27:55.120 [ INFO] [ionShutdownHook] tainerEntityManagerFactoryBean : destroy              : 650        : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-23 01:27:55.122 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 350        : HikariPool-1 - Shutdown initiated...
+2024-03-23 01:27:55.127 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 352        : HikariPool-1 - Shutdown completed.

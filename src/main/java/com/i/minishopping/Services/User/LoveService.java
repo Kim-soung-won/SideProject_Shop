@@ -4,10 +4,9 @@ import com.i.minishopping.Domains.EMBEDDED.Love_key;
 import com.i.minishopping.Domains.ENUM.DOIT;
 import com.i.minishopping.Domains.User.Love;
 import com.i.minishopping.Domains.Product.Product;
-import com.i.minishopping.Domains.User.Member;
+import com.i.minishopping.Domains.User.UserInfo;
 import com.i.minishopping.Repositorys.User.LoveRepository;
 import com.i.minishopping.Services.Product.ProductService;
-import com.i.minishopping.Services.User.UserLogService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -38,12 +37,12 @@ public class LoveService {
                 .build());
     }
     @Transactional
-    public Love clickLove(Member user, Product product) {
+    public Love clickLove(UserInfo user, Product product) {
         Love_key key = new Love_key(user, product);
         Love love = findById(key);
         if (love == null) {
             productService.count_Love(1, product.getProduct_id());
-            log.saveUserLog(user.getEmail(), DOIT.LOVE);
+            log.saveUserLog(user.getId(),user.getName(), DOIT.LOVE);
             return saveLove(key);
         } else {
             deleteLove(love.getLove_key());

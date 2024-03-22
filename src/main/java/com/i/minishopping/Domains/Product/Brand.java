@@ -1,5 +1,6 @@
 package com.i.minishopping.Domains.Product;
 
+import com.i.minishopping.Domains.EMBEDDED.Created;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,11 +10,11 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "brands")
+@Table(name = "brand")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Brands {
+public class Brand {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long brand_id;
@@ -21,11 +22,11 @@ public class Brands {
     @Column(name = "brand_name", nullable = false, unique = true)
     private String brand_name;
 
-    @Column(name = "created_at")
-    private LocalDateTime created_at;
+    @Embedded
+    private Created created;
     @Builder
-    public Brands(String brand_name){
+    public Brand(String brand_name, Created created){
         this.brand_name = brand_name;
-        this.created_at = LocalDateTime.now();
+        this.created = created;
     }
 }

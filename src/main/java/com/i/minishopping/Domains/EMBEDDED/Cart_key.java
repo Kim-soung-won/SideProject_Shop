@@ -1,7 +1,7 @@
 package com.i.minishopping.Domains.EMBEDDED;
 
 import com.i.minishopping.Domains.Product.Product;
-import com.i.minishopping.Domains.User.Member;
+import com.i.minishopping.Domains.User.UserInfo;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,7 +17,7 @@ public class Cart_key implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "created_who", referencedColumnName = "user_id")
-    private Member user_id;
+    private UserInfo user_id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id", referencedColumnName = "product_id")

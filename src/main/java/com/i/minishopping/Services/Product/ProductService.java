@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class ProductService {
     private final ProductRepository productRepository;
-    private final BrandsService brandsService;
+    private final BrandService brandsService;
     @Transactional
     public void saveManyProduct(Product product){
         productRepository.save(product);

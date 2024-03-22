@@ -3,7 +3,7 @@ package com.i.minishopping.Controllers.ApiController.Product;
 import com.i.minishopping.DTO.Product.Request.AddCommentRequest;
 import com.i.minishopping.Domains.EMBEDDED.Created;
 import com.i.minishopping.Domains.Product.Comment;
-import com.i.minishopping.Domains.User.Member;
+import com.i.minishopping.Domains.User.UserInfo;
 import com.i.minishopping.Services.Product.CommentService;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
@@ -23,7 +23,7 @@ public class PdCommentApiController {
     @PostMapping("/api/POST/comment")
     private ResponseEntity<AddCommentRequest> saveComment(@RequestBody @Valid AddCommentRequest request
     , HttpSession session){
-        Member user = (Member) session.getAttribute("user");
+        UserInfo user = (UserInfo) session.getAttribute("user");
         Created created = new Created(user, LocalDateTime.now());
         Comment comment = commentService.saveComment(request, created);
         return ResponseEntity.ok().body(request);

@@ -1,28 +1,30 @@
 package com.i.minishopping.Services.Product;
 
-import com.i.minishopping.Domains.Product.Brands;
+import com.i.minishopping.Domains.EMBEDDED.Created;
+import com.i.minishopping.Domains.Product.Brand;
 import com.i.minishopping.Repositorys.Product.BrandsRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class BrandsService {
+public class BrandService {
     private final BrandsRepository brandsRepository;
 
-    public Brands saveBrand(String brandName){
+    public Brand saveBrand(String brandName, Created created){
         return brandsRepository.save(
-                Brands.builder()
+                Brand.builder()
                         .brand_name(brandName)
+                        .created(created)
                         .build()
         );
     }
-    public Brands findById(Long id){
+    public Brand findById(Long id){
         return brandsRepository.findById(id).orElse(null);
     }
 
-    public Brands findByName(String brandName){
+    public Brand findByName(String brandName){
         return brandsRepository.findByBrandName(brandName);
-//      @Query("SELECT b FROM Brands b WHERE b.brand_name = ?1")
+//      @Query("SELECT b FROM Brand b WHERE b.brand_name = ?1")
     }
 }

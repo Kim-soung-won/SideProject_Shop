@@ -3,7 +3,7 @@ package com.i.minishopping.Controllers.ApiController.Product;
 import com.i.minishopping.Domains.EMBEDDED.Created;
 import com.i.minishopping.Domains.Product.Product;
 import com.i.minishopping.Services.Product.ProductService;
-import com.i.minishopping.Services.User.UserService;
+import com.i.minishopping.Services.User.UserInfoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class AiSettingApiController {
 
     private final ProductService productService;
-    private final UserService userService;
+    private final UserInfoService userService;
     private static ArrayList<String>[] arr = new ArrayList[10];
 
 
