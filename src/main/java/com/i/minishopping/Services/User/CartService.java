@@ -32,14 +32,12 @@ public class CartService{
         Product_Detail_key detailKey = new Product_Detail_key(product, size);
         ProductDetail pdDetail = pdDetailService.findById(detailKey);
         if(pdDetail == null){
-            logger.error("not found : Product and size");
-            throw new IllegalArgumentException("not found : ProductDetail");
+            return null;
         }
         Member user = userService.findByEmail(email);
         Cart_key key = new Cart_key(user, product, size);
         Cart cart = cartRepository.findById(key).orElse(null);
         if(cart == null){
-            logger.info("create cart who : " + email);
             return cartRepository.save(Cart.builder()
                     .key(key)
                     .count(count)
@@ -54,10 +52,16 @@ public class CartService{
     }
 
     @Transactional
-    public void deleteCart(Cart_key key){
-        Cart cart = cartRepository.findById(key)
-                .orElseThrow(()->new IllegalArgumentException("not found : Cart"));
+    public int deleteCart(String email, Long id, String size){
+        Member user = userService.findByEmail(email);
+        Product product = productService.findById(id);
+        Cart_key key = new Cart_key(user, product, size);
+        Cart cart = cartRepository.findById(key).orElse(null);
+        if(cart==null){
+            return 400;
+        }
         cartRepository.delete(cart);
+        return 202;
     }
 }
 

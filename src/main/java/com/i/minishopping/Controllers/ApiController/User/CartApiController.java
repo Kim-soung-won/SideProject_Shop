@@ -3,6 +3,7 @@ package com.i.minishopping.Controllers.ApiController.User;
 import com.i.minishopping.DTO.Cart.AddCartRequest;
 import com.i.minishopping.DTO.Cart.CartResponse;
 import com.i.minishopping.DTO.Cart.DeleteCartRequest;
+import com.i.minishopping.DTO.Common.CommonResponse;
 import com.i.minishopping.Domains.EMBEDDED.Cart_key;
 import com.i.minishopping.Domains.User.Cart;
 import com.i.minishopping.Domains.User.Member;
@@ -37,7 +38,12 @@ public class CartApiController {
         Long product_id = request.getProduct_id();
         String size = request.getSize();
         Cart cart = cartService.saveCart(email, product_id, size, request.getCount());
-        CartResponse response = new CartResponse(200, "장바구니에 추가되었습니다.", cart.getKey().getProduct_id().getName());
+        CartResponse response = new CartResponse(400, "상품이 존재하지 않습니다.", "");
+        if(cart == null){
+            logger.error("not found : Product and size");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+        }
+        response = new CartResponse(200, "장바구니에 추가되었습니다.", cart.getKey().getProduct_id().getName());
         if(cart.getCount() != request.getCount()) {
             response = new CartResponse(201, "장바구니에 추가되었습니다. 기존 상품 수량이 증가되었습니다.", cart.getKey().getProduct_id().getName());
             logger.info("add cart count"+cart.getKey().getProduct_id().getName());
@@ -48,11 +54,11 @@ public class CartApiController {
 
 
     @DeleteMapping("/api/DELETE/cart")
-    public void deleteCart(@RequestBody @Valid DeleteCartRequest request, HttpSession session){
-        Member user = (Member) session.getAttribute("user");
-        Cart_key key = new Cart_key(user,
-                productService.findById(request.getProduct_id()),
-                request.getSize());
-        cartService.deleteCart(key);
+    public ResponseEntity<CommonResponse> deleteCart(@RequestBody @Valid DeleteCartRequest request){
+        int status = cartService.deleteCart("hello@naver.com", request.getProduct_id(), request.getSize());
+        if(status == 400){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new CommonResponse(status, "장바구니에 상품이 존재하지 않습니다."));
+        }
+        return ResponseEntity.ok().body(new CommonResponse(status, "장바구니에서 삭제되었습니다."));
     }
 }
