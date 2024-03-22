@@ -39,6 +39,7 @@ public class UserApiController {
     }
 
 
+
     @PostMapping("/test/async")
     public void asyncTest() {
         userService.async();

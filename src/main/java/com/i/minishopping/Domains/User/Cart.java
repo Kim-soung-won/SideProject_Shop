@@ -26,4 +26,9 @@ public class Cart {
         this.key = key;
         this.count = count;
     }
+
+    public Cart addCount(int count){
+        this.count += count;
+        return this;
+    }
 }

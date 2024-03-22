@@ -34,7 +34,7 @@ function GetListRequest(url){
             const productDataContainer = document.getElementById('field');
             // 데이터 배열을 순회하면서 각 항목을 HTML로 변환
             let productsHtml = data.map(item => {
-                let rand = Math.floor(Math.random() *7)
+                let rand = Math.floor(Math.random() *10)
                 let urlImg
                 switch(rand){
                     case 0 : urlImg = "/IMG/ang.gif"; break;
@@ -44,6 +44,9 @@ function GetListRequest(url){
                     case 4 : urlImg = "/IMG/sodosodo.gif"; break;
                     case 5 : urlImg = "/IMG/모코코.gif"; break;
                     case 6 : urlImg = "/IMG/thanks.gif"; break;
+                    case 7 : urlImg = "/IMG/rabbit.gif"; break;
+                    case 8 : urlImg = "/IMG/엉엉.gif"; break;
+                    case 9 : urlImg = "/IMG/잘있어순무.png"; break;
                 }
                 return `
                 <article class="bg-white shadow-md rounded overflow-hidden">

@@ -16,7 +16,7 @@ import java.io.Serializable;
 public class Cart_key implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
+    @JoinColumn(name = "created_who", referencedColumnName = "user_id")
     private Member user_id;
 
     @ManyToOne(fetch = FetchType.LAZY)

@@ -24,6 +24,12 @@ public class PdDetailService {
                 .beforeCount(beforeCount)
                 .build());
     }
+
+    @Transactional
+    public ProductDetail findById(Product_Detail_key key) {
+        return pdDetailRepository.findById(key).orElse(null);
+    }
+
     @Transactional
     public void sellCount(int count, Product_Detail_key key) {
         ProductDetail productDetail = pdDetailRepository.findById(key).

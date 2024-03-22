@@ -27,7 +27,7 @@ public class LoveApiController {
         Product product = productService.findById(request.getProduct_id());
         Member user = (Member) session.getAttribute("user");
         Love love = loveService.clickLove(user, product);
-        if(love == null) return ResponseEntity.ok().body(new CommonResponse(200,"좋아요 해제"));
+        if(love == null) return ResponseEntity.ok().body(new CommonResponse(202,"좋아요 해제"));
         return ResponseEntity.ok().body(new CommonResponse(200,"좋아요!!"));
     }
 }
