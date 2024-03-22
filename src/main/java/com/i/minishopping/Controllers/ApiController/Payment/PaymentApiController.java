@@ -51,7 +51,7 @@ public class PaymentApiController {
 
         Product_log_key key2 = new Product_log_key(product, created);
         pdLogService.saveLog(key2, size, count*(-1));
-        log.saveUserLog(user.getId(), DOIT.PAYMENT);
+        log.saveUserLog(user.getEmail(), DOIT.PAYMENT);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(request);
     }

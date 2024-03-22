@@ -19,7 +19,7 @@ public class UserLog {
     private Long id;
 
     @Column(name = "created_who")
-    private Long user_id;
+    private String user_email;
 
     @Column(name = "created_at")
     private LocalDateTime created_at;
@@ -30,8 +30,8 @@ public class UserLog {
 
 
     @Builder
-    private UserLog(Long user_id, LocalDateTime created_at , DOIT doit){
-        this.user_id = user_id;
+    private UserLog(String user_email, LocalDateTime created_at , DOIT doit){
+        this.user_email = user_email;
         this.created_at = created_at;
         this.doit = doit;
     }

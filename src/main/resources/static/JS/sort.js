@@ -34,10 +34,14 @@ function GetListRequest(url){
             const productDataContainer = document.getElementById('field');
             // 데이터 배열을 순회하면서 각 항목을 HTML로 변환
             let productsHtml = data.map(item => {
+                let rand = Math.random()
+                let urlImg
+                if(rand > 0.5) urlImg = "/IMG/ang.gif"
+                else urlImg = "/IMG/thanks.gif"
                 return `
                 <article class="bg-white shadow-md rounded overflow-hidden">
 <!--                "https://source.unsplash.com/random/300x300?clothes&sig=${item.id}"-->
-                    <img src="/IMG/thanks.gif"
+                    <img src="${urlImg}"
                          alt="Fashion item" class="w-full h-64 object-cover"
                          onclick="location.href='/product/${item.id}'">
                     <div class="p-4">

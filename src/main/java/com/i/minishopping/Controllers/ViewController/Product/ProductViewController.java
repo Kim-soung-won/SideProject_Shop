@@ -5,6 +5,9 @@ import com.i.minishopping.Domains.Product.Product;
 import com.i.minishopping.Services.Product.ProductService;
 import com.i.minishopping.Services.Product.ProductViewService;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.SpringApplication;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -23,6 +26,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ProductViewController {
 
+    private final Logger logger = LoggerFactory.getLogger(SpringApplication.class);
     private final ProductViewService productViewService;
     private final ProductService productService;
     private final int PAGINGSIZE = 10;
@@ -33,11 +37,14 @@ public class ProductViewController {
     }
     @GetMapping("/product/{id}")
     public String getProductDetail(@PathVariable Long id, Model model, Authentication authentication){
-        System.out.println("name : "+authentication.getName());
-        System.out.println("prin : "+authentication.getPrincipal());
-        System.out.println("detail : "+authentication.getDetails());
+        if(authentication == null){
+            Product product = productService.findById(id);
+            model.addAttribute("product",product);
+            return "Main/Detail";
+        }
         Product product = productService.findById(id);
         model.addAttribute("product",product);
+        logger.info("search Product : "+product.getName() + ", who : " + authentication.getName());
         return "Main/Detail";
     }
     @PostMapping("/product/category")

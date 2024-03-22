@@ -13,9 +13,9 @@ import java.time.LocalDateTime;
 public class UserLogService {
     private final UserLogRepository userLogRepository;
 
-    public void saveUserLog(Long id, DOIT action) {
+    public void saveUserLog(String email, DOIT action) {
         userLogRepository.save(UserLog.builder()
-                        .user_id(id)
+                        .user_email(email)
                         .created_at(LocalDateTime.now())
                         .doit(action)
                 .build());

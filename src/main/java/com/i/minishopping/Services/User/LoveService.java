@@ -43,7 +43,7 @@ public class LoveService {
         Love love = findById(key);
         if (love == null) {
             productService.count_Love(1, product.getProduct_id());
-            log.saveUserLog(user.getId(), DOIT.LOVE);
+            log.saveUserLog(user.getEmail(), DOIT.LOVE);
             return saveLove(key);
         } else {
             deleteLove(love.getLove_key());
