@@ -33,7 +33,7 @@ public class ProductViewController {
     private final ProductService productService;
     private final int PAGINGSIZE = 30;
 
-    @GetMapping("/productList")
+    @GetMapping("/")
     public String getProductList(){
         return "Main/Main";
     }
