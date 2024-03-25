@@ -30,7 +30,7 @@ public class CartApiController {
         System.out.println("cart");
         UserInfo user = (UserInfo) session.getAttribute("user");
         if(user == null){
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new CartResponse(400, "로그인이 필요합니다.", ""));
+            return ResponseEntity.ok().body(new CartResponse(666, "로그인이 필요합니다.", ""));
         }
         Long product_id = request.getProduct_id();
         String size = request.getSize();

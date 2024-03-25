@@ -11,6 +11,7 @@ import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,10 +23,14 @@ public class LoveApiController {
     private final ProductService productService;
 
 
-    @PutMapping("/api/PUT/love")
+    @PostMapping("/api/PUT/love")
     public ResponseEntity<CommonResponse> clickLove(@RequestBody @Valid AddLoveRequest request, HttpSession session) {
+        System.out.println("clickLove");
         Product product = productService.findById(request.getProduct_id());
         UserInfo user = (UserInfo) session.getAttribute("user");
+        if(user==null){
+            return ResponseEntity.ok().body(new CommonResponse(666,"로그인이 필요합니다."));
+        }
         Love love = loveService.clickLove(user, product);
         if(love == null) return ResponseEntity.ok().body(new CommonResponse(202,"좋아요 해제"));
         return ResponseEntity.ok().body(new CommonResponse(200,"좋아요!!"));
