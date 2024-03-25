@@ -1,12 +1,9 @@
 package com.i.minishopping.Domains.User;
 
-import com.i.minishopping.Domains.ENUM.SEX;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.List;
 
 @Entity
 @Data
@@ -24,15 +21,5 @@ public class UserInfo {
 
     @Column(name = "name")
     private String name;
-
-    @Column(name = "height")
-    private int height;
-
-    @Column(name = "weight")
-    private int weight;
-
-    @Column(name = "sex")
-    @Enumerated(EnumType.STRING)
-    private SEX sex;
 
 }

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion Gallery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Additional styles if needed */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+    </style>
+    <link rel="stylesheet" href="/CSS/loginStyle.css">
+</head>
+<body class="bg-gray-50">
+
+<!-- Header -->
+<header class="bg-blue-600 p-4 text-white">
+    <div class="container mx-auto flex justify-between items-center">
+        <h1 class="text-xl font-bold"><a href="/productList"/>Fashion Gallery</h1>
+        <nav>
+            <ul class="flex space-x-4">
+                <li><a href="/productList" class="hover:text-blue-300">Home</a></li>
+                <li><a href="#" class="hover:text-blue-300">Men</a></li>
+                <li><a href="#" class="hover:text-blue-300">Women</a></li>
+                <li><a href="#" class="hover:text-blue-300">Kids</a></li>
+                <li><a href="#" class="hover:text-blue-300">장바구니</a></li>
+                <li class="login-btn"><a href="#" class="hover:text-blue-300">Login</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Login Modal -->
+<div class="login-overlay">
+    <div class="login-container">
+        <h2>Login Form</h2>
+        <button class="close-btn"><i class="fas fa-times">X</i></button>
+        <form id="loginForm" action="/api/POST/login" method="POST">
+            <input type="text" id="username" name="username" placeholder="Your ID" required/>
+            <input type="password" id="password" name="password" placeholder="Your Password" required/>
+            <button type="submit">Login</button>
+        </form>
+        <form id="logoutForm" action="/api/POST/logout" method="POST">
+            <button type="submit">Logout</button>
+        </form>
+        <div class="oauth-container">
+            <button class="oauth">Google Login</button>
+            <button class="oauth">Naver Login</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- Main content -->
+<main class="container mx-auto p-4">
+    <!-- Featured section -->
+    <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4">Featured</h2>
+        <div class="sort-container">
+            <button class="sort-btn" value=1>인기순</button>
+            <button class="sort-btn" value=2>최신순</button>
+            <button class="sort-btn" value=3>낮은 가격순</button>
+            <button class="sort-btn" value=4>높은 가격순</button>
+        </div>
+        <div id="field" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+
+        </div>
+    </section>
+
+    <!-- Gallery section -->
+    <section>
+        <h2 class="text-2xl font-semibold mb-4">Gallery</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            <!-- Each image is a figure with a figcaption -->
+            <figure class="bg-white shadow-md rounded overflow-hidden">
+                <img src="https://source.unsplash.com/random/300x300?fashion&sig=1" alt="Gallery item" class="w-full h-48 object-cover">
+                <figcaption class="p-2 text-center text-sm">캐주얼</figcaption>
+            </figure>
+            <!-- Repeat for other images -->
+            <figure class="bg-white shadow-md rounded overflow-hidden">
+                <img src="https://source.unsplash.com/random/300x300?fashion&sig=2" alt="Gallery item" class="w-full h-48 object-cover">
+                <figcaption class="p-2 text-center text-sm">비즈니스</figcaption>
+            </figure>
+            <figure class="bg-white shadow-md rounded overflow-hidden">
+                <img src="https://source.unsplash.com/random/300x300?fashion&sig=3" alt="Gallery item" class="w-full h-48 object-cover">
+                <figcaption class="p-2 text-center text-sm">스트리트</figcaption>
+            </figure>
+            <figure class="bg-white shadow-md rounded overflow-hidden">
+                <img src="https://source.unsplash.com/random/300x300?fashion&sig=4" alt="Gallery item" class="w-full h-48 object-cover">
+                <figcaption class="p-2 text-center text-sm">럭셔리</figcaption>
+            </figure>
+            <figure class="bg-white shadow-md rounded overflow-hidden">
+                <img src="https://source.unsplash.com/random/300x300?fashion&sig=5" alt="Gallery item" class="w-full h-48 object-cover">
+                <figcaption class="p-2 text-center text-sm">빈티지</figcaption>
+            </figure>
+            <figure class="bg-white shadow-md rounded overflow-hidden">
+                <img src="https://source.unsplash.com/random/300x300?fashion&sig=6" alt="Gallery item" class="w-full h-48 object-cover">
+                <figcaption class="p-2 text-center text-sm">스포츠</figcaption>
+            </figure>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-black p-4 text-white">
+    <div class="container mx-auto text-center">
+        <p>&copy; 2023 Fashion Gallery. All rights reserved.</p>
+    </div>
+</footer>
+<script src="/JS/login.js"></script>
+<script src="/JS/sort.js"></script>
+<script src="/JS/clickCategory.js"></script>
+</body>
+</html>
