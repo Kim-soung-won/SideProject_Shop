@@ -1,7 +1,7 @@
 package com.i.minishopping.Config.auth;
 
 
-import com.i.minishopping.Domains.User.User_account;
+import com.i.minishopping.Domains.User.UserAccount;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -13,9 +13,9 @@ public class PrincipalDetails implements UserDetails {
 // 로그인을 진행이 완료가 되면 시큐리티 session을 만들어준다. (Security ContextHolder)
 // 오브젝트 => Authentication 타입 객체
 
-    private User_account user;
+    private UserAccount user;
 
-    public PrincipalDetails(User_account user){
+    public PrincipalDetails(UserAccount user){
         this.user = user;
     }
     @Override

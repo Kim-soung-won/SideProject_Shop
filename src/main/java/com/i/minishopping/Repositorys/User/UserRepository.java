@@ -1,11 +1,11 @@
 package com.i.minishopping.Repositorys.User;
 
-import com.i.minishopping.Domains.User.User_account;
+import com.i.minishopping.Domains.User.UserAccount;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-public interface UserRepository extends JpaRepository<User_account, Long> {
+public interface UserRepository extends JpaRepository<UserAccount, Long> {
 
-    @Query("SELECT u FROM User_account u WHERE u.email = :email")
-    User_account findByEmail(String email);
+    @Query("SELECT u FROM UserAccount u WHERE u.email = :email")
+    UserAccount findByEmail(String email);
 }

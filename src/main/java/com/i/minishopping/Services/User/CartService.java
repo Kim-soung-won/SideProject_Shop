@@ -16,6 +16,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class CartService{
@@ -23,6 +25,10 @@ public class CartService{
     private final CartRepository cartRepository;
     private final PdDetailService pdDetailService;
     private final ProductService productService;
+
+    public List<Cart> findByUserId(UserInfo user){
+        return cartRepository.findByUserId(user);
+    }
 
     @Transactional
     public Cart saveCart(UserInfo user, Long id, String size , int count){

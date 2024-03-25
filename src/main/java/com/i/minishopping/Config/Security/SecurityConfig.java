@@ -1,14 +1,9 @@
 package com.i.minishopping.Config.Security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.i.minishopping.Repositorys.User.UserRepository;
-import com.i.minishopping.Services.User.MyUserDetailsService;
-import com.i.minishopping.Services.User.UserInfoService;
-import com.i.minishopping.Services.User.UserLogService;
-import com.i.minishopping.Services.User.UserService;
+import com.i.minishopping.Services.User.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
@@ -16,8 +11,6 @@ import org.springframework.http.MediaType;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
-import org.springframework.security.config.annotation.web.configurers.HeadersConfigurer;
-import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.AuthenticationEntryPoint;
@@ -31,9 +24,8 @@ import java.io.PrintWriter;
 @RequiredArgsConstructor
 public class SecurityConfig {
     private final MyUserDetailsService myUserDetailsService;
+    private final LoginService loginService;
     private final UserLogService userLogService;
-    private final UserRepository userService;
-    private final UserInfoService userInfoService;
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
@@ -51,9 +43,7 @@ public class SecurityConfig {
                                 .loginPage("/productList") //로그인 화면 설정
                                 .loginProcessingUrl("/api/POST/login") // login submit 요청을 받을 url
                                 .successHandler(new CustomAuthenticationSuccessHandler(
-                                        userLogService,
-                                        userService
-                                        ,userInfoService
+                                        loginService
                                 ))
                                 .failureHandler(new CustomAuthenticationFailureHandler())
 //                                .defaultSuccessUrl("/productList") //로그인 성공시 이동할 url

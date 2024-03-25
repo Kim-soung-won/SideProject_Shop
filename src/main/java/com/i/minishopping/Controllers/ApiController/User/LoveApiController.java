@@ -3,6 +3,7 @@ package com.i.minishopping.Controllers.ApiController.User;
 import com.i.minishopping.DTO.Common.CommonResponse;
 import com.i.minishopping.DTO.Love.AddLoveRequest;
 import com.i.minishopping.Domains.Product.Product;
+import com.i.minishopping.Domains.User.Cart;
 import com.i.minishopping.Domains.User.Love;
 import com.i.minishopping.Domains.User.UserInfo;
 import com.i.minishopping.Services.User.LoveService;
@@ -16,6 +17,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @RestController
 public class LoveApiController {
@@ -28,6 +31,11 @@ public class LoveApiController {
         System.out.println("clickLove");
         Product product = productService.findById(request.getProduct_id());
         UserInfo user = (UserInfo) session.getAttribute("user");
+        System.out.println("user : "+ user);
+        List<Love> loves = (List<Love>) session.getAttribute("loves");
+        System.out.println("love : "+ loves);
+        List<Cart> carts = (List<Cart>) session.getAttribute("carts");
+        System.out.println("cart : "+ carts);
         if(user==null){
             return ResponseEntity.ok().body(new CommonResponse(666,"로그인이 필요합니다."));
         }

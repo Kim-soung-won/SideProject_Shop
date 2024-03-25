@@ -4,7 +4,7 @@ import com.i.minishopping.DTO.Common.CommonResponse;
 import com.i.minishopping.DTO.User.UserEmailCheckRequest;
 import com.i.minishopping.DTO.User.UserJoinRequest;
 import com.i.minishopping.Domains.User.UserInfo;
-import com.i.minishopping.Domains.User.User_account;
+import com.i.minishopping.Domains.User.UserAccount;
 import com.i.minishopping.Services.User.UserInfoService;
 import com.i.minishopping.Services.User.UserLogService;
 import com.i.minishopping.Services.User.UserService;
@@ -31,7 +31,7 @@ public class UserApiController {
 
     @PostMapping("/api/POST/checkEmail")
     public ResponseEntity<CommonResponse> checkEmail(@RequestBody @Valid UserEmailCheckRequest request) {
-        User_account user = userService.checkEmail(request.getEmail());
+        UserAccount user = userService.checkEmail(request.getEmail());
         if(user != null)
             return ResponseEntity.ok().body(new CommonResponse(400, "이미 사용중인 이메일 입니다."));
         return ResponseEntity.ok().body(new CommonResponse(200, "사용 가능한 이메일 입니다."));

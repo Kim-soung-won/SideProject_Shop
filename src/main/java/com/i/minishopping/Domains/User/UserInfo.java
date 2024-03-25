@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Data
 @Table(name = "user_info")
@@ -18,7 +20,7 @@ public class UserInfo {
     @OneToOne(fetch = FetchType.LAZY)
     @MapsId
     @JoinColumn(name = "user_id", referencedColumnName = "user_id")
-    private User_account user;
+    private UserAccount user;
 
     @Column(name = "name")
     private String name;
@@ -32,4 +34,5 @@ public class UserInfo {
     @Column(name = "sex")
     @Enumerated(EnumType.STRING)
     private SEX sex;
+
 }

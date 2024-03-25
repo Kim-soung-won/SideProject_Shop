@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -35,6 +36,11 @@ public class LoveService {
                 .love_key(key)
                 .created_at(LocalDateTime.now())
                 .build());
+    }
+
+    @Transactional
+    public List<Love> findByUserId(UserInfo user){
+        return loveRepository.findByUserId(user);
     }
     @Transactional
     public Love clickLove(UserInfo user, Product product) {
