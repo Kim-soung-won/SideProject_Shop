@@ -2,8 +2,10 @@ package com.i.minishopping.Controllers.ViewController.Product;
 
 import com.i.minishopping.DTO.Product.Response.ProductListResponse;
 import com.i.minishopping.Domains.Product.Product;
+import com.i.minishopping.Domains.User.UserInfo;
 import com.i.minishopping.Services.Product.ProductService;
 import com.i.minishopping.Services.Product.ProductViewService;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,16 +37,18 @@ public class ProductViewController {
     public String getProductList(){
         return "Main/Main";
     }
-    @GetMapping("/product/{id}")
-    public String getProductDetail(@PathVariable Long id, Model model, Authentication authentication){
-        if(authentication == null){
+    @GetMapping("/product/")
+    public String getProductDetail(@RequestParam Long id, Model model, HttpSession session){
+        UserInfo user = (UserInfo) session.getAttribute("user");
+        System.out.println(id);
+        if(user == null){
             Product product = productService.findById(id);
             model.addAttribute("product",product);
             return "Main/Detail";
         }
         Product product = productService.findById(id);
         model.addAttribute("product",product);
-        logger.info("search Product : "+product.getName() + ", who : " + authentication.getName());
+        logger.info("search Product : "+product.getName() + ", who : " + user.getName());
         return "Main/Detail";
     }
     @PostMapping("/product/category")

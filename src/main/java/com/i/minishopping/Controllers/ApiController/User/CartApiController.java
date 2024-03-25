@@ -26,9 +26,8 @@ public class CartApiController {
 
     @PostMapping("/api/POST/cart")
     public ResponseEntity<CartResponse> addCart(@RequestBody @Valid AddCartRequest request,
-                                                HttpSession session
-    ){
-//        String email = authentication.getName();
+                                                HttpSession session){
+        System.out.println("cart");
         UserInfo user = (UserInfo) session.getAttribute("user");
         if(user == null){
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new CartResponse(400, "로그인이 필요합니다.", ""));

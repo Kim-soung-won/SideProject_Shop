@@ -13,4 +13,6 @@ public class UserInfoService {
     public UserInfo findById(Long id){
         return userDetailRepository.findById(id).orElse(null);
     }
+
+
 }

@@ -36,7 +36,8 @@ public class ProductService {
         return product;
     }
     public Product findById(Long id){
-        return productRepository.findById(id).orElseThrow(()->new IllegalArgumentException("not found product_id: " + id));
+        return productRepository.findById(id).orElse(null);
+
     }
 
     public void count_Love(int val, Long id) {

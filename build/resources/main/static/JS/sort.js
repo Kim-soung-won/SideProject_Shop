@@ -19,6 +19,9 @@ window.onload = () => {
 const hideList = () => {
     console.log("onload")
 }
+function redirectTo(id) {
+    location.replace(`/product/?id=${id}`);
+}
 function GetListRequest(url){
     const headers = {
         Authorization: 'Bearer ' + localStorage.getItem('access_token'),
@@ -53,7 +56,7 @@ function GetListRequest(url){
 <!--                "https://source.unsplash.com/random/300x300?clothes&sig=${item.id}"-->
                     <img src="${urlImg}"
                          alt="Fashion item" class="w-full h-64 object-cover"
-                         onclick="location.href='/product/${item.id}'">
+                         onclick=redirectTo(${item.id})>
                     <div class="p-4">
                         <h3 class="font-semibold">상품명 : ${item.name}</h3>
                         <p class="text-gray-600">${item.price}원</p>

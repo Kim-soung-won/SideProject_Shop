@@ -15,7 +15,7 @@ public class UserInfo {
     @Id
     private Long id;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @MapsId
     @JoinColumn(name = "user_id", referencedColumnName = "user_id")
     private User_account user;
@@ -30,5 +30,6 @@ public class UserInfo {
     private int weight;
 
     @Column(name = "sex")
+    @Enumerated(EnumType.STRING)
     private SEX sex;
 }
