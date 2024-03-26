@@ -4,10 +4,7 @@ import com.i.minishopping.Domains.Product.Brand;
 import com.i.minishopping.Domains.EMBEDDED.Created;
 import com.i.minishopping.Domains.Product.Product;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
@@ -15,7 +12,7 @@ import java.time.LocalDateTime;
 @Table(name = "coupon")
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Getter
 public class Coupon {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

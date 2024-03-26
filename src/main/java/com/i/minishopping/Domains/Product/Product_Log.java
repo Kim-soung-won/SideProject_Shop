@@ -2,15 +2,12 @@ package com.i.minishopping.Domains.Product;
 
 import com.i.minishopping.Domains.EMBEDDED.Product_log_key;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
 @Table(name = "product_log")
 @NoArgsConstructor
-@Data
+@Getter
 public class Product_Log {
     @EmbeddedId
     private Product_log_key product_log_key;

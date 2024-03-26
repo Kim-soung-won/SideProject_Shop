@@ -3,10 +3,11 @@ package com.i.minishopping.Domains.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Data
+@Getter
 @Table(name = "user_info")
 @NoArgsConstructor
 @AllArgsConstructor

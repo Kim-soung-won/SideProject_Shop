@@ -3,16 +3,13 @@ package com.i.minishopping.Domains.Payment;
 import com.i.minishopping.Domains.EMBEDDED.Created;
 import com.i.minishopping.Domains.Product.Product;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "payment")
-@Data
+@Getter
 public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

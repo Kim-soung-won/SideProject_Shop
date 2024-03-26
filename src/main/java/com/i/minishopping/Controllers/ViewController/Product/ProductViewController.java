@@ -33,14 +33,13 @@ public class ProductViewController {
     private final ProductService productService;
     private final int PAGINGSIZE = 30;
 
-    @GetMapping("/")
+    @GetMapping("/productList")
     public String getProductList(){
         return "Main/Main";
     }
     @GetMapping("/product/")
     public String getProductDetail(@RequestParam Long id, Model model, HttpSession session){
         UserInfo user = (UserInfo) session.getAttribute("user");
-        System.out.println(id);
         if(user == null){
             Product product = productService.findById(id);
             model.addAttribute("product",product);
@@ -70,7 +69,7 @@ public class ProductViewController {
         if(param == 4) {pageRange = PageRequest.of(0, PAGINGSIZE, Sort.by("pd_price").descending());}
         List<ProductListResponse> products = productViewService.findPopularList(pageRange).stream()
                 .map(data -> new ProductListResponse(200,"success",data))
-                .toList();;
+                .toList();
         return ResponseEntity.ok(products);
     }
 }

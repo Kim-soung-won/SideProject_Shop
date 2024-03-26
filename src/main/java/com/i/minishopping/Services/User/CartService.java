@@ -26,8 +26,8 @@ public class CartService{
     private final PdDetailService pdDetailService;
     private final ProductService productService;
 
-    public List<Cart> findByUserId(UserInfo user){
-        return cartRepository.findByUserId(user);
+    public List<Cart> findByUserId(Long id){
+        return cartRepository.findByUserId(id);
     }
 
     @Transactional

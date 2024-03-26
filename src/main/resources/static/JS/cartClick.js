@@ -1,6 +1,4 @@
 const cartBtn = document.querySelector('#cart');
-const queryParams = new URLSearchParams(window.location.search);
-const id = queryParams.get('id');
 const size = "m"
 const count = 1
 

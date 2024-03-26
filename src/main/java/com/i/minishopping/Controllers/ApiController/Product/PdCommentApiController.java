@@ -1,5 +1,6 @@
 package com.i.minishopping.Controllers.ApiController.Product;
 
+import com.i.minishopping.DTO.Common.CommonResponse;
 import com.i.minishopping.DTO.Product.Request.AddCommentRequest;
 import com.i.minishopping.Domains.EMBEDDED.Created;
 import com.i.minishopping.Domains.Product.Comment;
@@ -21,11 +22,15 @@ public class PdCommentApiController {
     private final CommentService commentService;
 
     @PostMapping("/api/POST/comment")
-    private ResponseEntity<AddCommentRequest> saveComment(@RequestBody @Valid AddCommentRequest request
+    private ResponseEntity<CommonResponse> saveComment(@RequestBody @Valid AddCommentRequest request
     , HttpSession session){
+        System.out.println("11111111111111111111111111");
         UserInfo user = (UserInfo) session.getAttribute("user");
+        if(user==null){
+            return ResponseEntity.ok().body(new CommonResponse(666,"로그인이 필요합니다."));
+        }
         Created created = new Created(user, LocalDateTime.now());
         Comment comment = commentService.saveComment(request, created);
-        return ResponseEntity.ok().body(request);
+        return ResponseEntity.ok().body(new CommonResponse(200,"댓글이 등록되었습니다."));
     }
 }

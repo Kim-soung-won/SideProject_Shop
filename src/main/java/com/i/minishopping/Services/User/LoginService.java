@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -26,8 +27,10 @@ public class LoginService {
     public void setSession(String email, HttpSession session){
         UserAccount account = findByEmail(email);
         UserInfo user = findById(account.getId());
-        List<Love> loves = findLoveByUserId(user);
-        List<Cart> carts = findCartByUserId(user);
+        account.updateLastLogin(LocalDateTime.now());
+        List<Love> loves = findLoveByUserId(account.getId());
+        System.out.println("loves = " + loves);
+        List<Cart> carts = findCartByUserId(account.getId());
         session.setAttribute("user", user);
         session.setAttribute("loves", loves);
         session.setAttribute("carts", carts);
@@ -43,11 +46,11 @@ public class LoginService {
         return userInfoRepository.findById(id).orElse(null);
     }
     @Transactional
-    public List<Love> findLoveByUserId(UserInfo user){
-        return loveRepository.findByUserId(user);
+    public List<Love> findLoveByUserId(Long id){
+        return loveRepository.findByUserId(id);
     }
     @Transactional
-    public List<Cart> findCartByUserId(UserInfo user){
-        return cartRepository.findByUserId(user);
+    public List<Cart> findCartByUserId(Long id){
+        return cartRepository.findByUserId(id);
     }
 }

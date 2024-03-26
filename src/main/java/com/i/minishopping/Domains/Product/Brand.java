@@ -2,10 +2,7 @@ package com.i.minishopping.Domains.Product;
 
 import com.i.minishopping.Domains.EMBEDDED.Created;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
@@ -13,7 +10,7 @@ import java.time.LocalDateTime;
 @Table(name = "brand")
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Getter
 public class Brand {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

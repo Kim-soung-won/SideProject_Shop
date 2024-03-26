@@ -14,6 +14,7 @@
             color: #ffd700;
         }
     </style>
+    <link rel="stylesheet" href="/CSS/detailStyle.css">
 </head>
 <body class="bg-white text-gray-800">
 
@@ -88,14 +89,13 @@
 
     <!-- Reviews and Ratings -->
     <div class="my-8">
-        <h2 class="text-xl font-bold mb-4">Customer Reviews</h2>
-        <div class="border-t border-b py-4">
-            <!-- Review entries -->
-            hello
+        <div
+                class="border-t border-b py-4 input-container" >
+            <input class="input-comment" type="text" id="review" placeholder="Review">
+            <button class="pretty-button commentBtn">클릭하세요!</button>
         </div>
-        <div class="border-t border-b py-4">
-            <!-- Review entries -->
-            nice
+        <h2 class="text-xl font-bold mb-4">Customer Reviews</h2>
+        <div class="border-t border-b py-4" id="field">
         </div>
     </div>
 
@@ -110,8 +110,10 @@
 <footer class="bg-gray-200 p-4 text-center">
     <p>Footer content goes here.</p>
 </footer>
+<script src="/JS/PostRequest.js"></script>
 <script src="/JS/cartClick.js"></script>
 <script src="/JS/loveClick.js"></script>
-<script src="/JS/sendData.js"></script>
+<script src="/JS/addComment.js"></script>
+<script src="/JS/printComment.js"></script>
 </body>
 </html>

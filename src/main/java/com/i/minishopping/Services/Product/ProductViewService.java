@@ -23,4 +23,5 @@ public class ProductViewService {
     public List<Product> findPopularList(Pageable page){
         return productRepository.findSortList(page).orElseThrow(()->new IllegalArgumentException("어어 없내용?"));
     }
+
 }

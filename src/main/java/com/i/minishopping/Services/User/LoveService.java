@@ -39,8 +39,8 @@ public class LoveService {
     }
 
     @Transactional
-    public List<Love> findByUserId(UserInfo user){
-        return loveRepository.findByUserId(user);
+    public List<Love> findByUserId(Long id){
+        return loveRepository.findByUserId(id);
     }
     @Transactional
     public Love clickLove(UserInfo user, Product product) {

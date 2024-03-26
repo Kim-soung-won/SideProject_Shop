@@ -10,6 +10,6 @@ import java.util.List;
 
 public interface CartRepository extends JpaRepository<Cart, Cart_key> {
 
-    @Query("select c from Cart c join fetch c.key.product_id where c.key.user_id = ?1")
-    List<Cart> findByUserId(UserInfo user);
+    @Query(value = "select * from cart where cart.created_who = ?1", nativeQuery = true)
+    List<Cart> findByUserId(Long created_who);
 }

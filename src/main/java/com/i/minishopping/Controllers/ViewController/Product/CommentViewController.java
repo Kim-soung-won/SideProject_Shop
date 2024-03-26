@@ -1,0 +1,30 @@
+package com.i.minishopping.Controllers.ViewController.Product;
+
+import com.i.minishopping.DTO.Product.Response.CommentListResponse;
+import com.i.minishopping.DTO.Product.Response.ProductListResponse;
+import com.i.minishopping.Services.Product.CommentViewService;
+import jakarta.servlet.http.HttpSession;
+import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
+
+@Controller
+@RequiredArgsConstructor
+public class CommentViewController {
+
+    private final CommentViewService commentViewService;
+    @PostMapping("/api/GET/commentList")
+    public ResponseEntity<List<CommentListResponse>> getPopularList(
+            @RequestParam(name="id", required = false) Long param){
+        Pageable pageRange = PageRequest.of(0,10, Sort.by("created_at").descending());
+        List<CommentListResponse> comments = commentViewService.findCommentList(param,pageRange);
+        return ResponseEntity.ok(comments);
+    }
+}

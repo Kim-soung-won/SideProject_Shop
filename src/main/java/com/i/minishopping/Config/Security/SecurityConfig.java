@@ -40,19 +40,19 @@ public class SecurityConfig {
                 )
                 .formLogin((formLogin) ->
                         formLogin
-                                .loginPage("/productList") //로그인 화면 설정
+                                .loginPage("/") //로그인 화면 설정
                                 .loginProcessingUrl("/api/POST/login") // login submit 요청을 받을 url
                                 .successHandler(new CustomAuthenticationSuccessHandler(
                                         loginService
                                 ))
                                 .failureHandler(new CustomAuthenticationFailureHandler())
 //                                .defaultSuccessUrl("/productList") //로그인 성공시 이동할 url
-                                .failureUrl("/productList") //로그인 실패시 이동할 url
+                                .failureUrl("/") //로그인 실패시 이동할 url
                 )
                 .logout((logoutConfig)->
                         logoutConfig
                                 .logoutUrl("/api/POST/logout")
-                                .logoutSuccessUrl("/productList") //로그아웃 성공시 이동할 url
+                                .logoutSuccessUrl("/") //로그아웃 성공시 이동할 url
                                 .addLogoutHandler(new CustomLogoutHandler(userLogService))
                 ).userDetailsService(myUserDetailsService);
 

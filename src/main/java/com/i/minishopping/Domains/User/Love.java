@@ -5,12 +5,13 @@ import com.i.minishopping.Domains.EMBEDDED.Product_log_key;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
 @Entity
-@Data
+@Getter
 @Table(name = "love")
 @NoArgsConstructor
 public class Love {

@@ -31,11 +31,6 @@ public class LoveApiController {
         System.out.println("clickLove");
         Product product = productService.findById(request.getProduct_id());
         UserInfo user = (UserInfo) session.getAttribute("user");
-        System.out.println("user : "+ user);
-        List<Love> loves = (List<Love>) session.getAttribute("loves");
-        System.out.println("love : "+ loves);
-        List<Cart> carts = (List<Cart>) session.getAttribute("carts");
-        System.out.println("cart : "+ carts);
         if(user==null){
             return ResponseEntity.ok().body(new CommonResponse(666,"로그인이 필요합니다."));
         }

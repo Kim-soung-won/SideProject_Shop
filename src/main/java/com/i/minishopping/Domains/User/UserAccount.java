@@ -3,15 +3,12 @@ package com.i.minishopping.Domains.User;
 //import com.i.minishopping.Config.CustomValidation.Password;
 import com.i.minishopping.Domains.ENUM.ROLE;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
 @Entity
-@Data
+@Getter
 @Table(name = "user_account")
 @NoArgsConstructor
 @AllArgsConstructor

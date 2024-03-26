@@ -18,7 +18,7 @@ public interface LoveRepository extends JpaRepository<Love, Love_key> {
     Love findByLove(Product product_id, UserAccount created_who);
 
 
-    @Query("select l from Love l join fetch l.love_key.product_id where l.love_key.created_who = ?1")
-    List<Love> findByUserId(UserInfo user);
+    @Query(value = "select * from love where love.created_who = ?1", nativeQuery = true)
+    List<Love> findByUserId(Long created_who);
 
 }

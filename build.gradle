@@ -46,6 +46,11 @@ dependencies {
 
     implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
 //    타임리프에서 스프링 시큐리티를 사용하기 위한 의존성 추가
+
+    implementation 'commons-io:commons-io:2.13.0'
+    implementation 'commons-fileupload:commons-fileupload:1.5'
+    implementation 'com.amazonaws:aws-java-sdk-s3:1.12.566'
+//    Object Storage File업로드를 위한 의존성 추가
 }
 configurations {
     all {
