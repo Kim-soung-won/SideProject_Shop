@@ -20,7 +20,7 @@ public class UserInfo {
     @JoinColumn(name = "user_id", referencedColumnName = "user_id")
     private UserAccount user;
 
-    @Column(name = "name")
+    @Column(name = "name", unique = true)
     private String name;
 
 }

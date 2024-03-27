@@ -12,7 +12,7 @@
     </style>
 </head>
 <body>
-<form method="post" enctype="multipart/form-data" action="/api/upload">
+<form id="uploadForm">
     <table border="1">
         <tr>
             <th>상품명</th>
@@ -22,12 +22,12 @@
         </tr>
         <tr>
             <td colspan="2">
-                <textarea name="imageContent" rows="10" cols="50"></textarea>
+                <textarea id="content" name="imageContent" rows="10" cols="50"></textarea>
             </td>
         </tr>
         <tr>
             <td colspan="2">
-                <input type="file" name="img[]" multiple="multiple">
+                <input id="imgs" type="file" name="img[]" multiple="multiple">
             </td>
         </tr>
 
@@ -35,10 +35,43 @@
             <td colspan="2" align="center">
                 <input type="submit" value="이미지 업로드"/>
                 <input type="reset" value="취소"/>
-
+                <button type="button" id="submitBtn">이미지 업로드</button>
             </td>
         </tr>
     </table>
 </form>
+<script>
+    document.getElementById('submitBtn').addEventListener('click', function() {
+        var form = document.getElementById('uploadForm');
+        const fileimgs = document.getElementById('imgs').files;
+        const content = document.getElementById('content').value;
+        console.log("common",imgs);
+        var formData = new FormData(form);
+        console.log(formData.getAll('img[]'));
+
+        data = {
+            img:fileimgs,
+            content:content
+        }
+        console.log(data);
+        // 'fetch' API를 사용하여 서버로 FormData 전송
+        fetch('/api/upload', {
+            method: 'POST',
+            body: formData,
+        })
+            .then(response => {
+                if(response.ok) {
+                    return response.json();
+                }
+                throw new Error('Network response was not ok.');
+            })
+            .then(data => {
+                console.log(data); // 서버로부터의 응답 처리
+            })
+            .catch(error => {
+                console.error('There was a problem with your fetch operation:', error);
+            });
+    });
+</script>
 </body>
 </html>

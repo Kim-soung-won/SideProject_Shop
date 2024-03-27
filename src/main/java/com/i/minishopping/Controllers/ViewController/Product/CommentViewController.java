@@ -1,7 +1,7 @@
 package com.i.minishopping.Controllers.ViewController.Product;
 
 import com.i.minishopping.DTOResponse.Product.CommentListResponse;
-import com.i.minishopping.Services.Product.CommentViewService;
+import com.i.minishopping.Services.Comment.CommentViewService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
