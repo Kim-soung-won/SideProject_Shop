@@ -22,7 +22,7 @@ public class LoveApiController {
     private final ProductService productService;
 
 
-    @PostMapping("/api/PUT/love")
+    @PostMapping("/api/PUT/love") //좋아요 클릭시 발생하는 상호작용, 프론트 연동 완료
     public ResponseEntity<CommonResponse> clickLove(@RequestBody @Valid AddLoveRequest request, HttpSession session) {
         System.out.println("clickLove");
         Product product = productService.findById(request.getProduct_id());

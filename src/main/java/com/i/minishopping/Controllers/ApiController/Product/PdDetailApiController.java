@@ -28,7 +28,7 @@ public class PdDetailApiController {
     private final ProductService productService;
     private final PdLogService pdLogService;
 
-    @PostMapping("/api/POST/productDetail")
+    @PostMapping("/api/POST/productDetail") //상품 상세(사이즈) 추가 API
     public ResponseEntity<CommonResponse> saveProductDetail(@RequestBody @Valid
                                                            AddPdDetailRequest request, HttpSession session) {
         UserInfo user = (UserInfo) session.getAttribute("user");
@@ -43,7 +43,10 @@ public class PdDetailApiController {
         Product_Detail_key key = new Product_Detail_key(product, request.getSize());
         Product_log_key logkey = new Product_log_key(product, created);
         pdLogService.saveLog(logkey, request.getSize(), request.getBeforeCount());
-        ProductDetail productDetail = pdDetailService.save(key, request.getBeforeCount());
-        return ResponseEntity.ok().body(new CommonResponse(200, "상품이 추가되었습니다."));
+        int result = pdDetailService.save(key, request.getBeforeCount());
+        if(result == 201){
+            return ResponseEntity.ok().body(new CommonResponse(result, "상품의 수량을 추가했습니다."));
+        }
+        return ResponseEntity.ok().body(new CommonResponse(200, "사이즈가 추가되었습니다."));
     }
 }

@@ -22,5 +22,4 @@ public class UserInfo {
 
     @Column(name = "name", unique = true)
     private String name;
-
 }

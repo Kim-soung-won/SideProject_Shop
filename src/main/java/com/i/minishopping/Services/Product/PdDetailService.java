@@ -13,16 +13,17 @@ public class PdDetailService {
     private final PdDetailRepository pdDetailRepository;
 
     @Transactional
-    public ProductDetail save(Product_Detail_key key, int beforeCount) {
+    public int save(Product_Detail_key key, int beforeCount) {
         ProductDetail pdDetail = pdDetailRepository.findById(key).orElse(null);
         if(pdDetail != null){
             pdDetail.addPd(beforeCount);
-            return pdDetail;
+            return 201;
         }
-        return pdDetailRepository.save(ProductDetail.builder()
+        pdDetailRepository.save(ProductDetail.builder()
                 .product_detail_key(key)
                 .beforeCount(beforeCount)
                 .build());
+        return 200;
     }
 
     @Transactional

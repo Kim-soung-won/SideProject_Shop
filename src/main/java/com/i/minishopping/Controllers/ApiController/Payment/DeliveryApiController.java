@@ -17,13 +17,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class DeliveryApiController {
     private final DeliveryService deliveryService;
 
-    @PostMapping("/api/POST/delivery")
+    @PostMapping("/api/POST/delivery") //배송 등록 API
     public ResponseEntity<AddDeliveryRequest> addDelivery(@RequestBody @Valid AddDeliveryRequest request){
         Delivery delivery = deliveryService.saveDelivery(request);
         return ResponseEntity.ok().body(request);
     }
 
-    @PostMapping("/api/PUT/delivery")
+    @PostMapping("/api/PUT/delivery") //배송 상태 변경 API
     public ResponseEntity<UpdateDeliveryRequest> updateDelivery(@RequestBody @Valid UpdateDeliveryRequest request){
         Delivery delivery = deliveryService.updateState(request.getId(), DLI_STATE.MOVE);
         return ResponseEntity.ok().body(request);

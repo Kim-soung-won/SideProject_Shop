@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
 public class CSApiController {
     private final CSService csService;
 
-    @PostMapping("/api/POST/cs")
+    @PostMapping("/api/POST/cs") //문의등록 API
     public ResponseEntity<String> saveCS(@RequestBody @Valid AddCSRequest request, HttpSession session){
         UserInfo user = (UserInfo) session.getAttribute("user");
         if(user==null){

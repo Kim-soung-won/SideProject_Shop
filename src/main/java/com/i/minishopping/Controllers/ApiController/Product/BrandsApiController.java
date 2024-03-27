@@ -22,7 +22,7 @@ import java.time.LocalDateTime;
 public class BrandsApiController {
     private final BrandService brandsService;
 
-    @PostMapping("/api/POST/brands")
+    @PostMapping("/api/POST/brands") //브랜드 추가 등록 API
     public ResponseEntity<BrandAddResponse> addBrand(@RequestBody @Valid AddBrandsRequest request,
                                                      HttpSession session){
         UserInfo user = (UserInfo) session.getAttribute("user");

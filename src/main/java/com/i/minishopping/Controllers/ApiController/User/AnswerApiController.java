@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
 public class AnswerApiController {
     private final AnswerService answerService;
     private final CSService csService;
-    @PostMapping("/api/POST/answer")
+    @PostMapping("/api/POST/answer")//고객센터 답변 등록 API
     public ResponseEntity<String> saveAnswer(@RequestBody @Valid AddAnswerRequest request, HttpSession session) {
         UserInfo user = (UserInfo) session.getAttribute("user");
         if (user == null) {

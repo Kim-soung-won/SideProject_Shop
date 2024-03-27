@@ -22,10 +22,9 @@ import java.time.LocalDateTime;
 public class CommentApiController {
     private final CommentService commentService;
 
-    @PostMapping("/api/POST/comment")
+    @PostMapping("/api/POST/comment") //댓글 작성 API (프론트 연동 완료)
     private ResponseEntity<CommonResponse> saveComment(@RequestBody @Valid AddCommentRequest request
     , HttpSession session){
-        System.out.println("11111111111111111111111111");
         UserInfo user = (UserInfo) session.getAttribute("user");
         if(user==null){
             return ResponseEntity.ok().body(new CommonResponse(666,"로그인이 필요합니다."));
@@ -38,7 +37,7 @@ public class CommentApiController {
         return ResponseEntity.ok().body(new CommonResponse(200,"댓글이 등록되었습니다."));
     }
 
-    @PostMapping("/api/DELETE/comment")
+    @PostMapping("/api/DELETE/comment") //댓글 삭제 API (프론트 연동 완료)
     private ResponseEntity<CommonResponse> deleteComment(@RequestBody @Valid DeleteCommentRequest request,
                                                          HttpSession session){
         UserInfo user = (UserInfo) session.getAttribute("user");

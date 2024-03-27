@@ -37,13 +37,11 @@ public class PaymentApiController {
     private final PdDetailService pdDetailService;
     private final PdLogService pdLogService;
     private final UserLogService logService;
-    private final UserInfoService userService;
 
 
-    @PostMapping("/api/POST/payment")
+    @PostMapping("/api/POST/payment") // 결제 API
     public ResponseEntity<PaymentResponse> setPayment(@RequestBody @Valid AddPaymentRequest request,
                                                       HttpSession session
-//                                                      ,Authentication authentication
     ){
         Product product = productService.findById(request.getProduct_id());
 
@@ -51,7 +49,7 @@ public class PaymentApiController {
         int total_price = request.getTotal_price();
         String size = request.getSize();
 
-        UserInfo user = userService.findById(1002L);
+        UserInfo user = (UserInfo) session.getAttribute("user");
         Created created = new Created(user, LocalDateTime.now());
 
         Payment payment = paymentService.savePayment(created,product,count,total_price, size);
@@ -62,8 +60,7 @@ public class PaymentApiController {
         Product_log_key key2 = new Product_log_key(product, created);
         pdLogService.saveLog(key2, size, count*(-1));
         logService.saveUserLog(user.getId(), user.getName() , DOIT.PAYMENT);
-//        logger.info(request.toString() + " : " + authentication.getName());
-        log.info(request.toString() + " : ");
+        log.info(request.toString() + " : " + user.getName());
         PaymentResponse response = new PaymentResponse(200, "success", payment.getProduct_id().getName(),payment.getSize(), payment.getTotal_price(), payment.getCount());
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }

@@ -24,7 +24,7 @@ public class CartApiController {
     private final ProductService productService;
 
 
-    @PostMapping("/api/POST/cart")
+    @PostMapping("/api/POST/cart") //장바구니 추가 API (프론트 연동 완료)
     public ResponseEntity<CartResponse> addCart(@RequestBody @Valid AddCartRequest request,
                                                 HttpSession session){
         System.out.println("cart");
@@ -51,7 +51,7 @@ public class CartApiController {
     }
 
 
-    @DeleteMapping("/api/DELETE/cart")
+    @DeleteMapping("/api/DELETE/cart") //장바구니 삭제 API
     public ResponseEntity<CommonResponse> deleteCart(@RequestBody @Valid DeleteCartRequest request, HttpSession session){
         UserInfo user = (UserInfo) session.getAttribute("user");
         int status = cartService.deleteCart(user, request.getProduct_id(), request.getSize());

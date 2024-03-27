@@ -27,7 +27,7 @@ public class CouponApiController {
     private final BrandService brandsService;
     private final ProductService productService;
 //    쿠폰 재발급 방지 로직 추가 필요할 듯
-    @PostMapping("/api/POST/coupon")
+    @PostMapping("/api/POST/coupon") //쿠폰 등록 API
     public ResponseEntity<AddCouponRequest> addCoupon(@RequestBody @Valid AddCouponRequest request, HttpSession session){
         UserInfo user = (UserInfo) session.getAttribute("user");
         Created created = new Created(user, LocalDateTime.now());
@@ -39,7 +39,7 @@ public class CouponApiController {
         return ResponseEntity.status(HttpStatus.CREATED).body(request);
     }
 
-    @PutMapping("/api/PUT/useCoupon")
+    @PutMapping("/api/PUT/useCoupon") //쿠폰 사용 API
     public ResponseEntity<UpdateCouponRequest> useCoupon(@RequestBody @Valid UpdateCouponRequest request){
         Coupon coupon = couponService.useCoupon(request);
         return ResponseEntity.ok().body(request);
