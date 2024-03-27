@@ -1,7 +1,7 @@
 package com.i.minishopping.Controllers.ApiController.Product;
 
-import com.i.minishopping.DTO.Common.CommonResponse;
-import com.i.minishopping.DTO.Product.Request.AddCommentRequest;
+import com.i.minishopping.DTOResponse.Common.CommonResponse;
+import com.i.minishopping.DTORequest.Product.AddCommentRequest;
 import com.i.minishopping.Domains.EMBEDDED.Created;
 import com.i.minishopping.Domains.Product.Comment;
 import com.i.minishopping.Domains.User.UserInfo;

@@ -1,9 +1,9 @@
 package com.i.minishopping.Controllers.ApiController.User;
 
-import com.i.minishopping.DTO.Cart.AddCartRequest;
-import com.i.minishopping.DTO.Cart.CartResponse;
-import com.i.minishopping.DTO.Cart.DeleteCartRequest;
-import com.i.minishopping.DTO.Common.CommonResponse;
+import com.i.minishopping.DTORequest.Cart.AddCartRequest;
+import com.i.minishopping.DTOResponse.Cart.CartResponse;
+import com.i.minishopping.DTORequest.Cart.DeleteCartRequest;
+import com.i.minishopping.DTOResponse.Common.CommonResponse;
 import com.i.minishopping.Domains.User.Cart;
 import com.i.minishopping.Domains.User.UserInfo;
 import com.i.minishopping.Services.User.CartService;

@@ -1,6 +1,6 @@
 package com.i.minishopping.Services.User;
 
-import com.i.minishopping.DTO.User.AddAnswerRequest;
+import com.i.minishopping.DTORequest.User.AddAnswerRequest;
 import com.i.minishopping.Domains.EMBEDDED.Created;
 import com.i.minishopping.Domains.User.CS;
 import com.i.minishopping.Domains.User.CS_Answer;

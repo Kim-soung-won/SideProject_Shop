@@ -1,6 +1,6 @@
 package com.i.minishopping.Services.Payment;
 
-import com.i.minishopping.DTO.Delivery.AddDeliveryRequest;
+import com.i.minishopping.DTORequest.Delivery.AddDeliveryRequest;
 import com.i.minishopping.Domains.ENUM.DLI_STATE;
 import com.i.minishopping.Domains.Payment.Delivery;
 import com.i.minishopping.Repositorys.Payment.DeliveryRepository;

@@ -1,6 +1,6 @@
 package com.i.minishopping.Services.User;
 
-import com.i.minishopping.DTO.User.AddCSRequest;
+import com.i.minishopping.DTORequest.User.AddCSRequest;
 import com.i.minishopping.Domains.EMBEDDED.Created;
 import com.i.minishopping.Domains.ENUM.CS_STATE;
 import com.i.minishopping.Domains.User.CS;

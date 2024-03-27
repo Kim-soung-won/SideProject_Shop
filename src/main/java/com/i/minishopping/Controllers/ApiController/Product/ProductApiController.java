@@ -1,9 +1,9 @@
 package com.i.minishopping.Controllers.ApiController.Product;
 
-import com.i.minishopping.DTO.Product.Request.AddProductRequest;
-import com.i.minishopping.DTO.Product.Request.DeleteProductRequest;
-import com.i.minishopping.DTO.Product.Request.UpdateProductRequest;
-import com.i.minishopping.DTO.Product.Response.ProductDeleteResponse;
+import com.i.minishopping.DTORequest.Product.AddProductRequest;
+import com.i.minishopping.DTORequest.Product.DeleteProductRequest;
+import com.i.minishopping.DTORequest.Product.UpdateProductRequest;
+import com.i.minishopping.DTOResponse.Product.ProductDeleteResponse;
 import com.i.minishopping.Domains.EMBEDDED.Created;
 import com.i.minishopping.Domains.Product.Product;
 import com.i.minishopping.Domains.User.UserInfo;

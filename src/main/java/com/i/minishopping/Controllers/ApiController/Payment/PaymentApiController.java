@@ -1,7 +1,7 @@
 package com.i.minishopping.Controllers.ApiController.Payment;
 
-import com.i.minishopping.DTO.Payment.AddPaymentRequest;
-import com.i.minishopping.DTO.Payment.PaymentResponse;
+import com.i.minishopping.DTORequest.Payment.AddPaymentRequest;
+import com.i.minishopping.DTOResponse.Payment.PaymentResponse;
 import com.i.minishopping.Domains.EMBEDDED.Created;
 import com.i.minishopping.Domains.EMBEDDED.Product_Detail_key;
 import com.i.minishopping.Domains.EMBEDDED.Product_log_key;

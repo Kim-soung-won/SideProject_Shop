@@ -1,7 +1,7 @@
 package com.i.minishopping.Controllers.ApiController.Payment;
 
-import com.i.minishopping.DTO.Coupon.AddCouponRequest;
-import com.i.minishopping.DTO.Coupon.UpdateCouponRequest;
+import com.i.minishopping.DTORequest.Coupon.AddCouponRequest;
+import com.i.minishopping.DTORequest.Coupon.UpdateCouponRequest;
 import com.i.minishopping.Domains.Payment.Coupon;
 import com.i.minishopping.Domains.EMBEDDED.Created;
 import com.i.minishopping.Domains.User.UserInfo;

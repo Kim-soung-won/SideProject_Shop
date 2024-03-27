@@ -1,9 +1,8 @@
 package com.i.minishopping.Controllers.ApiController.User;
 
-import com.i.minishopping.DTO.Common.CommonResponse;
-import com.i.minishopping.DTO.Love.AddLoveRequest;
+import com.i.minishopping.DTOResponse.Common.CommonResponse;
+import com.i.minishopping.DTORequest.Love.AddLoveRequest;
 import com.i.minishopping.Domains.Product.Product;
-import com.i.minishopping.Domains.User.Cart;
 import com.i.minishopping.Domains.User.Love;
 import com.i.minishopping.Domains.User.UserInfo;
 import com.i.minishopping.Services.User.LoveService;
@@ -13,11 +12,8 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 @RequiredArgsConstructor
 @RestController

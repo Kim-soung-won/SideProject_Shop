@@ -1,7 +1,7 @@
 package com.i.minishopping.Controllers.ApiController.Product;
 
-import com.i.minishopping.DTO.Brands.AddBrandsRequest;
-import com.i.minishopping.DTO.Product.Response.BrandAddResponse;
+import com.i.minishopping.DTORequest.Brands.AddBrandsRequest;
+import com.i.minishopping.DTOResponse.Product.BrandAddResponse;
 import com.i.minishopping.Domains.EMBEDDED.Created;
 import com.i.minishopping.Domains.Product.Brand;
 import com.i.minishopping.Domains.User.UserInfo;

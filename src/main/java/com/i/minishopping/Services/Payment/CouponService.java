@@ -1,6 +1,6 @@
 package com.i.minishopping.Services.Payment;
 
-import com.i.minishopping.DTO.Coupon.UpdateCouponRequest;
+import com.i.minishopping.DTORequest.Coupon.UpdateCouponRequest;
 import com.i.minishopping.Domains.Product.Brand;
 import com.i.minishopping.Domains.Payment.Coupon;
 import com.i.minishopping.Domains.EMBEDDED.Created;

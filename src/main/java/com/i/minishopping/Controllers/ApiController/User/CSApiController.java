@@ -1,6 +1,6 @@
 package com.i.minishopping.Controllers.ApiController.User;
 
-import com.i.minishopping.DTO.User.AddCSRequest;
+import com.i.minishopping.DTORequest.User.AddCSRequest;
 import com.i.minishopping.Domains.EMBEDDED.Created;
 import com.i.minishopping.Domains.User.CS;
 import com.i.minishopping.Domains.User.UserInfo;

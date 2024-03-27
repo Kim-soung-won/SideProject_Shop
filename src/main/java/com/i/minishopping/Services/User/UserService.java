@@ -1,6 +1,6 @@
 package com.i.minishopping.Services.User;
 
-import com.i.minishopping.DTO.User.UserJoinRequest;
+import com.i.minishopping.DTORequest.User.UserJoinRequest;
 import com.i.minishopping.Domains.User.UserAccount;
 import com.i.minishopping.Repositorys.User.UserRepository;
 import lombok.RequiredArgsConstructor;

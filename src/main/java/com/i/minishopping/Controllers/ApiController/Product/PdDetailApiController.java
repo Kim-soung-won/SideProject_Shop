@@ -1,7 +1,7 @@
 package com.i.minishopping.Controllers.ApiController.Product;
 
-import com.i.minishopping.DTO.Common.CommonResponse;
-import com.i.minishopping.DTO.Product.Request.AddPdDetailRequest;
+import com.i.minishopping.DTOResponse.Common.CommonResponse;
+import com.i.minishopping.DTORequest.Product.AddPdDetailRequest;
 import com.i.minishopping.Domains.EMBEDDED.Created;
 import com.i.minishopping.Domains.EMBEDDED.Product_Detail_key;
 import com.i.minishopping.Domains.EMBEDDED.Product_log_key;
@@ -14,7 +14,6 @@ import com.i.minishopping.Services.Product.ProductService;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

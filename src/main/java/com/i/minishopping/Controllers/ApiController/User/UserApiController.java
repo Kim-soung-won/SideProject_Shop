@@ -1,8 +1,8 @@
 package com.i.minishopping.Controllers.ApiController.User;
 
-import com.i.minishopping.DTO.Common.CommonResponse;
-import com.i.minishopping.DTO.User.UserEmailCheckRequest;
-import com.i.minishopping.DTO.User.UserJoinRequest;
+import com.i.minishopping.DTOResponse.Common.CommonResponse;
+import com.i.minishopping.DTORequest.User.UserEmailCheckRequest;
+import com.i.minishopping.DTORequest.User.UserJoinRequest;
 import com.i.minishopping.Domains.User.UserInfo;
 import com.i.minishopping.Domains.User.UserAccount;
 import com.i.minishopping.Services.User.UserInfoService;

@@ -1,8 +1,7 @@
 package com.i.minishopping.Services.Product;
 
-import com.i.minishopping.DTO.Product.Response.CommentListResponse;
+import com.i.minishopping.DTOResponse.Product.CommentListResponse;
 import com.i.minishopping.Domains.Product.Comment;
-import com.i.minishopping.Domains.Product.Product;
 import com.i.minishopping.Repositorys.Product.PdCommentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
