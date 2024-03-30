@@ -1,5 +1,6 @@
 package com.i.minishopping;
 
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -11,9 +12,8 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @EnableJpaAuditing
 @EnableAsync
 @SpringBootApplication
+@Slf4j
 public class MiniProjectApplication implements CommandLineRunner {
-
-    protected static final Logger logger = LoggerFactory.getLogger(SpringApplication.class);
 
     public static void main(String[] args) {
         SpringApplication.run(MiniProjectApplication.class, args);
@@ -21,7 +21,7 @@ public class MiniProjectApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        logger.info("Good Luck!");
+        log.info("Good Luck!");
     }
 
 }

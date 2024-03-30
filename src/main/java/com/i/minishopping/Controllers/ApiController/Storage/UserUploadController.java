@@ -36,12 +36,9 @@ public class UserUploadController {
             @RequestParam("img[]")List<MultipartFile> list,
                          HttpSession session){
         System.out.println("11111111111111111111111111111");
-        String filepath = session.getServletContext().getRealPath("storage");
-        System.out.println("실제폴더 = " + filepath);
 
         String imageFileName = "";
         String imageOriginalName = "";
-        File file;
         String result = "";
 
         List<UploadTest> userImageList = new ArrayList<>();
@@ -52,13 +49,6 @@ public class UserUploadController {
 
             imageFileName = ncpObjectStorageService.uploadFile(bucketName, "storage/", img);
 
-            file = new File(filepath, imageOriginalName);
-
-            try{
-                img.transferTo(file);
-            }catch (IOException e){
-                e.printStackTrace();
-            }
             try{
                 result += "<span><img src='/storage"
                         + URLEncoder.encode(imageOriginalName, "UTF-8")

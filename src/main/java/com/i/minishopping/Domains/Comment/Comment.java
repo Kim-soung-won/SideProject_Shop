@@ -6,6 +6,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -27,6 +29,9 @@ public class Comment {
 
     @Column(name = "content",nullable = false)
     private String content;
+
+    @OneToMany(mappedBy = "comment_id")
+    private List<CommentImg> images = new ArrayList<>();
 
     @Builder
     public Comment(Product product_id, Created created, String content) {

@@ -1,5 +1,5 @@
 window.onload = () => {
-    GetListRequest(`/api/GET/commentList?id=3322`);
+    GetListRequest(`/api/GET/commentList?id=${id}`);
 }
 function GetListRequest(url){
     const headers = {
@@ -16,10 +16,14 @@ function GetListRequest(url){
             const commentListContainer = document.getElementById('field');
             // 데이터 배열을 순회하면서 각 항목을 HTML로 변환
             let commentHtml = data.map(item => {
+                let imagesHtml = item.url.map(url => {
+                    return `<img src="https://kr.object.ncloudstorage.com/sideprojectbucket/storage/${url}" width="300px" height="300px">`;
+                }).join(''); // 생성된 <img> 태그들을 하나의 문자열로 결합
                 return `
                 <div class="border-t border-b py-4" id="commentContainer_${item.id}">
                     <div id="created_who">${item.name}</div>
-                    <div class="comment_id" style="display: none">${item.id}</div>
+                    <div class="comment_id" style="">${item.id}</div>
+                    ${imagesHtml}
                     <p>${item.content}</p>
                     <p>${item.created_at}</p>
                     <br>
@@ -38,25 +42,17 @@ function GetListRequest(url){
 }
 
 function GetDeleteBtn(){
-    console.log("GetBtn")
     const deleteCommentBtns = document.querySelectorAll('.deleteCommentBtn');
-    console.log("deleteCommentBtns : ", deleteCommentBtns)
     deleteCommentBtns.forEach(btn => {
         btn.addEventListener('click', function (e) {
-              console.log("click")
               const commentId = e.target.getAttribute('data-comment-id');
-              console.log("commentId :", commentId)
               const commentContainer = document.getElementById(`commentContainer_${commentId}`);
-              console.log("commentContainer : ", commentContainer)
               const id = parseInt(commentContainer.querySelector('.comment_id').innerHTML);
-              console.log("id :", id)
               const name = commentContainer.querySelector('#created_who').innerHTML;
-              console.log("name :", name)
               const data = {
                   comment_id: id,
                   created_who: name
               };
-              console.log("data : ", data)
               sendData(`/api/DELETE/comment`, data);
         })
     })

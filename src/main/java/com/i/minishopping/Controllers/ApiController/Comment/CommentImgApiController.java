@@ -10,4 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class CommentImgApiController {
     private final CommentImgService commentImgService;
     private final NCPObjectStorageService ncpObjectStorageService;
+
+    private String bucketName = "sideprojectbucket";
+
+
+
+
 }

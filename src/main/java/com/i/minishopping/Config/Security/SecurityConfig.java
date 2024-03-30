@@ -52,7 +52,7 @@ public class SecurityConfig {
                 .logout((logoutConfig)->
                         logoutConfig
                                 .logoutUrl("/api/POST/logout")
-                                .logoutSuccessUrl("/") //로그아웃 성공시 이동할 url
+                                .logoutSuccessUrl("/productList") //로그아웃 성공시 이동할 url
                                 .addLogoutHandler(new CustomLogoutHandler(userLogService))
                 ).userDetailsService(myUserDetailsService);
 

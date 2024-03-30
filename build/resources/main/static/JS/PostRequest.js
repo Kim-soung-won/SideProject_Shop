@@ -17,10 +17,23 @@ function sendData(url, data) {
             return response.json(); // 응답 본문을 JSON으로 변환
         })
         .then(data => {
+            // 서버로부터 받은 데이터 처리
             if(data.code===666){
                 alert(data.msg);
+                location.href='/productList';
             }
-            console.log(data); // 서버로부터 받은 데이터 처리
+            if (data.code === 200) {
+                alert(data.msg);
+                location.reload(true);
+            }
+            if (data.code === 201) {
+                alert(data.msg);
+                location.reload(true);
+            }
+            if (data.code === 202) {
+                alert(data.msg);
+                location.reload(true);
+            }
         })
         .catch(error => {
             console.error('There was a problem with your fetch operation:', error);

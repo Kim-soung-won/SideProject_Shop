@@ -3,6 +3,7 @@ package com.i.minishopping.Controllers.ApiController.Product;
 import com.i.minishopping.DTORequest.Product.AddProductRequest;
 import com.i.minishopping.DTORequest.Product.DeleteProductRequest;
 import com.i.minishopping.DTORequest.Product.UpdateProductRequest;
+import com.i.minishopping.DTOResponse.Common.CommonResponse;
 import com.i.minishopping.DTOResponse.Product.ProductDeleteResponse;
 import com.i.minishopping.Domains.EMBEDDED.Created;
 import com.i.minishopping.Domains.Product.Product;
@@ -27,12 +28,18 @@ public class ProductApiController {
     private final UserInfoService userService;
 
     @PostMapping("/api/POST/product") // 상품 추가 API
-    public ResponseEntity<Product> saveProduct(@RequestBody @Valid AddProductRequest request,
-                                               HttpSession session){
-        UserInfo info = (UserInfo) session.getAttribute("user");
-        Created created = new Created(info, LocalDateTime.now());
+    public ResponseEntity<CommonResponse> saveProduct(@RequestBody @Valid AddProductRequest request,
+                                                      HttpSession session){
+        UserInfo user = (UserInfo) session.getAttribute("user");
+        if(user==null){
+            return ResponseEntity.ok().body(new CommonResponse(666, "로그인이 필요합니다"));
+        }
+        Created created = new Created(user, LocalDateTime.now());
         Product product = productService.saveOneProduct(request, created);
-        return ResponseEntity.status(HttpStatus.CREATED).body(product);
+        if(product == null){
+            return ResponseEntity.ok().body(new CommonResponse(400, "등록에 실패했습니다."));
+        }
+        return ResponseEntity.ok().body(new CommonResponse(200, "등록됐음!"));
     }
 
     @DeleteMapping("/api/DELETE/product") //상품 삭제 API

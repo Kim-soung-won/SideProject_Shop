@@ -26,7 +26,8 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
     private final LoginService loginService;
 
     @Override
-    public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
+    public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response
+            , Authentication authentication) throws IOException, ServletException {
         response.setStatus(HttpServletResponse.SC_OK);
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");

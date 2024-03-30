@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -27,6 +28,9 @@ public class LoginService {
     public void setSession(String email, HttpSession session){
         UserAccount account = findByEmail(email);
         UserInfo user = findById(account.getId());
+        if(user==null){
+            return;
+        }
         account.updateLastLogin(LocalDateTime.now());
         List<Love> loves = findLoveByUserId(account.getId());
         System.out.println("loves = " + loves);
@@ -43,7 +47,9 @@ public class LoginService {
         return userRepository.findByEmail(email);
     }
     public UserInfo findById(Long id){
-        return userInfoRepository.findById(id).orElse(null);
+        return userInfoRepository.findById(id)
+                .filter(m -> m.getId().equals(id))
+                .orElse(null);
     }
     @Transactional
     public List<Love> findLoveByUserId(Long id){

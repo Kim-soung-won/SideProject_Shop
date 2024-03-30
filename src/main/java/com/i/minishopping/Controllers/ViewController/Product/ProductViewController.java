@@ -29,7 +29,7 @@ public class ProductViewController {
     private final Logger logger = LoggerFactory.getLogger(SpringApplication.class);
     private final ProductViewService productViewService;
     private final ProductService productService;
-    private final int PAGINGSIZE = 30;
+    private final int PAGINGSIZE = 8;
 
     @GetMapping("/productList")
     public String getProductList(){
