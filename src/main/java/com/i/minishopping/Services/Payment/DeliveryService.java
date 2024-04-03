@@ -14,7 +14,6 @@ import java.time.LocalDateTime;
 @RequiredArgsConstructor
 public class DeliveryService {
     private final DeliveryRepository deliveryRepository;
-    private final PaymentService paymentService;
 
 
     //결제 API와 함께 사용되서 해당 Service 단의 Transaction에 묶임
