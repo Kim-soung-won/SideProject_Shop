@@ -28,18 +28,18 @@ public class CouponService {
                         .discount_size(size)
                 .build());
     }
+
+    @Transactional(readOnly = true)
     public Coupon findById(Long id){
-        return couponRepository.findById(id).orElseThrow(()->new IllegalArgumentException("not found: " + id));
+        return couponRepository.findById(id).orElse(null);
     }
 
     @Transactional
-    public Coupon useCoupon(UpdateCouponRequest request){
-        Coupon coupon = couponRepository.findById(request.getId()).orElseThrow(()->new IllegalArgumentException("not found: " + request.getId()));
-        if(coupon.isUsed()) throw new IllegalArgumentException("already used: " + request.getId());
-        Product product = productService.findById(request.getProduct_id());
+    public Coupon useCoupon(Coupon coupon, Product product){
         int discount_price = (int)(product.getPrice() * (coupon.getDiscount_size() / 100.0));
         coupon.usedCoupon(LocalDateTime.now(), product, discount_price);
         return coupon;
     }
+
 
 }

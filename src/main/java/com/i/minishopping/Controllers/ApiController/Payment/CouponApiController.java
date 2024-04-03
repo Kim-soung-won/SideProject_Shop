@@ -5,6 +5,7 @@ import com.i.minishopping.DTORequest.Coupon.UpdateCouponRequest;
 import com.i.minishopping.DTOResponse.Common.CommonResponse;
 import com.i.minishopping.Domains.Payment.Coupon;
 import com.i.minishopping.Domains.EMBEDDED.Created;
+import com.i.minishopping.Domains.Product.Product;
 import com.i.minishopping.Domains.User.UserInfo;
 import com.i.minishopping.Services.Product.BrandService;
 import com.i.minishopping.Services.Payment.CouponService;
@@ -45,7 +46,12 @@ public class CouponApiController {
 
     @PutMapping("/api/PUT/useCoupon") //쿠폰 사용 API
     public ResponseEntity<CommonResponse> useCoupon(@RequestBody @Valid UpdateCouponRequest request){
-        Coupon coupon = couponService.useCoupon(request);
+        Coupon coupon = couponService.findById(request.getId());
+        if(coupon == null) return ResponseEntity.ok().body(new CommonResponse(500,"쿠폰이 존재하지 않습니다."));
+        if(coupon.isUsed()) return ResponseEntity.ok().body(new CommonResponse(200,"이미 사용된 쿠폰입니다."));
+        Product product = productService.findById(request.getProduct_id());
+        if(product == null) return ResponseEntity.ok().body(new CommonResponse(500,"상품이 존재하지 않습니다."));
+        Coupon result = couponService.useCoupon(coupon, product);
         return ResponseEntity.ok().body(new CommonResponse(200,"쿠폰이 사용되었습니다."));
     }
 }

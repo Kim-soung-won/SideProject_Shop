@@ -36,6 +36,7 @@ public class CommentViewService {
                 .toList();
         return commentList;
     }
+    @Transactional(readOnly = true)
     public List<String> findUrl(List<CommentImg> images){
 //        for(int i=0; i<images.size(); i++){
 //            url.add(images.get(i).getUrl());

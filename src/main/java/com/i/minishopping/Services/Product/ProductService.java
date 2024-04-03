@@ -20,7 +20,6 @@ public class ProductService {
     }
     @Transactional
     public Product saveOneProduct(AddProductRequest request, Created created) {
-
         return productRepository.save(Product.builder()
                 .name(request.getName())
                 .price(request.getPrice())
@@ -35,6 +34,7 @@ public class ProductService {
         product.updateProduct(request.getName(), request.getPrice(), request.getCategory(), created);
         return product;
     }
+    @Transactional(readOnly = true)
     public Product findById(Long id){
         return productRepository.findById(id).orElse(null);
 

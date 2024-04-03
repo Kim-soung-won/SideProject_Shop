@@ -48,12 +48,16 @@ public class PaymentApiController {
         int count = request.getCount();
         int total_price = request.getTotal_price();
         String size = request.getSize();
+        String th_pnum = request.getTh_pnum();
+        String th_address = request.getTh_address();
 
         UserInfo user = (UserInfo) session.getAttribute("user");
         Created created = new Created(user, LocalDateTime.now());
 
-        Payment payment = paymentService.savePayment(created,product,count,total_price, size);
-
+        Payment payment = paymentService.savePayment(created,product,count,total_price, size,
+                th_pnum, th_address);
+        if(payment == null) return ResponseEntity.ok().body(
+                new PaymentResponse(400, "데이터가 제대로 저장되지 않았습니다.", null, null, 0, 0));
         Product_Detail_key key = new Product_Detail_key(product, size);
         pdDetailService.sellCount(count, key);
 

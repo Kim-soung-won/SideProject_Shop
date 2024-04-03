@@ -12,6 +12,8 @@ public class AddPaymentRequest {
     private int count;
     private int total_price;
     private String size;
+    private String th_pnum;
+    private String th_address;
 
     @Override
     public String toString() {
