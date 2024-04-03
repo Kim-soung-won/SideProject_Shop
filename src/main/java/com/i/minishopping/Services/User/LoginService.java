@@ -42,20 +42,22 @@ public class LoginService {
         userLogService.saveUserLog(user.getId(), user.getName(), DOIT.LOGIN);
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public UserAccount findByEmail(String email){
         return userRepository.findByEmail(email);
     }
+
+    @Transactional(readOnly = true)
     public UserInfo findById(Long id){
         return userInfoRepository.findById(id)
                 .filter(m -> m.getId().equals(id))
                 .orElse(null);
     }
-    @Transactional
+    @Transactional(readOnly = true)
     public List<Love> findLoveByUserId(Long id){
         return loveRepository.findByUserId(id);
     }
-    @Transactional
+    @Transactional(readOnly = true)
     public List<Cart> findCartByUserId(Long id){
         return cartRepository.findByUserId(id);
     }

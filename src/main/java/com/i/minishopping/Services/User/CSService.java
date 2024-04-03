@@ -7,12 +7,14 @@ import com.i.minishopping.Domains.User.CS;
 import com.i.minishopping.Repositorys.User.CSRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
 public class CSService {
     private final CSRepository csRepository;
 
+    @Transactional
     public CS saveCS(AddCSRequest request, Created created) {
         return csRepository.save(CS.builder()
                 .created(created)
@@ -22,6 +24,7 @@ public class CSService {
                 .build());
     }
 
+    @Transactional(readOnly = true)
     public CS findById(Long id) {
         System.out.println(id);
         return csRepository.findById(id).orElse(null);

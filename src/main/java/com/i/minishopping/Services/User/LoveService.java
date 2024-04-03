@@ -24,7 +24,7 @@ public class LoveService {
         return loveRepository.countByUserId(product);
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public Love findById(Love_key key) {
         Love love = loveRepository.findById(key).orElse(null);
         return love;
@@ -38,7 +38,7 @@ public class LoveService {
                 .build());
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public List<Love> findByUserId(Long id){
         return loveRepository.findByUserId(id);
     }

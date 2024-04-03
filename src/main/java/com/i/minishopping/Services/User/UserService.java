@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
@@ -14,16 +15,20 @@ public class UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
+    @Transactional(readOnly = true)
     public UserAccount checkEmail(String email){
         return userRepository.findByEmail(email);
     }
+    @Transactional
     public void saveUser(UserJoinRequest request) {
         userRepository.save(request.toEntity(passwordEncoder));
     }
 
+    @Transactional(readOnly = true)
     public UserAccount findById(Long id) {
         return userRepository.findById(id).orElseThrow();
     }
+    @Transactional(readOnly = true)
     public UserAccount findByEmail(String email) {
         return userRepository.findByEmail(email);
     }
