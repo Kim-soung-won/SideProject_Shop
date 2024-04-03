@@ -31,7 +31,6 @@ public class PdDetailService {
         return pdDetailRepository.findById(key).orElse(null);
     }
 
-    @Transactional
     public void sellCount(int count, Product_Detail_key key) {
         ProductDetail productDetail = pdDetailRepository.findById(key).
                 orElseThrow(() -> new IllegalArgumentException("not found: Product, size"));

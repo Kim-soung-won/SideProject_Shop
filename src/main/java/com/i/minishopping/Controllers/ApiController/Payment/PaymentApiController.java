@@ -8,6 +8,7 @@ import com.i.minishopping.Domains.EMBEDDED.Product_log_key;
 import com.i.minishopping.Domains.ENUM.DOIT;
 import com.i.minishopping.Domains.Payment.Payment;
 import com.i.minishopping.Domains.Product.Product;
+import com.i.minishopping.Domains.Product.ProductDetail;
 import com.i.minishopping.Domains.User.UserInfo;
 import com.i.minishopping.Services.Payment.PaymentService;
 import com.i.minishopping.Services.Product.PdDetailService;
@@ -44,10 +45,15 @@ public class PaymentApiController {
                                                       HttpSession session
     ){
         Product product = productService.findById(request.getProduct_id());
+        if(product == null) return ResponseEntity.ok().body(
+                new PaymentResponse(500, "상품이 존재하지 않습니다.", null, null, 0, 0));
+        ProductDetail detail = pdDetailService.findById(new Product_Detail_key(product, request.getSize()));
+        if(detail == null) return ResponseEntity.ok().body(
+                new PaymentResponse(500, "사이즈가 존재하지 않습니다.", null, null, 0, 0));
 
         int count = request.getCount();
         int total_price = request.getTotal_price();
-        String size = request.getSize();
+        String size = detail.getProduct_detail_key().getSize();
         String th_pnum = request.getTh_pnum();
         String th_address = request.getTh_address();
 
@@ -57,9 +63,7 @@ public class PaymentApiController {
         Payment payment = paymentService.savePayment(created,product,count,total_price, size,
                 th_pnum, th_address);
         if(payment == null) return ResponseEntity.ok().body(
-                new PaymentResponse(400, "데이터가 제대로 저장되지 않았습니다.", null, null, 0, 0));
-        Product_Detail_key key = new Product_Detail_key(product, size);
-        pdDetailService.sellCount(count, key);
+                new PaymentResponse(600, "데이터가 제대로 저장되지 않았습니다.", null, null, 0, 0));
 
         Product_log_key key2 = new Product_log_key(product, created);
         pdLogService.saveLog(key2, size, count*(-1));
