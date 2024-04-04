@@ -5,6 +5,9 @@ import com.i.minishopping.Domains.EMBEDDED.Created;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Data
 @Table(name = "product")
@@ -35,6 +38,11 @@ public class Product {
 
     @Column(name = "count_love")
     private int count_love;
+
+    @OneToMany(mappedBy = "product_detail_key.product_id", fetch = FetchType.LAZY)
+    private List<ProductDetail> details = new ArrayList<>();
+
+
 
     @Builder
     public Product(String name, int price, Brand brand_id, String category, Created created){
