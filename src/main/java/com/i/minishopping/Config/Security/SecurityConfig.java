@@ -1,6 +1,9 @@
 package com.i.minishopping.Config.Security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.i.minishopping.Config.OAuth2.OAuth2SuccessHandler;
+import com.i.minishopping.Mapper.User.UserInfoMapper;
+import com.i.minishopping.Repositorys.User.UserRepository;
 import com.i.minishopping.Services.User.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -26,6 +29,9 @@ public class SecurityConfig {
     private final MyUserDetailsService myUserDetailsService;
     private final LoginService loginService;
     private final UserLogService userLogService;
+    private final OAuth2UserService oAuth2UserService;
+    private final UserRepository userRepository;
+    private final UserInfoMapper userInfoMapper;
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
@@ -40,7 +46,7 @@ public class SecurityConfig {
                 )
                 .formLogin((formLogin) ->
                         formLogin
-                                .loginPage("/") //로그인 화면 설정
+                                .loginPage("/productList") //로그인 화면 설정
                                 .loginProcessingUrl("/api/POST/login") // login submit 요청을 받을 url
                                 .successHandler(new CustomAuthenticationSuccessHandler(
                                         loginService
@@ -49,12 +55,30 @@ public class SecurityConfig {
 //                                .defaultSuccessUrl("/productList") //로그인 성공시 이동할 url
                                 .failureUrl("/") //로그인 실패시 이동할 url
                 )
+                .userDetailsService(
+                        myUserDetailsService
+                )
                 .logout((logoutConfig)->
                         logoutConfig
                                 .logoutUrl("/api/POST/logout")
                                 .logoutSuccessUrl("/productList") //로그아웃 성공시 이동할 url
                                 .addLogoutHandler(new CustomLogoutHandler(userLogService))
-                ).userDetailsService(myUserDetailsService);
+                )
+                .oauth2Login((oauth2Login)->
+                        oauth2Login
+                                .loginPage("/productList")
+                                .userInfoEndpoint(userInfoEndpont ->
+                                        userInfoEndpont.userService(oAuth2UserService)
+                                )
+                                .successHandler(new OAuth2SuccessHandler(
+                                        loginService,
+                                        userRepository,
+                                        userInfoMapper
+                                    )
+                                )
+
+
+                );
 
 
         return http.build();

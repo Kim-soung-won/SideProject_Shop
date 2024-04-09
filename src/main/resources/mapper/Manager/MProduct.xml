@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.i.minishopping.Mapper.MProduct.MProductMapper">
+    <resultMap id="MProductListViewMap" type="com.i.minishopping.DTOResponse.Manage.MProductListView">
+        <result column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="price" property="price" />
+        <result column="brand_name" property="brandName" />
+        <result column="amount" property="amount" />
+        <result column="sales" property="sales" />
+    </resultMap>
+    <select id="sortAndSearch" parameterType="com.i.minishopping.Mapper.DTO.MProductSortAndOrder" resultMap="MProductListViewMap">
+        SELECT p.product_id as id, p.pd_name as name, p.pd_price as price, b.brand_name as brand_name, sum(pd.pd_before_count) as amount, sum(pd.pd_sell_count) as sales
+        from product as p
+            left outer join brand as b on p.brand_id = b.brand_id
+            left outer join product_detail as pd on p.product_id = pd.product_id
+        <where>
+            p.pd_name LIKE concat('%',#{data.where},'%')
+        </where>
+        group by p.product_id
+        <if test="data.order != null">
+            ORDER BY ${data.order}
+        </if>
+        <if test="data.paging != null">
+            LIMIT #{data.paging}, #{data.pagingSize}
+        </if>
+    </select>
+</mapper>

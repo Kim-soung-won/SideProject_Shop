@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.i.minishopping.Mapper.MProduct.MProductMapper">
+    <resultMap id="details" type="com.i.minishopping.DTOResponse.Manage.detailsObject">
+        <result column="size" property="size" />
+        <result column="amount" property="amount" />
+        <result column="sales" property="sales" />
+    </resultMap>
+    <resultMap id="MProductDetailViewMap" type="com.i.minishopping.DTOResponse.Manage.MProductDetailView">
+        <result column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="price" property="price" />
+        <result column="brand_name" property="brandName" />
+        <result column="count_love" property="count_love" />
+        <result column="category" property="category" />
+        <collection property="details" ofType="com.i.minishopping.DTOResponse.Manage.detailsObject" resultMap="details"/>
+    </resultMap>
+    <select id="getDetail" resultMap="MProductDetailViewMap">
+        SELECT p.product_id as id, p.pd_name as name, p.pd_price as price, b.brand_name as brand_name, p.count_love as count_love,
+               p.pd_category as category ,pd.size as size, pd.pd_before_count as amount, pd.pd_sell_count as sales
+        from product as p
+        left outer join brand as b on p.brand_id = b.brand_id
+        left outer join product_detail as pd on p.product_id = pd.product_id
+        <where>
+            p.product_id = #{id}
+        </where>
+    </select>
+</mapper>

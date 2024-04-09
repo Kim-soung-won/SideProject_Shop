@@ -15,10 +15,7 @@ import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.UnsupportedEncodingException;
@@ -34,11 +31,8 @@ public class CommentApiController {
     private final UploadImages uploadImages;
 
     @PostMapping("/api/POST/comment") //댓글 작성 API (프론트 연동 완료)
-    private ResponseEntity<CommonResponse> saveComment(@RequestParam("product_id") Long product_id,
-                                                         @RequestParam("content") String content,
-                                                            @RequestParam("images") List<MultipartFile> images,
+    private ResponseEntity<CommonResponse> saveComment(@ModelAttribute AddCommentRequest request,
                                                        HttpSession session){
-        AddCommentRequest request = new AddCommentRequest(product_id, content, images);
         UserInfo user = (UserInfo) session.getAttribute("user");
         System.out.println("겟이미지=-=-=-=-=-=-="+request.getImages());
         if(user==null){

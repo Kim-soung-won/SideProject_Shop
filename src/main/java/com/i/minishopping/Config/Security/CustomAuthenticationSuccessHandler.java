@@ -12,6 +12,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -21,8 +22,8 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 import java.io.IOException;
 
 @RequiredArgsConstructor
+@Slf4j
 public class CustomAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
-    private final Logger logger = LoggerFactory.getLogger(SpringApplication.class);
     private final LoginService loginService;
 
     @Override
@@ -33,7 +34,9 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
         response.setCharacterEncoding("UTF-8");
         response.getWriter().write("{\"success\": true}");
         String email = authentication.getName();
-        logger.info("login success : "+email);
+        log.info("login success : "+email);
+        System.out.println("login success : "+email);
         loginService.setSession(email, request.getSession());
+        response.sendRedirect("/productList");
     }
 }

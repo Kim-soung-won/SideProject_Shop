@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open+Sans', sans-serif;
+        }
+        .star-rating {
+            color: #ffd700;
+        }
+    </style>
+    <link rel="stylesheet" href="/CSS/detailStyle.css">
+</head>
+<body class="bg-white text-gray-800">
+
+<header class="bg-blue-600 p-4 text-white">
+    <div class="container mx-auto flex justify-between items-center">
+        <h1 class="text-xl font-bold"><a href="/productList">Fashion Gallery</a></h1>
+        <div class="relative">
+            <input type="search" placeholder="Search" class="pl-10 pr-4 py-2 rounded-full">
+
+        </div>
+        <nav>
+            <ul class="flex space-x-4">
+                <li><a href="/productList" class="hover:text-blue-300">Home</a></li>
+                <li><a href="#" class="hover:text-blue-300">Men</a></li>
+                <li><a href="#" class="hover:text-blue-300">Women</a></li>
+                <li><a href="#" class="hover:text-blue-300">Kids</a></li>
+                <li><a href="#" class="hover:text-blue-300">Sale</a></li>
+                <li class="login-btn"><a href="#" class="hover:text-blue-300">Login</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<!-- Main Content -->
+<main class="container mx-auto my-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <!-- Product Image Carousel -->
+        <div class="col-span-1">
+            <div class="flex space-x-2">
+                <!--                <img src="https://via.placeholder.com/100x100?text=Thumbnail" alt="Thumbnail" class="w-24 h-24">-->
+                <!-- More thumbnails -->
+            </div>
+        </div>
+
+        <!-- Product Details -->
+        <div class="col-span-2">
+            <h1 class="text-2xl font-bold mb-2" th:text="${data.name}"></h1>
+            <div class="flex items-center mb-4">
+                    <span class="star-rating text-lg">
+                        ★★★★★
+                    </span>
+                <span class="ml-2 text-sm" th:text="'좋아요 : '+${data.count_love}"></span>
+            </div>
+            <p class="text-lg text-gray-600 mb-4" th:text="${data.category}"></p>
+            <div class="mb-4">
+                <span class="text-3xl font-bold" th:text="${data.price}+'원'"></span>
+            </div>
+
+            <div th:each="detail : ${data.details}">
+                <div class="mb-4">
+                    <span class="text-lg" th:text="'사이즈: ' + ${detail.size} + '  수량 : '+ ${detail.amount} + '  판매량 : ' + ${detail.sales}"></span>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <!-- Size and color options -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Related Products Carousel -->
+    <div class="my-8">
+        <h2 class="text-xl font-bold mb-4">Related Products</h2>
+        <div class="flex space-x-4 overflow-x-auto">
+            <div class="min-w-max">
+                <!--                <img src="https://via.placeholder.com/200x200?text=Product+1" alt="Related Product 1" class="w-48 h-48">-->
+                <!-- Product details -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Reviews and Ratings -->
+    <div class="my-8">
+        <div class="border-t border-b py-4 input-container" >
+            <input class="input-comment" type="text" id="review" placeholder="Review">
+            <input type="file" multiple="multiple" id="imgList">
+            <button class="pretty-button commentBtn">등록하기</button>
+        </div>
+        <h2 class="text-xl font-bold mb-4">Customer Reviews</h2>
+        <div class="border-t border-b py-4" id="field">
+        </div>
+    </div>
+
+    <!-- Promotion Banner -->
+    <div class="my-8 p-8 bg-yellow-200 text-center">
+        <span class="text-3xl font-bold">10% Discount Offer!</span>
+        <p>Sign up for our newsletter and get 10% off your next order.</p>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-gray-200 p-4 text-center">
+    <p>Footer content goes here.</p>
+</footer>
+<script src="/JS/Customer/PostRequest.js"></script>
+<script src="/JS/Customer/cartClick.js"></script>
+<script src="/JS/Customer/loveClick.js"></script>
+<script src="/JS/Customer/addComment.js"></script>
+<script src="/JS/Customer/printComment.js"></script>
+</body>
+</html>

@@ -35,9 +35,9 @@ public class UserService {
 
 
 //    @Transactional
-//    public UserAccount login(UserLoginRequest request){
+//    public UserAccountBatis login(UserLoginRequest request){
 //        System.out.println("11111111111111111");
-//        UserAccount member = userRepository.findByEmail(request.getEmail());
+//        UserAccountBatis member = userRepository.findByEmail(request.getEmail());
 //        System.out.println("member" + member.getId());
 //        if (passwordEncoder.matches(member.getPassword(), request.getPassword()))
 //            return member;

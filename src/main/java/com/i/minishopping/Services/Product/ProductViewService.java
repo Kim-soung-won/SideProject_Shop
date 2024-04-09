@@ -33,24 +33,24 @@ public class ProductViewService {
     public List<MProductListView> managePdList(Pageable page){
         return productRepository.MProductView(page).orElseThrow(()->new IllegalArgumentException("어어 없내용?"));
     }
-
-    @Transactional(readOnly = true)
-    public List<MProductListView> managePdListByName(Pageable page, String name){
-        return productRepository.MProductViewByName(page, name).orElseThrow(()->new IllegalArgumentException("어어 없내용?"));
-    }
-
-    @Transactional(readOnly = true)
-    public List<MProductListView> managePdListByNameOrderByPrice(Pageable page, String name, String order){
-        return productRepository.MProductViewByNameOrderByPrice(page, name, order).orElseThrow(()->new IllegalArgumentException("어어 없내용?"));
-    }
-
-    @Transactional(readOnly = true)
-    public List<MProductListView> managePdListByNameOrderByAmount(Pageable page, String name, String order){
-        return productRepository.MProductViewByNameOrderByAmount(page, name, order).orElseThrow(()->new IllegalArgumentException("어어 없내용?"));
-    }
-
-    @Transactional(readOnly = true)
-    public List<MProductListView> managePdListByNameOrderBySales(Pageable page, String name, String order){
-        return productRepository.MProductViewByNameOrderBySales(page, name, order).orElseThrow(()->new IllegalArgumentException("어어 없내용?"));
-    }
+//
+//    @Transactional(readOnly = true)
+//    public List<MProductListView> managePdListByName(Pageable page, String name){
+//        return productRepository.MProductViewByName(page, name).orElseThrow(()->new IllegalArgumentException("어어 없내용?"));
+//    }
+//
+//    @Transactional(readOnly = true)
+//    public List<MProductListView> managePdListByNameOrderByPrice(Pageable page, String name, String order){
+//        return productRepository.MProductViewByNameOrderByPrice(page, name, order).orElseThrow(()->new IllegalArgumentException("어어 없내용?"));
+//    }
+//
+//    @Transactional(readOnly = true)
+//    public List<MProductListView> managePdListByNameOrderByAmount(Pageable page, String name, String order){
+//        return productRepository.MProductViewByNameOrderByAmount(page, name, order).orElseThrow(()->new IllegalArgumentException("어어 없내용?"));
+//    }
+//
+//    @Transactional(readOnly = true)
+//    public List<MProductListView> managePdListByNameOrderBySales(Pageable page, String name, String order){
+//        return productRepository.MProductViewByNameOrderBySales(page, name, order).orElseThrow(()->new IllegalArgumentException("어어 없내용?"));
+//    }
 }
