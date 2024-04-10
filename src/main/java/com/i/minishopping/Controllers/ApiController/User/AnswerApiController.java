@@ -1,6 +1,7 @@
 package com.i.minishopping.Controllers.ApiController.User;
 
 import com.i.minishopping.DTORequest.User.AddAnswerRequest;
+import com.i.minishopping.DTOResponse.Common.CommonResponse;
 import com.i.minishopping.Domains.EMBEDDED.Created;
 import com.i.minishopping.Domains.User.UserInfo;
 import com.i.minishopping.Services.User.AnswerService;
@@ -21,13 +22,13 @@ public class AnswerApiController {
     private final AnswerService answerService;
     private final CSService csService;
     @PostMapping("/api/POST/answer")//고객센터 답변 등록 API
-    public ResponseEntity<String> saveAnswer(@RequestBody @Valid AddAnswerRequest request, HttpSession session) {
+    public ResponseEntity<CommonResponse> saveAnswer(@RequestBody @Valid AddAnswerRequest request, HttpSession session) {
         UserInfo user = (UserInfo) session.getAttribute("user");
         if (user == null) {
-            return ResponseEntity.badRequest().body("로그인이 필요합니다.");
+            return ResponseEntity.badRequest().body(new CommonResponse(666, "로그인이 필요합니다."));
         }
         Created created = new Created(user, LocalDateTime.now());
         String answer = answerService.saveAnswer(request, created);
-        return ResponseEntity.ok().body(answer);
+        return ResponseEntity.ok().body(new CommonResponse(200, answer));
     }
 }

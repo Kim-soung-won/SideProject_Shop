@@ -1,13 +1,17 @@
 document.addEventListener('DOMContentLoaded', (event) =>{
     const sortLabels = document.querySelectorAll('.sort-label')
     sortLabels.forEach(function(sortLabel) {
-        sortLabel.getAttribute('order')
         sortLabel.addEventListener('click', function(){
+            let toggle = parseInt(this.getAttribute('order'))
+            this.setAttribute('order', toggle * -1)
+            toggle = parseInt(this.getAttribute('order'))
+
             let val = this.getAttribute('value')
             let searchValue = document.getElementById('searchVal').value;
-            val = parseInt(val)
-            console.log(typeof val)
+            val = parseInt(val) * toggle
+
             console.log(val)
+
             GetListRequest(`/GET/manage/search?id=${val}&name=${searchValue}`);
         });
     });
@@ -15,6 +19,10 @@ document.addEventListener('DOMContentLoaded', (event) =>{
 
 window.onload = () => {
     GetListRequest(`/GET/manage`);
+}
+
+function redirectTo(id) {
+    location.replace(`/manage/product/?id=${id}`);
 }
 
 function GetListRequest(url){
@@ -35,13 +43,14 @@ function GetListRequest(url){
                 return `
                 <tr class="table-row" >
                     <td class="px-4 py-2">${item.id}</td>
-                    <td class="px-4 py-2">${item.brand}</td>
+                    <td class="px-4 py-2">${item.brandName}</td>
                     <td class="px-4 py-2">${item.name}</td>
                     <td class="px-4 py-2">${item.price}</td>
-                    <td class="px-4 py-2">${item.mount}</td>
-                    <td class="px-4 py-2">${item.sum}</td>
+                    <td class="px-4 py-2">${item.amount}</td>
+                    <td class="px-4 py-2">${item.sales}</td>
                     <td class="px-4 py-2">
-                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded">View</button>
+                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded" 
+                        onclick=redirectTo(${item.id})>View</button>
                     </td>
                 </tr>
             `;

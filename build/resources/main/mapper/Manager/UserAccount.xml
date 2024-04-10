@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.i.minishopping.Mapper.User.UserAccountMapper">
+    <insert id="saveUserAccount" useGeneratedKeys="true" keyProperty="user_id" >
+        INSERT INTO user_account(user_email,user_password,user_role,user_pnum)
+        values(#{userAccount.user_email},#{userAccount.user_password},#{userAccount.user_role},#{userAccount.user_pnum})
+    </insert>
+
+    <select id="findByEmail" parameterType="String" resultType="com.i.minishopping.Mapper.DTO.UserAccountBatis">
+        select * from user_account where user_email = #{user_id}
+    </select>
+</mapper>

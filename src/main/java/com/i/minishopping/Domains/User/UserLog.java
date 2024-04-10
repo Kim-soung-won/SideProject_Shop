@@ -32,6 +32,8 @@ public class UserLog {
     @Enumerated(EnumType.STRING)
     private DOIT doit;
 
+    @Column(name = "product_id")
+    private Long product_id;
 
     @Builder
     private UserLog(Long id,String name, LocalDateTime created_at , DOIT doit){
