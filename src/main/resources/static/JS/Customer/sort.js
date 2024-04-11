@@ -20,7 +20,7 @@ const hideList = () => {
     console.log("onload")
 }
 function redirectTo(id) {
-    location.href(`/product/?id=${id}`);
+    location.href=`/product/?id=${id}`;
 }
 function GetListRequest(url){
     const headers = {
