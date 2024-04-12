@@ -1,8 +1,13 @@
 package com.i.minishopping.Controllers.ViewController.Manage;
 
 import com.i.minishopping.DTORequest.Param.ProductSortRequest;
+import com.i.minishopping.DTOResponse.Manage.MBrandListResponse;
 import com.i.minishopping.DTOResponse.Manage.MProductListView;
+import com.i.minishopping.DTOResponse.Manage.PaymentListResponse;
+import com.i.minishopping.Mapper.DTO.MPaymentSortAndOrder;
 import com.i.minishopping.Mapper.DTO.MProductSortAndOrder;
+import com.i.minishopping.Services.MView.MBrandService;
+import com.i.minishopping.Services.MView.MPaymentService;
 import com.i.minishopping.Services.MView.MProductService;
 import com.i.minishopping.Services.Product.ProductViewService;
 import lombok.RequiredArgsConstructor;
@@ -25,13 +30,15 @@ public class ManageViewController {
     private final ProductViewService productService;
     private final int PAGINGSIZE = 8;
     private final MProductService mProductService;
+    private final MPaymentService mPaymentService;
+    private final MBrandService mBrandService;
 
     @GetMapping("/manage")
     public String ManagePageLoad() {
         return "Manage/Main";
     }
 
-    @PostMapping("/GET/manage")
+    @PostMapping("/GET/manage/product")
     public ResponseEntity<List<MProductListView>> getProduct() {
         Pageable pageRange = PageRequest.of(0, PAGINGSIZE);
         List<MProductListView> products = productService.managePdList(pageRange).stream()
@@ -40,7 +47,7 @@ public class ManageViewController {
         return ResponseEntity.ok().body(products);
     }
 
-    @PostMapping("/GET/manage/search")
+    @PostMapping("/GET/manage/product/search")
     public ResponseEntity<List<MProductListView>> getProductByName(
             @ModelAttribute ProductSortRequest request){
         int id = request.getId();
@@ -62,6 +69,22 @@ public class ManageViewController {
 
         return ResponseEntity.ok().body(list);
     }
+
+    @PostMapping("/GET/manage/order/search")
+    public ResponseEntity<List<PaymentListResponse>> getPaymentList(@RequestParam(required = false, defaultValue = "") String name,
+                                                                    @RequestParam int page){
+        int paging = page * PAGINGSIZE;
+        return ResponseEntity.ok().body(mPaymentService.getPaymentList(new MPaymentSortAndOrder(name, paging, paging+PAGINGSIZE)));
+    }
+
+    @PostMapping("/GET/manage/brand/search")
+    public ResponseEntity<List<MBrandListResponse>> getBrandList(@RequestParam(required = false, defaultValue = "") String name,
+                                                                 @RequestParam int page){
+        int paging = page * PAGINGSIZE;
+        return ResponseEntity.ok().body(mBrandService.getBrandDetails());
+    }
+}
+
 
 //    @PostMapping("/GET/manage/search")
 //    public ResponseEntity<List<MProductListView>> getProductByName(
@@ -95,4 +118,3 @@ public class ManageViewController {
 //        }
 //        return ResponseEntity.ok().body(list);
 //    }
-}
