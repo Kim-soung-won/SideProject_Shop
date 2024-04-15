@@ -1,0 +1,33 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://db-lsa9l-kr.vpc-pub-cdb.ntruss.com:3306/Mini_Shoppingmall?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true
+    username: mini
+    password: 1q2w3e4r!
+  #    hikari:
+  #      maximum-pool-size: 10
+  thymeleaf:
+    cache: false
+
+  # spring data jpa ??
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    open-in-view: false
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    defer-datasource-initialization: true
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 191588045939-5kkfk2v01a7t2l175jcru4mb50226lth.apps.googleusercontent.com
+            client-secret: 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
+            scope:
+              - email
+              - profile
+
+mybatis:
+  mapper-locations: classpath:/mapper/**/*.xml
