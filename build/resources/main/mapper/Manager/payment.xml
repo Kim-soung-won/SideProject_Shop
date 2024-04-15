@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.i.minishopping.Mapper.MProduct.MPaymentMapper">
+    <resultMap id="MPaymentListMap" type="com.i.minishopping.DTOResponse.Manage.PaymentListResponse">
+        <result column="payment_id" property="payment_id" />
+        <result column="user_id" property="user_id" />
+        <result column="user_name" property="user_name" />
+        <result column="product_id" property="product_id" />
+        <result column="size" property="size" />
+        <result column="count" property="count" />
+        <result column="state" property="state" />
+        <result column="time" property="time" />
+    </resultMap>
+    <select id="getPaymentList" parameterType="com.i.minishopping.Mapper.DTO.MPaymentSortAndOrder" resultMap="MPaymentListMap">
+        select p.payment_id as payment_id, p.created_who as user_id, u.name as user_name, p.product_id as product_id, p.size as size, p.count as count, d.state as state,
+        p.created_at as time
+        from payment as p
+        left join delivery as d on p.payment_id = d.payment_id
+        left join user_info as u on p.created_who = u.user_id
+        <where>
+            CAST(p.created_who AS CHAR) = #{data.name}
+            or
+            u.name LIKE concat('%',#{data.name},'%')
+        </where>
+        <if test="data.name != null">
+            ORDER BY
+            LOCATE(#{data.name}, p.created_who),
+            ABS(LENGTH(p.created_who) - LENGTH(#{data.name}))
+        </if>
+        <if test="data.name == null">
+            order by time DESC
+        </if>
+        LIMIT #{data.paging}, #{data.pagingSize}
+    </select>
+</mapper>

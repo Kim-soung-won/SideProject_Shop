@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.i.minishopping.Mapper.MProduct.MBrandMapper">
+    <resultMap id="MBrandListMap" type="com.i.minishopping.DTOResponse.Manage.MBrandListResponse">
+        <result column="brand_id" property="brand_id" />
+        <result column="name" property="name" />
+        <result column="sales" property="sales" />
+        <result column="count" property="count" />
+    </resultMap>
+    <select id="getBrandDetails">
+        select b.brand_id as brand_id, b.brand_name as name, format(sum(p.pd_price*(pl.count)*-1),0) as sales, count(p.product_id) as count
+        from brand as b
+                 inner join product as p on b.brand_id = p.brand_id
+                 inner join (select product_id, sum(count) as count from product_log
+                             where created_at >= curdate() - INTERVAL 30 day
+                             group by product_id)
+            as pl on p.product_id = pl.product_id
+        group by b.brand_id
+        order by sales desc;
+    </select>
+</mapper>

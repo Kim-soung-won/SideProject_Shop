@@ -39,6 +39,6 @@
 #### Secret ###
 /src/main/resources/application.properties
 /src/main/resources/naver.properties
-*.properties
+naver.properties
 *.yml
 /logs
