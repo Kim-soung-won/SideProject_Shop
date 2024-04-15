@@ -37,8 +37,5 @@
 #.vscode/
 
 #### Secret ###
-/src/main/resources/application.properties
-/src/main/resources/naver.properties
-naver.properties
-*.yml
 /logs
+

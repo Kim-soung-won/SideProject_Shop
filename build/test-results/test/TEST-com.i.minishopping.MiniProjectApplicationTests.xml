@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.i.minishopping.MiniProjectApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-03-25T12:05:17" hostname="DESKTOP-97S6RD5" time="0.836">
+<testsuite name="com.i.minishopping.MiniProjectApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-04-15T05:46:49" hostname="DESKTOP-97S6RD5" time="0.879">
   <properties/>
-  <testcase name="contextLoads()" classname="com.i.minishopping.MiniProjectApplicationTests" time="0.836"/>
-  <system-out><![CDATA[
+  <testcase name="contextLoads()" classname="com.i.minishopping.MiniProjectApplicationTests" time="0.879"/>
+  <system-out><![CDATA[Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
 ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
@@ -11,26 +12,26 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.2.2)
 
-2024-03-25 21:05:08.412 [ INFO] [kground-preinit] o.h.v.i.u.Version              : <clinit>             : 21         : HV000001: Hibernate Validator 8.0.1.Final
-2024-03-25 21:05:08.448 [ INFO] [    Test worker] .m.MiniProjectApplicationTests : logStarting          : 50         : Starting MiniProjectApplicationTests using Java 17.0.9 with PID 18528 (started by KIMSW in C:\Users\KIMSW\Desktop\project\SidePJ_Shop)
-2024-03-25 21:05:08.453 [ INFO] [    Test worker] .m.MiniProjectApplicationTests : ogStartupProfileInfo : 654        : No active profile set, falling back to 1 default profile: "default"
-2024-03-25 21:05:09.497 [ INFO] [    Test worker] epositoryConfigurationDelegate : gisterRepositoriesIn : 139        : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-03-25 21:05:09.697 [ INFO] [    Test worker] epositoryConfigurationDelegate : gisterRepositoriesIn : 208        : Finished Spring Data repository scanning in 189 ms. Found 15 JPA repository interfaces.
-2024-03-25 21:05:11.137 [ INFO] [    Test worker] c.z.h.HikariDataSource         : getConnection        : 110        : HikariPool-1 - Starting...
-2024-03-25 21:05:11.561 [ INFO] [    Test worker] c.z.h.p.HikariPool             : checkFailFast        : 565        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@58e02359
-2024-03-25 21:05:11.567 [ INFO] [    Test worker] c.z.h.HikariDataSource         : getConnection        : 123        : HikariPool-1 - Start completed.
-2024-03-25 21:05:11.635 [ INFO] [    Test worker] o.h.j.i.u.LogHelper            : tenceUnitInformation : 31         : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-03-25 21:05:11.772 [ INFO] [    Test worker] o.h.Version                    : logVersion           : 44         : HHH000412: Hibernate ORM core version 6.4.1.Final
-2024-03-25 21:05:11.842 [ INFO] [    Test worker] o.h.c.i.RegionFactoryInitiator : initiateService      : 50         : HHH000026: Second-level cache disabled
-2024-03-25 21:05:12.376 [ INFO] [    Test worker] .j.p.SpringPersistenceUnitInfo : addTransformer       : 87         : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-03-25 21:05:12.465 [ WARN] [    Test worker] o.h.o.deprecation              : constructDialect     : 153        : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-03-25 21:05:12.467 [ WARN] [    Test worker] o.h.o.deprecation              : logSelectedDialect   : 101        : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2024-03-25 21:05:13.577 [ INFO] [    Test worker] e.t.j.p.i.JtaPlatformInitiator : initiateService      : 58         : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-03-25 21:05:13.583 [ INFO] [    Test worker] tainerEntityManagerFactoryBean : EntityManagerFactory : 437        : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-03-25 21:05:13.993 [ INFO] [    Test worker] s.d.j.r.q.QueryEnhancerFactory : <clinit>             : 49         : Hibernate is in classpath; If applicable, HQL parser will be used.
-2024-03-25 21:05:16.440 [ INFO] [    Test worker] s.w.DefaultSecurityFilterChain : <init>               : 54         : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7c9ecd9e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@276af32d, org.springframework.security.web.context.SecurityContextHolderFilter@7f37f6b6, org.springframework.security.web.header.HeaderWriterFilter@4f3f8115, org.springframework.web.filter.CorsFilter@155ab4b, org.springframework.security.web.authentication.logout.LogoutFilter@3564caf8, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3b33b54e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@64d711b0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4df4f611, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@689f60ea, org.springframework.security.web.access.ExceptionTranslationFilter@5b3c2e59, org.springframework.security.web.access.intercept.AuthorizationFilter@28de7e2e]
-2024-03-25 21:05:17.211 [ INFO] [    Test worker] .m.MiniProjectApplicationTests : logStarted           : 56         : Started MiniProjectApplicationTests in 9.13 seconds (process running for 10.339)
-2024-03-25 21:05:17.227 [ INFO] [    Test worker] o.s.b.SpringApplication        : run                  : 24         : Good Luck!
+2024-04-15 14:46:36.097 [ INFO] [kground-preinit] o.h.v.i.u.Version              : <clinit>             : 21         : HV000001: Hibernate Validator 8.0.1.Final
+2024-04-15 14:46:36.145 [ INFO] [    Test worker] .m.MiniProjectApplicationTests : logStarting          : 50         : Starting MiniProjectApplicationTests using Java 17.0.10 with PID 1784 (started by KIMSW in C:\Users\KIMSW\Desktop\project\SidePJ_Shop)
+2024-04-15 14:46:36.153 [ INFO] [    Test worker] .m.MiniProjectApplicationTests : ogStartupProfileInfo : 654        : No active profile set, falling back to 1 default profile: "default"
+2024-04-15 14:46:39.430 [ INFO] [    Test worker] epositoryConfigurationDelegate : gisterRepositoriesIn : 139        : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-15 14:46:39.621 [ INFO] [    Test worker] epositoryConfigurationDelegate : gisterRepositoriesIn : 208        : Finished Spring Data repository scanning in 169 ms. Found 17 JPA repository interfaces.
+2024-04-15 14:46:40.854 [ INFO] [    Test worker] c.z.h.HikariDataSource         : getConnection        : 110        : HikariPool-1 - Starting...
+2024-04-15 14:46:41.210 [ INFO] [    Test worker] c.z.h.p.HikariPool             : checkFailFast        : 565        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@69d667a5
+2024-04-15 14:46:41.214 [ INFO] [    Test worker] c.z.h.HikariDataSource         : getConnection        : 123        : HikariPool-1 - Start completed.
+2024-04-15 14:46:41.297 [ INFO] [    Test worker] o.h.j.i.u.LogHelper            : tenceUnitInformation : 31         : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-15 14:46:41.433 [ INFO] [    Test worker] o.h.Version                    : logVersion           : 44         : HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-04-15 14:46:41.511 [ INFO] [    Test worker] o.h.c.i.RegionFactoryInitiator : initiateService      : 50         : HHH000026: Second-level cache disabled
+2024-04-15 14:46:41.983 [ INFO] [    Test worker] .j.p.SpringPersistenceUnitInfo : addTransformer       : 87         : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-15 14:46:42.106 [ WARN] [    Test worker] o.h.o.deprecation              : constructDialect     : 153        : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-04-15 14:46:42.108 [ WARN] [    Test worker] o.h.o.deprecation              : logSelectedDialect   : 101        : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-04-15 14:46:44.126 [ INFO] [    Test worker] e.t.j.p.i.JtaPlatformInitiator : initiateService      : 58         : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-15 14:46:44.133 [ INFO] [    Test worker] tainerEntityManagerFactoryBean : EntityManagerFactory : 437        : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-15 14:46:44.671 [ INFO] [    Test worker] s.d.j.r.q.QueryEnhancerFactory : <clinit>             : 49         : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-04-15 14:46:48.773 [ INFO] [    Test worker] s.w.DefaultSecurityFilterChain : <init>               : 54         : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@116cad39, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@38905461, org.springframework.security.web.context.SecurityContextHolderFilter@6dad9f5e, org.springframework.security.web.header.HeaderWriterFilter@4a218cc6, org.springframework.web.filter.CorsFilter@5a5fb5ea, org.springframework.security.web.authentication.logout.LogoutFilter@7aa8801d, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@3f314bad, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@5c77cb42, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2d7c93e0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3810d15d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@627b0e71, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5aca000e, org.springframework.security.web.access.ExceptionTranslationFilter@4f63343b, org.springframework.security.web.access.intercept.AuthorizationFilter@d74f68e]
+2024-04-15 14:46:49.345 [ INFO] [    Test worker] .m.MiniProjectApplicationTests : logStarted           : 56         : Started MiniProjectApplicationTests in 13.885 seconds (process running for 15.818)
+2024-04-15 14:46:49.351 [ INFO] [    Test worker] c.i.m.MiniProjectApplication   : run                  : 24         : Good Luck!
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
